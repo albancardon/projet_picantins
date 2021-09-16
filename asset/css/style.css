@@ -1,0 +1,205 @@
+/*
+*  CSS GENERAL SOMMAIRE
+* 
+*   1.0 commun
+*       1.1 header deployed
+*       1.2 header contracted
+*       1.3 header responsive
+*       1.4 footer
+
+*/
+
+
+/* 1.0 commun*/
+@font-face {
+    font-family: "gothamBold";
+    src: url(/asset/font/GothamBold.ttf);
+    font-family: "gothamLight";
+    src: url(/asset/font/GothamLight.ttf);
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    padding-right: 0;
+    margin-right: 0;
+    width:100%;
+}
+.nav-liste{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    list-style-type: none;
+}
+.liste-link{
+    width:6em;
+    text-align: center;
+    background-color: #FCCA87;
+    font-family: "gothamBold";
+    font-size: 1.3em;
+    border-radius: 10px;
+}
+.link-page{
+    text-decoration:none;
+    color: #271A0F;
+}
+.icon-nav{
+    height: 2em;
+}
+
+    /* 1.1 header deployed*/
+
+    .header-animation{
+        position: relative;
+        display:flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        background-color: #987040;
+        border-radius:0 0 20px 20px ;
+        top: 0;
+        z-index: 1;
+    }
+    .logo-societe-header{
+        margin: 1em;
+        height: 10em;
+        background-color: white;
+        border-radius:20px;
+    }
+    .barre-nav{
+        margin-bottom: 1em;
+        width: 80%;
+        height: 3em;
+    }
+
+    /*1.2 header contracted*/
+
+    .header-animation-fixed-top{
+        position: fixed;
+        top: 0;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        background-color: #987040;
+        border-radius:0 0 20px 20px ;
+    }
+    .logo-societe-header-fixed{
+        padding: 1%;
+        margin: 1em;
+        height: 4em;
+        background-color: white;
+        border-radius:10px;
+    }
+    .barre-nav-fixed{
+        display:flex;
+        width: 80%;
+        height: 3em;
+    }
+
+    /*1.2 header responsive*/
+
+    .header-responsive{
+        display:flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        height:auto;
+        background-color: #987040;
+        border-radius:0 0 20px 20px ;
+    }
+    .barre-nav-responsive{
+        display:flex;
+        width:90%
+    }
+    .logo-societe-responsive{
+        height: 2em;
+        background-color: white;
+        border-radius:10px;
+    }
+    .liste-link-responsive{
+        width:5em;
+        text-align: center;
+        background-color: #FCCA87;
+        font-family: "gothamBold";
+        border-radius: 10px;
+    }
+    .icon-nav-responsive{
+        height: 1.5em;
+    }
+
+@media screen and (min-width:768px) {
+    .header-desktop{
+        visibility: visible;
+        display: flex;
+    }
+    .header-mobile{
+        visibility: hidden;
+        display: none;
+    }
+}
+@media screen and (max-width:768px) {
+    .header-desktop{
+        visibility: hidden;
+        display: none;
+    }
+    .header-mobile{
+        visibility: visible;
+        display: flex;
+    }
+}
+
+    /* 1.4 footer */
+
+    .footer{
+        padding: 1%;
+        background-color: goldenrod;
+        display: flex;
+        height: 12em;
+    }
+    .footer-box{
+        padding: 1%;
+        background-color: green;
+        flex: 1;
+        display:flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .footer-nav{
+        padding: 1%;
+        background-color: coral;
+        display: flex;
+        justify-content: space-between;
+    }
+    .nav-footer{
+        background-color: hotpink;
+        display:flex;
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: wrap;
+        left: 0;
+        height: 10em;
+        width: 50%;
+        list-style-type: none;
+    }
+    .liste-footer{
+        margin: 0.25em;
+        width:6em;
+        text-align: center;
+        background-color: #FCCA87;
+        font-family: "gothamBold";
+        font-size: 1em;
+        border-radius: 10px;
+    }
+    .icon-footer{
+        display:flex;
+        justify-content: center;
+        width:6em;
+    }
