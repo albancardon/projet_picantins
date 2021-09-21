@@ -1,0 +1,127 @@
+/*
+*  CSS COMMUN SOMMAIRE
+* 
+*   1.0 main container
+*       1.1 main container responsive
+*   2.0 aside inscription
+*       2.1 aside inscription responsive
+*/
+
+body {
+    color: #FCCA87;
+}
+.title-connexion{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    color: #271A0F;
+    margin: 7%;
+    font-family: "gothamBold";
+}
+.container{
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    margin: 7% 10%;
+}
+.titre-form{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    text-align: center;
+    margin: 5%;
+    flex: 0.5;
+}
+.zone-text{
+    width: 80%;
+    text-align: center;
+    padding:1%;
+}
+
+/* 1.0 main container */
+
+.main-connexion{
+    display: flex;
+    flex-direction: column;
+    height:45em;
+    width:40%;
+    max-width:30em;
+    background-color: #422818;
+    border-radius: 20px;
+}
+.form-connexion{
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    align-items: center;
+}
+.form-group{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    align-items: center;
+    width: 100%;
+    margin: 1em;
+    font-family: "gothamLight";
+}
+.champ{
+    margin: 1em;
+}
+.legende-champ{
+    margin: 0.5em;
+    max-width: 70%;
+    font-size: 0.9em;
+}
+.btn-connexion{
+    margin:1em;
+    margin-bottom: 2em;
+    width: 10em;
+    height:2em;
+    color: #271A0F;
+    background-color: white;
+    font-family: "gothamBold";
+    font-size:1.2em;
+    border: none;
+    border-radius: 9em/2em; 
+    box-shadow: none;
+    cursor: pointer;
+}
+
+/* 2.0 aside inscription */
+
+.aside-inscription{
+    display: flex;
+    flex-direction: column;
+    width:40%;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    align-items: center;
+    background-color: #422818;
+    border-radius: 20px;
+}
+.form-inscription{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    align-items: center;
+    width: 100%;
+}
+.inscription-identiter{
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+}
+.champ-inscription{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    align-items: center;
+    width: 100%;
+    margin: 1.5em;
+    font-family: "gothamLight";
+}
+.label-inscription{
+    margin:1em;
+}
