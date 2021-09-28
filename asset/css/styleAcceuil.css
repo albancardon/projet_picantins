@@ -1,5 +1,5 @@
 /*
-*  CSS COMMUN SOMMAIRE
+*  CSS ACCEUIL SOMMAIRE
 * 
 *   1.0 main container
 *       1.1 main container responsive
@@ -8,10 +8,6 @@
 *   3.0 aside phrase de fin
 *       3.1 aside phrase de fin responsive
 */
-
-body {
-    color: #271A0F;
-}
 
 /* 1.0 main container */
 
@@ -28,6 +24,7 @@ body {
     width:80%;
     height:max-content;
     border-radius: 20px;
+    box-shadow: 2px 5px 5px 0px rgba(39,26,15,0.75);
 }
 .container-text{
     flex: 1;
@@ -60,7 +57,7 @@ body {
     text-align: center;
     background-color:#BDBCBC;
     border-radius: 20px;
-    font-family: "gothamLight";
+    box-shadow: 2px 5px 5px 0px rgba(39,26,15,0.75);
 }
 
     /* 1.1 main container responsive */
@@ -117,8 +114,9 @@ body {
     max-width: 20em;
 }
 .img-produit{
-    border-radius: 10px;
     width: 100%;
+    border-radius: 10px;
+    box-shadow: 2px 5px 5px 0px rgba(39,26,15,0.75);
 }
 .produit-legende{
     margin:2em;
@@ -127,6 +125,7 @@ body {
     background-color:#422818;
     color: #FCCA87;
     border-radius: 10px;
+    box-shadow: 2px 5px 5px 0px rgba(39,26,15,0.75);
     font-family: "gothamBold";
 }
 
@@ -171,6 +170,7 @@ body {
     background-color:#BDBCBC;
     color: #432A18;
     border-radius: 10px;
+    box-shadow: 2px 5px 5px 0px rgba(39,26,15,0.75);
     font-family: "gothamBold";
 }
 

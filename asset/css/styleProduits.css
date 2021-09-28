@@ -1,0 +1,176 @@
+/*
+*  CSS LES PRODUITS SOMMAIRE
+* 
+*   1.0 commun
+*   2.0 main spécialitees et aside confiserie
+*       2.1 main spécialitees et aside confiserie responsive
+*   3.0 aside assortiment
+*/
+
+/* 1.0 commun */
+
+.title-chap{
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:5%;
+    height: 2em;
+    width:15em;
+    text-align: center;
+    font-family: "gothamBold";
+    background-color: #BE965D;
+    border-radius: 20px;
+}
+.title-produit{
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    margin:2% 4%;
+    height: 1.5em;
+    width:15em;
+    text-align: center;
+    font-family: "gothamBold";
+    background-color: #BDBCBC;
+    border-radius: 20px;
+}
+.part-categorie{
+    display: flex;
+    flex-direction: column;
+    margin: 5% 10%;
+}
+.group-choix-taille{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content:space-between;
+    margin: 0.5em;
+    padding: 3%;
+    height: 15em;
+    width: 7em;
+}
+.img-miniature{
+    width: 5em;
+}
+.produit-quantite{
+    display: flex;
+    align-items:center;
+    justify-content:space-between;
+    width: 70%;
+    margin: 0.5em;
+    padding: 3%;
+    background-color: #BDBCBC;
+}
+.icon-quantity{
+    margin: 2%;
+    width: 1em;
+    cursor: pointer;
+}
+.champ_quantity{
+    width:2em;
+    text-align: center;
+    -moz-appearance: textfield;
+}
+/* Chrome */
+.champ_quantity::-webkit-inner-spin-button,
+.champ_quantity::-webkit-outer-spin-button { 
+	-webkit-appearance: none;
+	margin:0;
+}
+/* Opéra*/
+.champ_quantity::-o-inner-spin-button,
+.champ_quantity::-o-outer-spin-button { 
+	-o-appearance: none;
+	margin:0
+}
+
+/* 1.1 commun responsive */
+
+@media screen and (max-width:768px) {
+    .group-choix-taille{
+        font-size: 0.8em;
+    }
+}
+
+/* 2.0 main spécialitees et aside confiserie */
+
+.produit{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content:center;
+    width: 100%;
+}
+.produit-group{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content:center;
+    width: 100%;
+}
+.produit-description{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    padding-bottom: 2%;
+    margin: 2%;
+    width: 100%;
+    border: 1px solid #271A0F;
+    cursor: pointer;
+}
+.produit-inverse{
+    align-items: flex-end;
+}
+.produit-descriptif{
+    display: flex;
+    align-items:center;
+    justify-content:space-around;
+    margin-bottom: 2%;
+    width: 95%;
+}
+.produit-legende{
+    width: 65%;
+    text-align: center;
+}
+.produit-box-choix{
+    display: flex;
+    align-items:center;
+    justify-content:space-around;
+    flex-wrap: wrap;
+    margin-bottom: 2%;
+    width: 100%;
+}
+
+    /* 2.1 main spécialitees et aside confiserie responsive */
+
+    @media screen and (min-width:768px) {
+        .img-produit{
+            width: 10em;
+        }
+    }
+    @media screen and (max-width:768px) {
+        .img-produit{
+            width: 5em;
+        }
+    }
+
+/* 3.0 aside assortiment  */
+
+.produit-assortiment{
+    display: flex;
+    align-items:center;
+    justify-content:space-around;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.title-assortiment{
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    margin:1%;
+    height: 1.5em;
+    width:9em;
+    text-align: center;
+    font-family: "gothamBold";
+    background-color: #BDBCBC;
+    border-radius: 20px;
+}

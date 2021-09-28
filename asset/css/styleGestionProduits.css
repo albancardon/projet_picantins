@@ -1,0 +1,175 @@
+/*
+*  CSS GESTION DES PRODUITS SOMMAIRE
+* 
+*   1.0 main ajout produit
+*   2.0 aside gestion produit
+*       2.1 aside gestion produit responsive
+*/
+
+.part{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    margin: 10%;
+}
+.title-chap{
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:5%;
+    height: 2em;
+    width:15em;
+    text-align: center;
+    font-family: "gothamBold";
+    background-color: #BE965D;
+    border-radius: 20px;
+}
+.img-product{
+    width: 50%;
+    max-width: 6em;
+    min-width: 3em;
+}
+
+/* 1.0 main ajout produit */
+
+.form-box{
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    flex-wrap: wrap;
+    margin: 5%;
+    padding: 2%;
+    min-height: 25em;
+    width: 100%;
+    background-color:#BDBCBC;
+    border-radius: 20px;
+}
+.form-group-haut-bas{
+    display: flex;
+    align-items:center;
+    justify-content:space-around;
+    padding: 2%;
+    margin: 1%;
+    width: 60%;
+}
+.form-group{
+    display: flex;
+    align-items:center;
+    justify-content:space-around;
+    margin:0.5em;
+    padding: 2%;
+    width: 40%;
+    min-width: 15em;
+}
+.form-group-bas{
+    flex-direction: column;
+    margin-bottom: 3%;
+    width: 100%;
+}
+.legend-form{
+    text-align: center;
+    font-family: "gothamBold";
+}
+.btn-add{
+    margin-bottom: 2%;
+}
+.form-champ{
+    width:50%;
+    max-width: 15em;
+}
+
+/* 2.0 aside gestion produit */
+
+.content-part{
+    margin: 7%;
+    width: 100%;
+    background-color:#BDBCBC;
+    border-radius: 20px;
+}
+.title-part{
+    margin:5%;
+    height: 2em;
+    width:17em;
+    font-family: "gothamBold";
+    background-color: white;
+    border-radius: 20px;
+}
+.title-article{
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    text-align: center;
+}
+.box-produit{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content:center;
+    padding-bottom: 1em;
+    width:100%;
+}
+.menu-part{
+    display: flex;
+    align-items:center;
+    padding: 0.5% 2%;
+}
+.menu-part:before {
+    content: "+";
+    color: #271A0F;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: -5px 5px 0 0;
+    padding: 0;
+    width: 20px;
+    cursor: pointer;
+}
+details[open] .menu-part:before {
+    content: "-";
+}
+.table-product{
+    display: flex;
+    flex-direction: column;
+    margin: 0 5%;
+    width:90%;
+}
+.table-box{
+    display: flex;
+    flex-direction: column;
+    width:100%;
+}
+.table-row{
+    display: flex;
+    align-items:center;
+    justify-content:space-between;
+    margin: 1em 0;
+}
+.table-column{
+    flex: 1;
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    height: 6em;
+}
+.seprator{
+    border: 1px solid #271A0F;
+}
+
+    /* 2.1 aside gestion produit responsive */
+
+    @media screen and (min-width:768px) {
+        .img-responsive{
+            display: flex;
+        }
+        .btn{
+            font-size:1em;
+        }
+    }
+    @media screen and (max-width:768px) {
+        .img-responsive{
+            display: none;
+        }
+        .btn{
+            font-size:0.5em;
+            width:75%;
+        }
+    }

@@ -1,0 +1,928 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../asset/css/styleCommon.css" type="text/css">
+    <link rel="stylesheet" href="../asset/css/styleGestionProduits.css" type="text/css">
+</head>
+
+<body class="bodyCommon">
+    <h1 class="titlePage">Gestion des produits</h1>
+    <main class="part">
+        <h2 class="title-chap">Ajout Produits</h2>
+        <form class="form-box" action="">
+            <div class="form-group-haut-bas">
+                <label class="legend-form" for="name-product">Nom Du Produit</label>
+                <input class="form-champ" type="text" name="name-product" id="name-product" pattern="[A-Za-z0-9\u00c0-\u00ff]{3,20}" required />
+            </div>
+
+            <div class="form-group">
+                <label class="legend-form" for="category-product">Catégorie Du Produit</label>
+                <select name="category-product" id="category-product" class="form-champ" required>
+                    <option>Choisissez une Catégorie</option>
+                    <option value="">spécialitées</option>
+                    <option value="">chocolat</option>
+                    <option value="">sucrerie</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="legend-form" for="size-product">Taille Du Produit</label>
+                <select name="size-product" id="size-product" class="form-champ" required>
+                    <option>Choisissez une taille</option>
+                    <option value="">50</option>
+                    <option value="">100</option>
+                    <option value="">200</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="legend-form" for="prixUnitaire">Prix Unitaire Du Produit</label>
+                <input class="form-champ" type="text" name="prixUnitaire" id="prixUnitaire" pattern="[0-9]{3,20}" required />
+            </div>
+
+            <div class="form-group-haut-bas form-group-bas">
+                <label class="legend-form" for="description-product">Description Du Produit (max 250 caractères)</label>
+                <textarea name="description-product" id="description-product" cols="50" rows="15" maxlength="250" wrap="hard" required></textarea>
+            </div>
+            
+            <button class="btn btn-white btn-add">ajout produit</button>
+        </form>
+    </main>
+    <aside class="part">
+        <h2 class="title-chap">Gestion Produits</h2>
+        <article class="content-part">
+            <h3 class="title-part title-article">Spécialitées</h3>
+            <details class="box-produit">
+                <summary class="title-part menu-part">
+                    Les Picantins
+                </summary>
+                <table class="table-product">
+                    <thead class="table-box">
+                        <tr class="table-row">
+                            <th class="table-column invisible img-responsive">
+                                image
+                            </th>
+                            <th class="table-column">
+                                nom produit
+                            </th>
+                            <th class="table-column">
+                                taille ballotin
+                            </th>
+                            <th class="table-column">
+                                prix produit
+                            </th>
+                            <th class="table-column invisible">
+                                modifier
+                            </th>
+                            <th class="table-column invisible">
+                                supprimer
+                            </th>
+                        </tr>
+                    </thead>
+    
+                    <tbody class="table-box">
+                        <tr class="table-row">
+                            <td class="table-column img-responsive">
+                                <img class="img-product" src="../asset/img/produit/picantin.jpg" alt="photo picantin">
+                            </td>
+                            <td class="table-column">
+                                picantins
+                            </td>
+                            <td class="table-column">
+                                100g
+                            </td>
+                            <td class="table-column">
+                                5€70
+                            </td>
+                            <td class="table-column">
+                                <button class="btn btn-brown">
+                                    modifier
+                                </button>
+                            </td>
+                            <td class="table-column">
+                                <button class="btn btn-brown">
+                                    supprimer
+                                </button>
+                            </td>
+                        </tr>
+                        <tr class="table-row">
+                            <td class="table-column img-responsive">
+                                <img class="img-product" src="../asset/img/produit/picantin.jpg" alt="photo picantin">
+                            </td>
+                            <td class="table-column">
+                                picantins
+                            </td>
+                            <td class="table-column">
+                                200g
+                            </td>
+                            <td class="table-column">
+                                11€40
+                            </td>
+                            <td class="table-column">
+                                <button class="btn btn-brown">
+                                    modifier
+                                </button>
+                            </td>
+                            <td class="table-column">
+                                <button class="btn btn-brown">
+                                    supprimer
+                                </button>
+                            </td>
+                        </tr>
+                        <tr class="table-row">
+                            <td class="table-column img-responsive">
+                                <img class="img-product" src="../asset/img/produit/picantin.jpg" alt="photo picantin">
+                            </td>
+                            <td class="table-column">
+                                picantins
+                            </td>
+                            <td class="table-column">
+                                300g
+                            </td>
+                            <td class="table-column">
+                                17.10€
+                            </td>
+                            <td class="table-column">
+                                <button class="btn btn-brown">
+                                    modifier
+                                </button>
+                            </td>
+                            <td class="table-column">
+                                <button class="btn btn-brown">
+                                    supprimer
+                                </button>
+                            </td>
+                        </tr>
+                        <tr class="table-row">
+                            <td class="table-column img-responsive">
+                                <img class="img-product" src="../asset/img/produit/picantin.jpg" alt="photo picantin">
+                            </td>
+                            <td class="table-column">
+                                picantins
+                            </td>
+                            <td class="table-column">
+                                400g
+                            </td>
+                            <td class="table-column">
+                                22.80€
+                            </td>
+                            <td class="table-column">
+                                <button class="btn btn-brown">
+                                    modifier
+                                </button>
+                            </td>
+                            <td class="table-column">
+                                <button class="btn btn-brown">
+                                    supprimer
+                                </button>
+                            </td>
+                        </tr>
+                        <tr class="table-row">
+                            <td class="table-column img-responsive">
+                                <img class="img-product" src="../asset/img/produit/picantin.jpg" alt="photo picantin">
+                            </td>
+                            <td class="table-column">
+                                picantins
+                            </td>
+                            <td class="table-column">
+                                500g
+                            </td>
+                            <td class="table-column">
+                                28.50€
+                            </td>
+                            <td class="table-column">
+                                <button class="btn btn-brown">
+                                    modifier
+                                </button>
+                            </td>
+                            <td class="table-column">
+                                <button class="btn btn-brown">
+                                    supprimer
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </details>
+            <hr class="seprator">
+            <details class="box-produit">
+                <summary class="title-part menu-part">
+                    Les Rochers Compiègnois
+                </summary>
+                <table>
+                    <thead class="table-box">
+                        <tr class="table-row">
+                            <th class="table-column invisible img-responsive">
+                                image
+                            </th>
+                            <th class="table-column">
+                                nom produit
+                            </th>
+                            <th class="table-column">
+                                taille ballotin
+                            </th>
+                            <th class="table-column">
+                                prix produit
+                            </th>
+                            <th class="table-column invisible">
+                                modifier
+                            </th>
+                            <th class="table-column invisible">
+                                supprimer
+                            </th>
+                        </tr>
+                    </thead>
+    
+                    <tbody class="table-box">
+                        <tr class="table-row">
+                            <td class="table-column img-responsive">
+                                <img class="img-product" src="../asset/img/produit/rocher.jpg" alt="photo rocher compiègnois">
+                            </td>
+                            <td class="table-column">
+                                rochers Compiègnois
+                            </td>
+                            <td class="table-column">
+                                100g
+                            </td>
+                            <td class="table-column">
+                                7€
+                            </td>
+                            <td class="table-column">
+                                <button class="btn btn-brown">
+                                    modifier
+                                </button>
+                            </td>
+                            <td class="table-column">
+                                <button class="btn btn-brown">
+                                    supprimer
+                                </button>
+                            </td>
+                        </tr>
+                        <tr class="table-row">
+                            <td class="table-column img-responsive">
+                                <img class="img-product" src="../asset/img/produit/rocher.jpg" alt="photo rocher compiègnois">
+                            </td>
+                            <td class="table-column">
+                                rochers Compiègnois
+                            </td>
+                            <td class="table-column">
+                                200g
+                            </td>
+                            <td class="table-column">
+                                14€
+                            </td>
+                            <td class="table-column">
+                                <button class="btn btn-brown">
+                                    modifier
+                                </button>
+                            </td>
+                            <td class="table-column">
+                                <button class="btn btn-brown">
+                                    supprimer
+                                </button>
+                            </td>
+                        </tr>
+                        <tr class="table-row">
+                            <td class="table-column img-responsive">
+                                <img class="img-product" src="../asset/img/produit/rocher.jpg" alt="photo rocher compiègnois">
+                            </td>
+                            <td class="table-column">
+                                rochers Compiègnois
+                            </td>
+                            <td class="table-column">
+                                300g
+                            </td>
+                            <td class="table-column">
+                                21€
+                            </td>
+                            <td class="table-column">
+                                <button class="btn btn-brown">
+                                    modifier
+                                </button>
+                            </td>
+                            <td class="table-column">
+                                <button class="btn btn-brown">
+                                    supprimer
+                                </button>
+                            </td>
+                        </tr>
+                        <tr class="table-row">
+                            <td class="table-column img-responsive">
+                                <img class="img-product" src="../asset/img/produit/rocher.jpg" alt="photo rocher compiègnois">
+                            </td>
+                            <td class="table-column">
+                                rochers Compiègnois
+                            </td>
+                            <td class="table-column">
+                                400g
+                            </td>
+                            <td class="table-column">
+                                28€
+                            </td>
+                            <td class="table-column img-responsive">
+                                <button class="btn btn-brown">
+                                    modifier
+                                </button>
+                            </td>
+                            <td class="table-column">
+                                <button class="btn btn-brown">
+                                    supprimer
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </details>
+            <hr class="seprator">
+            <details class="box-produit">
+                <summary class="title-part menu-part">
+                    Les Marjories
+                </summary>
+                <table>
+                    <thead class="table-box">
+                        <tr class="table-row">
+                            <th class="table-column invisible img-responsive">
+                                image
+                            </th>
+                            <th class="table-column">
+                                nom produit
+                            </th>
+                            <th class="table-column">
+                                taille ballotin
+                            </th>
+                            <th class="table-column">
+                                prix produit
+                            </th>
+                            <th class="table-column invisible">
+                                modifier
+                            </th>
+                            <th class="table-column invisible">
+                                supprimer
+                            </th>
+                        </tr>
+                    </thead>
+    
+                    <tbody class="table-box">
+                        <tr class="table-row">
+                            <td class="table-column img-responsive">
+                                <img class="img-product" src="../asset/img/produit/marjorie.jpg" alt="photo marjorie">
+                            </td>
+                            <td class="table-column">
+                                marjorie
+                            </td>
+                            <td class="table-column">
+                                xxxg
+                            </td>
+                            <td class="table-column">
+                                x.xx€
+                            </td>
+                            <td class="table-column">
+                                <button class="btn btn-brown">
+                                    modifier
+                                </button>
+                            </td>
+                            <td class="table-column">
+                                <button class="btn btn-brown">
+                                    supprimer
+                                </button>
+                            </td>
+                        </tr>
+                        <tr class="table-row">
+                            <td class="table-column img-responsive">
+                                <img class="img-product" src="../asset/img/produit/marjorie.jpg" alt="photo marjorie">
+                            </td>
+                            <td class="table-column">
+                                marjorie
+                            </td>
+                            <td class="table-column">
+                                xxxg
+                            </td>
+                            <td class="table-column">
+                                x.xx€
+                            </td>
+                            <td class="table-column">
+                                <button class="btn btn-brown">
+                                    modifier
+                                </button>
+                            </td>
+                            <td class="table-column">
+                                <button class="btn btn-brown">
+                                    supprimer
+                                </button>
+                            </td>
+                        </tr>
+                        <tr class="table-row">
+                            <td class="table-column img-responsive">
+                                <img class="img-product" src="../asset/img/produit/marjorie.jpg" alt="photo marjorie">
+                            </td>
+                            <td class="table-column">
+                                marjorie
+                            </td>
+                            <td class="table-column">
+                                xxxg
+                            </td>
+                            <td class="table-column">
+                                x.xx€
+                            </td>
+                            <td class="table-column">
+                                <button class="btn btn-brown">
+                                    modifier
+                                </button>
+                            </td>
+                            <td class="table-column">
+                                <button class="btn btn-brown">
+                                    supprimer
+                                </button>
+                            </td>
+                        </tr>
+                        <tr class="table-row">
+                            <td class="table-column img-responsive">
+                                <img class="img-product" src="../asset/img/produit/marjorie.jpg" alt="photo marjorie">
+                            </td>
+                            <td class="table-column">
+                                marjorie
+                            </td>
+                            <td class="table-column">
+                                xxxg
+                            </td>
+                            <td class="table-column">
+                                x.xx€
+                            </td>
+                            <td class="table-column">
+                                <button class="btn btn-brown">
+                                    modifier
+                                </button>
+                            </td>
+                            <td class="table-column">
+                                <button class="btn btn-brown">
+                                    supprimer
+                                </button>
+                            </td>
+                        </tr>
+                        <tr class="table-row">
+                            <td class="table-column img-responsive">
+                                <img class="img-product" src="../asset/img/produit/marjorie.jpg" alt="photo marjorie">
+                            </td>
+                            <td class="table-column">
+                                marjorie
+                            </td>
+                            <td class="table-column">
+                                xxxg
+                            </td>
+                            <td class="table-column">
+                                x.xx€
+                            </td>
+                            <td class="table-column">
+                                <button class="btn btn-brown">
+                                    modifier
+                                </button>
+                            </td>
+                            <td class="table-column">
+                                <button class="btn btn-brown">
+                                    supprimer
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </details>
+        </article>
+        <article class="content-part">
+            <h3 class="title-part title-article">Spécialitées</h3>
+            <details class="box-produit">
+                <summary class="title-part menu-part">
+                    Les Picantins
+                </summary>
+                <table class="table-product">
+                    <thead class="table-box">
+                        <tr class="table-row">
+                            <th class="table-column invisible img-responsive">
+                                image
+                            </th>
+                            <th class="table-column">
+                                nom produit
+                            </th>
+                            <th class="table-column">
+                                taille ballotin
+                            </th>
+                            <th class="table-column">
+                                prix produit
+                            </th>
+                            <th class="table-column invisible">
+                                modifier
+                            </th>
+                            <th class="table-column invisible">
+                                supprimer
+                            </th>
+                        </tr>
+                    </thead>
+    
+                    <tbody class="table-box">
+                        <tr class="table-row">
+                            <td class="table-column img-responsive">
+                                <img class="img-product" src="../asset/img/produit/picantin.jpg" alt="photo picantin">
+                            </td>
+                            <td class="table-column">
+                                picantins
+                            </td>
+                            <td class="table-column">
+                                100g
+                            </td>
+                            <td class="table-column">
+                                5€70
+                            </td>
+                            <td class="table-column">
+                                <button class="btn btn-brown">
+                                    modifier
+                                </button>
+                            </td>
+                            <td class="table-column">
+                                <button class="btn btn-brown">
+                                    supprimer
+                                </button>
+                            </td>
+                        </tr>
+                        <tr class="table-row">
+                            <td class="table-column img-responsive">
+                                <img class="img-product" src="../asset/img/produit/picantin.jpg" alt="photo picantin">
+                            </td>
+                            <td class="table-column">
+                                picantins
+                            </td>
+                            <td class="table-column">
+                                200g
+                            </td>
+                            <td class="table-column">
+                                11€40
+                            </td>
+                            <td class="table-column">
+                                <button class="btn btn-brown">
+                                    modifier
+                                </button>
+                            </td>
+                            <td class="table-column">
+                                <button class="btn btn-brown">
+                                    supprimer
+                                </button>
+                            </td>
+                        </tr>
+                        <tr class="table-row">
+                            <td class="table-column img-responsive">
+                                <img class="img-product" src="../asset/img/produit/picantin.jpg" alt="photo picantin">
+                            </td>
+                            <td class="table-column">
+                                picantins
+                            </td>
+                            <td class="table-column">
+                                300g
+                            </td>
+                            <td class="table-column">
+                                17.10€
+                            </td>
+                            <td class="table-column">
+                                <button class="btn btn-brown">
+                                    modifier
+                                </button>
+                            </td>
+                            <td class="table-column">
+                                <button class="btn btn-brown">
+                                    supprimer
+                                </button>
+                            </td>
+                        </tr>
+                        <tr class="table-row">
+                            <td class="table-column img-responsive">
+                                <img class="img-product" src="../asset/img/produit/picantin.jpg" alt="photo picantin">
+                            </td>
+                            <td class="table-column">
+                                picantins
+                            </td>
+                            <td class="table-column">
+                                400g
+                            </td>
+                            <td class="table-column">
+                                22.80€
+                            </td>
+                            <td class="table-column">
+                                <button class="btn btn-brown">
+                                    modifier
+                                </button>
+                            </td>
+                            <td class="table-column">
+                                <button class="btn btn-brown">
+                                    supprimer
+                                </button>
+                            </td>
+                        </tr>
+                        <tr class="table-row">
+                            <td class="table-column img-responsive">
+                                <img class="img-product" src="../asset/img/produit/picantin.jpg" alt="photo picantin">
+                            </td>
+                            <td class="table-column">
+                                picantins
+                            </td>
+                            <td class="table-column">
+                                500g
+                            </td>
+                            <td class="table-column">
+                                28.50€
+                            </td>
+                            <td class="table-column">
+                                <button class="btn btn-brown">
+                                    modifier
+                                </button>
+                            </td>
+                            <td class="table-column">
+                                <button class="btn btn-brown">
+                                    supprimer
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </details>
+            <hr class="seprator">
+            <details class="box-produit">
+                <summary class="title-part menu-part">
+                    Les Rochers Compiègnois
+                </summary>
+                <table>
+                    <thead class="table-box">
+                        <tr class="table-row">
+                            <th class="table-column invisible img-responsive">
+                                image
+                            </th>
+                            <th class="table-column">
+                                nom produit
+                            </th>
+                            <th class="table-column">
+                                taille ballotin
+                            </th>
+                            <th class="table-column">
+                                prix produit
+                            </th>
+                            <th class="table-column invisible">
+                                modifier
+                            </th>
+                            <th class="table-column invisible">
+                                supprimer
+                            </th>
+                        </tr>
+                    </thead>
+    
+                    <tbody class="table-box">
+                        <tr class="table-row">
+                            <td class="table-column img-responsive">
+                                <img class="img-product" src="../asset/img/produit/rocher.jpg" alt="photo rocher compiègnois">
+                            </td>
+                            <td class="table-column">
+                                rochers Compiègnois
+                            </td>
+                            <td class="table-column">
+                                100g
+                            </td>
+                            <td class="table-column">
+                                7€
+                            </td>
+                            <td class="table-column">
+                                <button class="btn btn-brown">
+                                    modifier
+                                </button>
+                            </td>
+                            <td class="table-column">
+                                <button class="btn btn-brown">
+                                    supprimer
+                                </button>
+                            </td>
+                        </tr>
+                        <tr class="table-row">
+                            <td class="table-column img-responsive">
+                                <img class="img-product" src="../asset/img/produit/rocher.jpg" alt="photo rocher compiègnois">
+                            </td>
+                            <td class="table-column">
+                                rochers Compiègnois
+                            </td>
+                            <td class="table-column">
+                                200g
+                            </td>
+                            <td class="table-column">
+                                14€
+                            </td>
+                            <td class="table-column">
+                                <button class="btn btn-brown">
+                                    modifier
+                                </button>
+                            </td>
+                            <td class="table-column">
+                                <button class="btn btn-brown">
+                                    supprimer
+                                </button>
+                            </td>
+                        </tr>
+                        <tr class="table-row">
+                            <td class="table-column img-responsive">
+                                <img class="img-product" src="../asset/img/produit/rocher.jpg" alt="photo rocher compiègnois">
+                            </td>
+                            <td class="table-column">
+                                rochers Compiègnois
+                            </td>
+                            <td class="table-column">
+                                300g
+                            </td>
+                            <td class="table-column">
+                                21€
+                            </td>
+                            <td class="table-column">
+                                <button class="btn btn-brown">
+                                    modifier
+                                </button>
+                            </td>
+                            <td class="table-column">
+                                <button class="btn btn-brown">
+                                    supprimer
+                                </button>
+                            </td>
+                        </tr>
+                        <tr class="table-row">
+                            <td class="table-column img-responsive">
+                                <img class="img-product" src="../asset/img/produit/rocher.jpg" alt="photo rocher compiègnois">
+                            </td>
+                            <td class="table-column">
+                                rochers Compiègnois
+                            </td>
+                            <td class="table-column">
+                                400g
+                            </td>
+                            <td class="table-column">
+                                28€
+                            </td>
+                            <td class="table-column">
+                                <button class="btn btn-brown">
+                                    modifier
+                                </button>
+                            </td>
+                            <td class="table-column">
+                                <button class="btn btn-brown">
+                                    supprimer
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </details>
+            <hr class="seprator">
+            <details class="box-produit">
+                <summary class="title-part menu-part">
+                    Les Marjories
+                </summary>
+                <table>
+                    <thead class="table-box">
+                        <tr class="table-row">
+                            <th class="table-column invisible img-responsive">
+                                image
+                            </th>
+                            <th class="table-column">
+                                nom produit
+                            </th>
+                            <th class="table-column">
+                                taille ballotin
+                            </th>
+                            <th class="table-column">
+                                prix produit
+                            </th>
+                            <th class="table-column invisible">
+                                modifier
+                            </th>
+                            <th class="table-column invisible">
+                                supprimer
+                            </th>
+                        </tr>
+                    </thead>
+    
+                    <tbody class="table-box">
+                        <tr class="table-row">
+                            <td class="table-column img-responsive">
+                                <img class="img-product" src="../asset/img/produit/marjorie.jpg" alt="photo marjorie">
+                            </td>
+                            <td class="table-column">
+                                marjorie
+                            </td>
+                            <td class="table-column">
+                                xxxg
+                            </td>
+                            <td class="table-column">
+                                x.xx€
+                            </td>
+                            <td class="table-column">
+                                <button class="btn btn-brown">
+                                    modifier
+                                </button>
+                            </td>
+                            <td class="table-column">
+                                <button class="btn btn-brown">
+                                    supprimer
+                                </button>
+                            </td>
+                        </tr>
+                        <tr class="table-row">
+                            <td class="table-column img-responsive">
+                                <img class="img-product" src="../asset/img/produit/marjorie.jpg" alt="photo marjorie">
+                            </td>
+                            <td class="table-column">
+                                marjorie
+                            </td>
+                            <td class="table-column">
+                                xxxg
+                            </td>
+                            <td class="table-column">
+                                x.xx€
+                            </td>
+                            <td class="table-column">
+                                <button class="btn btn-brown">
+                                    modifier
+                                </button>
+                            </td>
+                            <td class="table-column">
+                                <button class="btn btn-brown">
+                                    supprimer
+                                </button>
+                            </td>
+                        </tr>
+                        <tr class="table-row">
+                            <td class="table-column img-responsive">
+                                <img class="img-product" src="../asset/img/produit/marjorie.jpg" alt="photo marjorie">
+                            </td>
+                            <td class="table-column">
+                                marjorie
+                            </td>
+                            <td class="table-column">
+                                xxxg
+                            </td>
+                            <td class="table-column">
+                                x.xx€
+                            </td>
+                            <td class="table-column">
+                                <button class="btn btn-brown">
+                                    modifier
+                                </button>
+                            </td>
+                            <td class="table-column">
+                                <button class="btn btn-brown">
+                                    supprimer
+                                </button>
+                            </td>
+                        </tr>
+                        <tr class="table-row">
+                            <td class="table-column img-responsive">
+                                <img class="img-product" src="../asset/img/produit/marjorie.jpg" alt="photo marjorie">
+                            </td>
+                            <td class="table-column">
+                                marjorie
+                            </td>
+                            <td class="table-column">
+                                xxxg
+                            </td>
+                            <td class="table-column">
+                                x.xx€
+                            </td>
+                            <td class="table-column">
+                                <button class="btn btn-brown">
+                                    modifier
+                                </button>
+                            </td>
+                            <td class="table-column">
+                                <button class="btn btn-brown">
+                                    supprimer
+                                </button>
+                            </td>
+                        </tr>
+                        <tr class="table-row">
+                            <td class="table-column img-responsive">
+                                <img class="img-product" src="../asset/img/produit/marjorie.jpg" alt="photo marjorie">
+                            </td>
+                            <td class="table-column">
+                                marjorie
+                            </td>
+                            <td class="table-column">
+                                xxxg
+                            </td>
+                            <td class="table-column">
+                                x.xx€
+                            </td>
+                            <td class="table-column">
+                                <button class="btn btn-brown">
+                                    modifier
+                                </button>
+                            </td>
+                            <td class="table-column">
+                                <button class="btn btn-brown">
+                                    supprimer
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </details>
+        </article>
+    </aside>
+</body>

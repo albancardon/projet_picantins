@@ -6,67 +6,69 @@
 </head>
 
 <body>
-<h1 class="title-connexion">Connexion Client</h1>
-<div class="container">
-    <main class="main-connexion">
-        <h2 class="titre-form">Connexion</h2>
-        <form class="form-connexion" method="get">
-            <div class="form-group">
-                <label class="champ majDbutMot mailLogin"> Mon adresse e-mail</label>
-                <input class="zone-text" type="email" name="mailLogin" id="mailLogin" placeholder="e-mail" required>
-                <p class="legende-champ">
-                    format: nom.prenom@domaine.com - <br/>
-                    ex: john.doe@gmail.com
-                </p>
-            </div>
-            <div class="form-group">
-                <label class="champ majDbutMot passLogin"> Mon mot de passe</label>
-                <input class="zone-text" type="password" name="passLogin" id="passLogin" placeholder="mot de passe" pattern="[A-Za-z0-9_$]{8,}" required>
-                <p class="legende-champ">
-                    Votre mot de passe doit être composé de 8 caractères minimum
-                </p>
-            </div>
-            <button class="btn-connexion">Connexion</button>
-        </form>
-    </main>
-    
-    <aside class="aside-inscription">
-        <h2 class="titre-form">Inscription</h2>
-        <form class="form-inscription"  method="get">
-            <div class="inscription-identiter">
-                <p class="champ-inscription">
-                    <label class="label-inscription majDbutMot inscrpt-nom">Mon nom </label>
-                    <input class="zone-text" type="text" name="inscrpt-nom" id="inscrpt-nom" placeholder="nom"  pattern="[A-Za-z0-9\u00c0-\u00ff]{3,20}" required />
-                </p>
-                <p class="champ-inscription">
-                    <label class="label-inscription majDbutMot inscrpt-prenom">Mon prénom </label>
-                    <input class="zone-text" type="text" name="inscrpt-prenom" id="inscrpt-prenom" placeholder="prénom"  pattern="[A-Za-z0-9\u00c0-\u00ff]{3,20}" required />
-                </p>
-            </div>
-            <div class="champ-inscription">
-                <label class="label-inscription majDbutMot inscrpt-mail">Mon adresse e-mail</label>
-                <input class="zone-text" type="email" name="inscrpt-mail" id="inscrpt-mail" placeholder="e-mail" required />
-            </div>
-            <div class="champ-inscription">
-                <label class="label-inscription majDbutMot inscrpt-pass">Mon mot de passe</label>
-                <input class="zone-text" type="password" name="inscrpt-pass" id="inscrpt-pass" placeholder="mot de passe" pattern="[A-Za-z0-9_$]{2,}" required />
-            </div>
-            <div class="champ-inscription">
-                <label class="label-inscription majDbutMot inscrpt-pass1">Confirmation de mon mot de passe</label>
-                <input class="zone-text" type="password" name="" id="inscrpt-pass1" placeholder="répétition mot de passe" pattern="[A-Za-z0-9_$]{2,}" required />
-            </div>
-            <div class="champ-inscription">
-                <label class="label-inscription majDbutMot inscrpt-codePostal">Mon adresse</label>
-                <input class="zone-text" type="text" name="inscrpt-codePostal" id="inscrpt-codePostal" placeholder="code postal" pattern="[A-Za-z0-9]{3,10}" required />
-            </div>
-            <div class="champ-inscription">
-                <label class="label-inscription majDbutMot inscrpt-tel">Mon numero de téléphone</label>
-                <input class="zone-text" type="number" name="inscrpt-tel" id="inscrpt-tel" placeholder="numero de téléphone" pattern="[0-9]{3,20}" required />
-                <p class="legende-champ">
-                    Juste les numéros sans signe de ponctuation
-                </p>
-            </div>
-            <button class="btn-connexion">Inscription</button>
-        </form>
-    </aside>
-</div>
+    <h1 class="titlePage">Connexion Client</h1>
+    <div class="container">
+        <!-- main container connexion -->
+        <main class="main-connexion">
+            <h2 class="titre-form">Connexion</h2>
+            <form class="form-connexion" method="get">
+                <div class="form-group">
+                    <label class="champ majDbutMot" for="mailLogin"> Mon adresse e-mail</label>
+                    <input class="zone-text" type="email" name="mailLogin" id="mailLogin" placeholder="e-mail" required>
+                    <p class="legende-champ">
+                        format: nom.prenom@domaine.com - <br/>
+                        ex: john.doe@gmail.com
+                    </p>
+                </div>
+                <div class="form-group">
+                    <label class="champ majDbutMot" for="passLogin"> Mon mot de passe</label>
+                    <input class="zone-text" type="password" name="passLogin" id="passLogin" placeholder="mot de passe" pattern="[A-Za-z0-9_$]{8,}" required>
+                    <p class="legende-champ">
+                        Votre mot de passe doit être composé de 8 caractères minimum
+                    </p>
+                </div>
+                <button class="btn btn-white btn-connexion">connexion</button>
+            </form>
+        </main>
+        <!-- aside inscription -->
+        <aside class="aside-inscription">
+            <h2 class="titre-form">Inscription</h2>
+            <form class="form-inscription"  method="get">
+                <div class="inscription-identiter">
+                    <p class="champ-inscription">
+                        <label class="label-inscription majDbutMot" for="inscrpt-nom">Mon nom </label>
+                        <input class="zone-text" type="text" name="inscrpt-nom" id="inscrpt-nom" placeholder="nom"  pattern="[A-Za-z0-9\u00c0-\u00ff]{3,20}" required />
+                    </p>
+                    <p class="champ-inscription">
+                        <label class="label-inscription majDbutMot" for="inscrpt-prenom" >Mon prénom </label>
+                        <input class="zone-text" type="text" name="inscrpt-prenom" id="inscrpt-prenom" placeholder="prénom"  pattern="[A-Za-z0-9\u00c0-\u00ff]{3,20}" required />
+                    </p>
+                </div>
+                <div class="champ-inscription">
+                    <label class="label-inscription majDbutMot" for="inscrpt-mail">Mon adresse e-mail</label>
+                    <input class="zone-text" type="email" name="inscrpt-mail" id="inscrpt-mail" placeholder="e-mail" required />
+                </div>
+                <div class="champ-inscription">
+                    <label class="label-inscription majDbutMot" for="inscrpt-pass">Mon mot de passe</label>
+                    <input class="zone-text" type="password" name="inscrpt-pass" id="inscrpt-pass" placeholder="mot de passe" pattern="[A-Za-z0-9_$]{8,}" required />
+                </div>
+                <div class="champ-inscription">
+                    <label class="label-inscription majDbutMot" for="inscrpt-pass-confirm">Confirmation de mon mot de passe</label>
+                    <input class="zone-text" type="password" name="" id="inscrpt-pass-confirm" placeholder="répétition mot de passe" pattern="[A-Za-z0-9_$]{8,}" required />
+                </div>
+                <div class="champ-inscription">
+                    <label class="label-inscription majDbutMot" for="inscrpt-codePostal">Mon adresse</label>
+                    <input class="zone-text" type="text" name="inscrpt-codePostal" id="inscrpt-codePostal" placeholder="code postal" pattern="[A-Za-z0-9]{3,10}" required />
+                </div>
+                <div class="champ-inscription">
+                    <label class="label-inscription majDbutMot" for="inscrpt-tel">Mon numero de téléphone</label>
+                    <input class="zone-text" type="number" name="inscrpt-tel" id="inscrpt-tel" placeholder="numero de téléphone" pattern="[0-9]{3,20}" required />
+                    <p class="legende-champ">
+                        Juste les numéros sans signe de ponctuation
+                    </p>
+                </div>
+                <button class="btn btn-white btn-connexion">inscription</button>
+            </form>
+        </aside>
+    </div>
+</body>

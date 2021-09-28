@@ -1,0 +1,83 @@
+/*
+*  CSS MON PANIER SOMMAIRE
+* 
+*   1.0 css main liste commandes
+*       1.1 css main liste commandes responsive
+*
+*/
+
+/* 1.0 css main liste commandes */
+
+.main-ListeCommandes{
+    display:flex;
+    flex-direction: column;
+    margin: 10%;
+    margin-top: 5%;
+}
+.liste-commande{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 7%;
+    padding: 2% 5%;
+    background-color: #BDBCBC;
+    border-radius: 20px;
+}
+.commande-part{
+    display:flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 5% 0%;
+    width: 100%;
+    text-align: center;
+}
+.commande-info{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 4em;
+    width:30%;
+}
+.partGauche{
+    text-align: left;
+}
+.partDroite{
+    text-align: right;
+}
+.commande-important{
+    font-family: "gothamBold";
+}
+.commande-produit{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align:center;
+    margin: 2%;
+    height: 10em;
+    width: 10em;
+    background-color: white;
+}
+.commande-part-num{
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: space-around;
+    width:25%;
+    margin-bottom: 2em;
+}
+
+    /* 1.1 css main liste commandes responsive */
+
+    @media screen and (min-width:768px) {
+    }
+    @media screen and (max-width:768px) {
+        .liste-commande{
+            font-size: 0.8em;
+        }
+        .commande-part-responsive{
+            flex-direction: column;
+            align-items:center;
+            justify-content: space-around;
+
+        }
+    }

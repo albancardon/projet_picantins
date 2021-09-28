@@ -1,0 +1,106 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../asset/css/styleCommon.css" type="text/css">
+    <link rel="stylesheet" href="../asset/css/stylePanier.css" type="text/css">
+</head>
+
+<body class="bodyCommon">
+    <h1 class="titlePage">Mon Panier</h1>
+    <main class="main-panier">
+        <!-- entete du panier -->
+        <article class="header-panier">
+            <h2 class="title-panier">Contenue panier</h2>
+            <section class="total-container">
+                <p class="legend-prix-panier">Sous Total</p>
+                <p> 53,70€</p>
+                <button class="btn btn-white btn-fat">
+                    passer commande
+                </button>
+            </section>
+        </article>
+
+        <!-- liste des produit dans le panier -->
+
+        <article class="produit-panier">
+            <img class="img-produit" src="../asset/img/produit/picantin.jpg" alt="image produit">
+            <section class="legende-produit">
+                <h3>Picantins</h3>
+                <p>
+                    3 noisettes grillées délicatement enrobées de chocolat et de nougatine.
+                </p>
+                <p>
+                    Ballotin de <span>100</span>g
+                </p>
+                <div class="quantite-produit-box">
+                    <div class="quantite-produit">
+                        <label for="panier-quantite1">Qté:</label>
+                        <input class="quantite-value" type="number" min="0" max="99" name="panier-quantite1" id="panier-quantite1" value="1" pattern="[0-9]{1,2}">
+                    </div>
+                    <p class="produit-supprimer">Supprimer</p>
+                </div>
+            </section>
+            <section>
+                <p>Prix Unitaire </p>
+                <p>5.70€</p>
+            </section>
+        </article>
+
+        <article class="produit-panier">
+            <img class="img-produit" src="../asset/img/produit/marron-glace.jpg" alt="image produit">
+            <section class="legende-produit">
+                <h3>Marrons Glacées</h3>
+                <p>
+                    Des marrons confit dans un sirop de sucre et glacé au sucre glace.
+                </p>
+                <p>
+                    Ballotin de <span>100</span>g
+                </p>
+                <div class="quantite-produit-box">
+                    <div class="quantite-produit">
+                        <label for="panier-quantite1">Qté:</label>
+                        <input class="quantite-value" type="number" min="0" max="99" name="panier-quantite1" id="panier-quantite1" value="3" pattern="[0-9]{1,2}">
+                    </div>
+                    <p class="produit-supprimer">Supprimer</p>
+                </div>
+            </section>
+            <section>
+                <p>Prix Unitaire </p>
+                <p>9€</p>
+            </section>
+        </article>
+
+        <article class="produit-panier">
+            <img class="img-produit" src="../asset/img/produit/rocher.jpg" alt="image produit">
+            <section class="legende-produit">
+                <h3>Rocher Compiègnois</h3>
+                <p>
+                    Des pralinés feuilletés avec du riz soufflé.
+                </p>
+                <p>
+                    Ballotin de <span>300</span>g
+                </p>
+                <div class="quantite-produit-box">
+                    <div class="quantite-produit">
+                        <label for="panier-quantite1">Qté:</label>
+                        <input class="quantite-value" type="number" min="0" max="99" name="panier-quantite1" id="panier-quantite1" value="1" pattern="[0-9]{1,2}">
+                    </div>
+                    <p class="produit-supprimer">Supprimer</p>
+                </div>
+            </section>
+            <section>
+                <p>Prix Unitaire </p>
+                <p>21€</p>
+            </section>
+        </article>
+    </main>
+
+    <aside class="aside-panier">
+        <P>
+            Sous-Total: <span>53.70</span>€
+        </P>
+        <button class="btn btn-grey btn-fat">
+            passer commande
+        </button>
+    </aside>
+</body>

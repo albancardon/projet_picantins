@@ -1,0 +1,133 @@
+/*
+*  CSS MY ACCOUNT SOMMAIRE
+* 
+*   1.0 main container
+*       1.1 main container responsive
+*   2.0 aside historique
+*       2.1 aside historique responsive
+*/
+
+.title-part{
+    font-family: "gothamBold";
+}
+
+/*   1.0 main container */
+
+.main-info{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: stretch;
+    margin: 10%;
+    padding:4% 5%;
+    background-color: #BDBCBC;
+    border-radius: 20px;
+    box-shadow: 2px 5px 5px 0px rgba(39,26,15,0.75);
+}
+.box-info{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding:2% 0;
+    width:100%;
+}
+.paragraph-info{
+    display: grid;
+    min-height: 2.5em;
+    height: 4em;
+    margin: 3%;
+}
+.info-data{
+    min-width: 15em;
+    background-color: white;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 2px 5px 5px 0px rgba(39,26,15,0.75);
+}
+.box-edit-profile{
+    display: flex;
+    justify-content:flex-end;
+    width: 100%;
+}
+.lien-edit{
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    width:12%;
+    text-decoration: none;
+    color: #271A0F;
+}
+
+    /* 1.1 main container responsive */
+
+    @media screen and (min-width:768px) {
+        .paragraph-info{
+            width:40%;
+        }
+    }
+    @media screen and (max-width:768px) {
+        .box-info{
+        flex-direction: column;
+        }
+        .paragraph-info{
+            width:auto;
+            text-align: center;
+        }
+    }
+
+/* 2.0 aside historique */
+
+.aside-historique{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5%;
+    padding:3% 10%;
+    background-color: #BDBCBC;
+}
+.title-histo{
+    margin: 1% 5%;
+}
+.table{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 3%;
+}
+.table-part{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    align-items: center;
+    margin: 2%;
+    width: 90%;
+}
+.table-row{
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    margin: 2%;
+    width: 100%;
+}
+th, td{ 
+    flex: 1;
+    text-align: center;
+}
+.table-column{
+    padding-bottom: 0.5%;
+    border-bottom: 2px solid white;
+    height: 2em;
+}
+
+/* 2.1 aside historique responsive */
+
+@media screen and (min-width:768px) {
+    .table-montant{
+        display: inline;
+    }
+}
+@media screen and (max-width:768px) {
+    .table-montant{
+        display: none;
+    }
+}

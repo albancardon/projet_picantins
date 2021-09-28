@@ -1,5 +1,5 @@
 /*
-*  CSS COMMUN SOMMAIRE
+*  CSS LOGIN SOMMAIRE
 * 
 *   1.0 main container
 *       1.1 main container responsive
@@ -8,21 +8,22 @@
 */
 
 body {
+    padding-right: 0;
+    margin-right: 0;
+    width:100%;
     color: #FCCA87;
-}
-.title-connexion{
-    display: flex;
-    justify-content:center;
-    align-items: center;
-    color: #271A0F;
-    margin: 7%;
-    font-family: "gothamBold";
+    font-family: "gothamLight";
 }
 .container{
     display: flex;
     justify-content:space-around;
     align-items: center;
     margin: 7% 10%;
+}
+@media screen and (max-width:768px) {
+    .container{
+        flex-direction: column;
+    }
 }
 .titre-form{
     display: flex;
@@ -31,6 +32,7 @@ body {
     text-align: center;
     margin: 5%;
     flex: 0.5;
+    font-family: "gothamBold";
 }
 .zone-text{
     width: 80%;
@@ -41,13 +43,14 @@ body {
 /* 1.0 main container */
 
 .main-connexion{
+    flex: 2;
     display: flex;
     flex-direction: column;
-    height:45em;
-    width:40%;
+    margin: 5%;
     max-width:30em;
     background-color: #422818;
     border-radius: 20px;
+    box-shadow: 2px 5px 5px 0px rgba(39,26,15,0.75);
 }
 .form-connexion{
     flex: 3;
@@ -63,7 +66,6 @@ body {
     align-items: center;
     width: 100%;
     margin: 1em;
-    font-family: "gothamLight";
 }
 .champ{
     margin: 1em;
@@ -76,30 +78,37 @@ body {
 .btn-connexion{
     margin:1em;
     margin-bottom: 2em;
-    width: 10em;
-    height:2em;
-    color: #271A0F;
-    background-color: white;
-    font-family: "gothamBold";
     font-size:1.2em;
-    border: none;
-    border-radius: 9em/2em; 
-    box-shadow: none;
-    cursor: pointer;
 }
+
+    /* 1.1 main container responsive */
+
+    @media screen and (min-width:768px) {
+        .main-connexion{
+            height:45em;
+            width:40%;
+        }
+    }
+    @media screen and (max-width:768px) {
+        .main-connexion{
+            font-size:0.9em;
+            height:35em;
+            width:80%;
+        }
+    }
 
 /* 2.0 aside inscription */
 
 .aside-inscription{
-    display: flex;
-    flex-direction: column;
-    width:40%;
+    flex: 3;
     display: flex;
     flex-direction: column;
     justify-content:space-around;
     align-items: center;
+    margin: 5%;
     background-color: #422818;
     border-radius: 20px;
+    box-shadow: 2px 5px 5px 0px rgba(39,26,15,0.75);
 }
 .form-inscription{
     display: flex;
@@ -120,8 +129,22 @@ body {
     align-items: center;
     width: 100%;
     margin: 1.5em;
-    font-family: "gothamLight";
 }
 .label-inscription{
     margin:1em;
+}
+
+/* 2.1 aside inscription responsive */
+
+@media screen and (min-width:768px) {
+    aside-inscription{
+        width:40%;
+    }
+}
+@media screen and (max-width:768px) {
+    .aside-inscription{
+        font-size:0.9em;
+        width:80%;
+        max-width:30em;
+    }
 }

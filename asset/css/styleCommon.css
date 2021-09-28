@@ -15,6 +15,8 @@
 @font-face {
     font-family: "gothamBold";
     src: url(/asset/font/GothamBold.ttf);
+}
+@font-face {
     font-family: "gothamLight";
     src: url(/asset/font/GothamLight.ttf);
 }
@@ -22,17 +24,69 @@
     margin: 0;
     padding: 0;
 }
-body{
+.bodyCommon {
     padding-right: 0;
     margin-right: 0;
     width:100%;
+    color: #271A0F;
+    font-family: "gothamLight";
 }
-.saut_de_ligne{
+.titlePage{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    margin: 7%;
+    color: #271A0F;
+    font-family: "gothamBold";
+}
+.saut_ligne{
     display:block;
-    height: 1em;
+    height: 0.5em;
 }
 .majDbutMot{
     text-transform: capitalize;
+}
+.invisible{
+    visibility: hidden;
+}
+.icon{
+    height: 2em;
+}
+.btn{
+    height:2em;
+    width: 10em;
+    font-family: "gothamBold";
+    border: none;
+    box-shadow: none;
+    cursor: pointer;
+}
+.btn-white{
+    color: #271A0F;
+    background-color: white;
+}
+.btn-grey{
+    color: #271A0F;
+    background-color: #BDBCBC;
+}
+.btn-brown{
+    color: #FCCA87;
+    background-color: #422818;
+}
+.btn-fat{
+    height:3.5em;
+    width: 15em;
+}
+
+@media screen and (min-width:768px) {
+    .btn{
+        border-radius: 9em/2em; 
+    }
+}
+@media screen and (max-width:768px) {
+    .btn{
+        font-size: 0.7em;
+        border-radius: 7em/2em; 
+    }
 }
 
 /* 1.1 commun header/navigation */
@@ -50,16 +104,12 @@ body{
     margin:0.5em;
     text-align: center;
     background-color: #FCCA87;
-    font-family: "gothamBold";
     font-size: 1.3em;
     border-radius: 10px;
 }
 .link-page{
     text-decoration:none;
     color: #271A0F;
-}
-.icon-nav{
-    height: 2em;
 }
 .header{
     align-items: center;
@@ -137,7 +187,7 @@ body{
     font-family: "gothamBold";
     border-radius: 10px;
 }
-.icon-nav-responsive{
+.icon-responsive{
     height: 1.5em;
 }
 

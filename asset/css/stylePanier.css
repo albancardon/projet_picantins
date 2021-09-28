@@ -1,0 +1,138 @@
+/*
+*  CSS MON PANIER SOMMAIRE
+* 
+*   1.0 css main page panier
+*       1.1 css main page panier responsive
+*   2.0 css aside page panier
+*
+*/
+
+/* 1.0 css main page panier */
+
+
+.main-panier {
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    margin: 5% 10%;
+}
+.title-panier{
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:5%;
+    height: 2em;
+    width:15em;
+    text-align: center;
+    font-family: "gothamBold";
+    background-color: #BE965D;
+    border-radius: 20px;
+}
+.header-panier{
+    display: flex;
+    justify-content:space-between;
+    margin-bottom: 5%;
+    width: 100%;
+}
+.total-container{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    align-items: center;
+    width: 20%;
+    height: 8em;
+    padding: 1% 2%;
+    font-family: "gothamBold";
+    background-color: #BDBCBC;
+    border-radius: 20px;
+}
+.legend-prix-panier{
+    width: 100%;
+    text-align:left
+}
+.produit-panier{
+    display: flex;
+    align-items:center;
+    justify-content:space-around;
+    margin: 2% 0;
+    width: 100%;
+    background-color: #BDBCBC;
+    border-radius: 20px;
+}
+.legende-produit{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    height:100%;
+    width: 50%;
+    padding:0% 3%;
+}
+.quantite-produit-box{
+    display: flex;
+    align-items:center;
+    justify-content:space-around;
+    width:13em;
+}
+.quantite-produit{
+    display: flex;
+    align-items:center;
+    justify-content:space-around;
+    background-color:white;
+    border-radius: 5px;
+}
+.quantite-value{
+    width:3em;
+    text-align: center;
+    border: none;
+    cursor: text;
+}
+.produit-supprimer{
+    text-decoration: 2px underline;
+    cursor: pointer;
+}
+
+    /* 1.1 css main page panier responsive */
+
+    @media screen and (min-width:768px) {
+        .img-produit{
+            width: 7em;
+        }
+        .produit-panier{
+            padding:2% 5%;
+            height: 12em;
+        }
+        .quantite-produit-box{
+            margin-left: 2em;
+        }
+        .quantite-produit{
+            padding: 2%;
+        }
+    }
+    @media screen and (max-width:768px) {
+        .img-produit{
+            width: 4em;
+        }
+        .produit-panier{
+            padding: 0 2%;
+            height: 8em;
+        }
+        .legende-produit{
+            font-size: 0.8em;
+        }
+        .header-panier{
+            font-size: 0.7em;
+        }
+        .total-container{
+            display:none;
+        }
+    }
+
+/* 2.0 css aside page panier */
+
+.aside-panier{
+    display: flex;
+    align-items:center;
+    justify-content:space-around;
+    margin: 0% 20% 10% 20%;
+    height:4em;
+}

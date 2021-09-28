@@ -1,0 +1,60 @@
+/*
+*  CSS GESTION DES COMPTES SOMMAIRE
+* 
+*   1.0 css page gestion compte
+*       1.1 css page gestion compte responsive
+*
+*/
+
+/* 1.0 css page gestion compte */
+
+.part{
+    display: flex;
+    flex-direction: column;
+    margin: 10% 5%;
+}
+.title-chap{
+    margin:5% 10%;
+    font-family: "gothamBold";
+}
+.table-box{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+}
+.table-row{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    margin-bottom: 2%;
+    width: 100%;
+    border-bottom: 2px solid #271A0F;
+}
+.table-column{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    margin: 0.1em;
+    padding: 1%;
+    height: 2em;
+    width: 20%;
+}
+.details-paragraph{
+padding: 4px;
+margin: 0;
+}
+
+    /* 1.1 css page gestion compte responsive */
+
+
+    @media screen and (min-width:768px) {
+        .mail-responsive{
+            display: flex;
+        }
+    }
+    @media screen and (max-width:768px) {
+        .mail-responsive{
+            display: none;
+        }
+    }
