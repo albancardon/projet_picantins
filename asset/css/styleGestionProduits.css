@@ -153,6 +153,9 @@ details[open] .menu-part:before {
 .seprator{
     border: 1px solid #271A0F;
 }
+.btn-brown{
+    width:70%;
+}
 
     /* 2.1 aside gestion produit responsive */
 

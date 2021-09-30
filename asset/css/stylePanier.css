@@ -90,7 +90,18 @@
     text-decoration: 2px underline;
     cursor: pointer;
 }
-
+.prix-article-panier{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content:space-around;
+    height:3.5em;
+    text-align: center;
+}
+.btn-fat{
+    width: 80%;
+    height:3.5em;
+}
     /* 1.1 css main page panier responsive */
 
     @media screen and (min-width:768px) {

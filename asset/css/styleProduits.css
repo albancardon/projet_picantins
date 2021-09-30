@@ -107,7 +107,7 @@
     justify-content:center;
     width: 100%;
 }
-.produit-description{
+.produit-description-box{
     display: flex;
     flex-direction: column;
     justify-content:space-around;
@@ -170,7 +170,6 @@
     height: 1.5em;
     width:9em;
     text-align: center;
-    font-family: "gothamBold";
     background-color: #BDBCBC;
     border-radius: 20px;
 }

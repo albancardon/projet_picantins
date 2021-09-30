@@ -12,17 +12,31 @@
 
 
 /* 1.0 commun*/
+
 @font-face {
-    font-family: "gothamBold";
-    src: url(/asset/font/GothamBold.ttf);
+    font-family: 'gothamBold';
+    src: url('../font/gothambold-webfont.woff2') format('woff2'),
+        url('../font/gothambold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 @font-face {
-    font-family: "gothamLight";
-    src: url(/asset/font/GothamLight.ttf);
+    font-family: 'gothamLight';
+    src: url('../font/gothamlight-webfont.woff2') format('woff2'),
+        url('../font/gothamlight-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
+
 *{
     margin: 0;
     padding: 0;
+}
+.ombre{
+    box-shadow: 2px 5px 5px 0px rgba(39,26,15,0.75);
+}
+.gras{
+    font-family: "gothamBold";
 }
 .bodyCommon {
     padding-right: 0;
@@ -56,9 +70,11 @@
     height:2em;
     width: 10em;
     font-family: "gothamBold";
+    text-transform: capitalize;
     border: none;
     box-shadow: none;
     cursor: pointer;
+    box-shadow: 2px 5px 5px 0px rgba(39,26,15,0.75);
 }
 .btn-white{
     color: #271A0F;
@@ -71,10 +87,6 @@
 .btn-brown{
     color: #FCCA87;
     background-color: #422818;
-}
-.btn-fat{
-    height:3.5em;
-    width: 15em;
 }
 
 @media screen and (min-width:768px) {
@@ -100,7 +112,7 @@
     list-style-type: none;
 }
 .liste-link{
-    width:6em;
+    width:7em;
     margin:0.5em;
     text-align: center;
     background-color: #FCCA87;
@@ -239,7 +251,7 @@
 }
 .liste-footer{
     margin: 0.5em;
-    width:6em;
+    width:7em;
     text-align: center;
     background-color: #FCCA87;
     font-family: "gothamBold";

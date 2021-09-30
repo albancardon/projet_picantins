@@ -1,0 +1,73 @@
+/*
+*  CSS LISTE FACTURE SOMMAIRE
+* 
+*   1.0 css liste factures
+*       1.1 css liste factures responsive
+*
+*/
+
+/* 1.0 css liste factures */
+
+.liste-factures{
+    display:flex;
+    flex-direction:column;
+    margin-top: 5%;
+    background-color: #BDBCBC;
+    border-radius: 20px;
+}
+.title-annee{
+    margin-bottom: 3%;
+    font-family: "gothamBold";
+}
+.table-facture{
+    display:flex;
+    align-items:center;
+    justify-content: center;
+}
+.table-box{
+    display:flex;
+    flex-direction:column;
+    width: 100%;
+}
+.table-row{
+    display:flex;
+    align-items:center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.table-column{
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    height: 3em;
+    width: 25%;
+    min-width: 13em;
+    text-align: center;
+}
+
+/* css liste factures responsive */
+
+@media screen and (min-width:768px) {
+    .liste-factures{
+        margin: 10%;
+        padding: 2% 5%;
+    }
+    .table-row{
+        margin: 4% 0;
+    }
+    .table-bottom{
+        border-bottom: 3px solid white;
+    }
+}
+@media screen and (max-width:768px) {
+    .liste-factures{
+        padding: 4% 1%;
+    }
+    .table-row{
+        flex-direction: column;
+        margin: 5%;
+    }
+    .table-column{
+        background-color: white;
+    }
+}

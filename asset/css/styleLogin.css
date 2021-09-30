@@ -50,7 +50,6 @@ body {
     max-width:30em;
     background-color: #422818;
     border-radius: 20px;
-    box-shadow: 2px 5px 5px 0px rgba(39,26,15,0.75);
 }
 .form-connexion{
     flex: 3;
@@ -108,7 +107,6 @@ body {
     margin: 5%;
     background-color: #422818;
     border-radius: 20px;
-    box-shadow: 2px 5px 5px 0px rgba(39,26,15,0.75);
 }
 .form-inscription{
     display: flex;

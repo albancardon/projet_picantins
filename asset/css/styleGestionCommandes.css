@@ -1,12 +1,12 @@
 /*
 *  CSS MON PANIER SOMMAIRE
 * 
-*   1.0 css main liste commandes
-*       1.1 css main liste commandes responsive
+*   1.0 css mon panier
+*       1.1 css mon panier responsive
 *
 */
 
-/* 1.0 css main liste commandes */
+/* 1.0 css mon panier */
 
 .main-ListeCommandes{
     display:flex;
@@ -44,9 +44,6 @@
 .partDroite{
     text-align: right;
 }
-.commande-important{
-    font-family: "gothamBold";
-}
 .commande-produit{
     display:flex;
     flex-direction: column;
@@ -66,10 +63,8 @@
     margin-bottom: 2em;
 }
 
-    /* 1.1 css main liste commandes responsive */
+    /* 1.1 css mon panier responsive */
 
-    @media screen and (min-width:768px) {
-    }
     @media screen and (max-width:768px) {
         .liste-commande{
             font-size: 0.8em;
