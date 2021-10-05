@@ -70,6 +70,7 @@ body {
     margin: 1em;
 }
 .legende-champ{
+    text-align: center;
     margin: 0.5em;
     max-width: 70%;
     font-size: 0.9em;
