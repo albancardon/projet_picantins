@@ -3,6 +3,7 @@
 * 
 *   1.0 css page gestion compte
 *       1.1 css page gestion compte responsive
+*   2.0 css carousel
 *
 */
 
@@ -11,14 +12,13 @@
 .part{
     display: flex;
     flex-direction: column;
-    margin: 10% 5%;
+    margin: 5% 10%;
 }
 .title-chap{
     margin:5% 10%;
     font-family: "gothamBold";
 }
 .table-box{
-    display: flex;
     flex-direction: column;
     justify-content:center;
     align-items: center;
@@ -40,9 +40,28 @@
     height: 2em;
     width: 20%;
 }
+summary{
+    cursor: pointer;
+}
 .details-paragraph{
 padding: 4px;
 margin: 0;
+}
+.nav-carousel{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    margin:5% 0;
+    width: 100%;
+    list-style-type: none;
+    font-family: "gothamBold";
+}
+.page-carousel{
+    cursor: pointer;
+    padding:0.5%
+}
+.icon-carousel{
+    width:1em;
 }
 
     /* 1.1 css page gestion compte responsive */
@@ -56,5 +75,112 @@ margin: 0;
     @media screen and (max-width:768px) {
         .mail-responsive{
             display: none;
+        }
+    }
+
+/* 2.0 css carousel */
+
+.active{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.inactive{
+    display: none;
+}
+.select{
+    border: 1px solid #271A0F;
+}
+
+/* 3.0 css formulaire information */
+
+.aside-modification{
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    align-items: center;
+    padding: 2%;
+    width: 100%;
+    overflow-y: scroll;
+    transition: .2s;
+    background-color: rgba(0,0,0, .75);
+}
+.aside-modification[aria-hidden="true"] {
+    visibility: hidden;
+    opacity: 0;
+}
+.modale__box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    align-items: center;
+    margin: auto;
+    padding: 2%;
+}
+.form-modification{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    align-items: center;
+    height:80%;
+    width: 100%;
+    padding: 5% 0;
+    background-color: #BDBCBC;
+    border-radius: 20px;
+}
+.modification-identiter{
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+}
+.champ-modification{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    align-items: center;
+    margin: 5%;
+    width: 100%;
+}
+.label-modification{
+    margin:1em;
+}
+.zone-text-nom{
+    text-align: center;
+}
+.zone-text{
+    text-align: center;
+}
+
+    /* 2.1 aside modification responsive */
+
+
+    @media screen and (min-width:768px) {
+        .btn{
+            border-radius: 9em/2em; 
+        }
+        .modale__box {
+            width: 60%;
+        }
+        .zone-text{
+            width: 50%;
+        }
+    }
+    @media screen and (max-width:768px) {
+        .btn{
+            font-size: 0.7em;
+            border-radius: 7em/2em; 
+        }
+        .modale__box {
+            width: 80%;
+        }
+        .modification-identiter{
+            flex-direction: column;
         }
     }

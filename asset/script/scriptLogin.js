@@ -1,8 +1,8 @@
 var passLogin = document.getElementById("passLogin");
-var btnLogin = document.getElementById("btnLogin");
+var btnLogin = document.getElementById("js__btnLogin");
 var passInscrpt = document.getElementById("passInscrpt");
 var passInscrptConfirm = document.getElementById("passInscrptConfirm");
-var btnInscpt = document.getElementById("btnInscpt");
+var btnInscpt = document.getElementById("js__btnInscpt");
 
 // Vérification si le mot de passe contient les caractères demander
 btnLogin.addEventListener("click", (evt)=>{
