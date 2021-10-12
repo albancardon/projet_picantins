@@ -34,7 +34,7 @@ function ajoutListeNavigation(){
         li.addEventListener("click",()=> changementPage(i));
         navCarouselClient.appendChild(li);
     }
-    document.getElementsByClassName("js__numPage")[0].classList.add("select");;
+    document.getElementsByClassName("js__numPage")[0].classList.add("select");
 
     let li1 = document.createElement("li");
     li1.setAttribute( "id" , "js__btnSuivantClient");
@@ -120,7 +120,7 @@ var focusableElementsArray = [
 ];
 
 
-// ouverture modale
+    // ouverture modale
 document.addEventListener('DOMContentLoaded', ()=>{
     
     btnModaleOpens.forEach((btnModaleOpen) => {
@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     });
 });
 
-// fermeture modale
+    // fermeture modale
 btnClose.addEventListener("click", (e) => {
     e.preventDefault();
     close(modalWindow);
@@ -163,7 +163,8 @@ function open(modalWindow) {
     if (!firstFocusableElement) {
         return;
     }
-    // setTimeout et utilisé pour laisser el temps a l'animation d'ouverture de s'effectuer
+    collectNumId()
+    // setTimeout et utilisé pour laisser le temps à l'animation d'ouverture de s'effectuer
     window.setTimeout(() => {
         firstFocusableElement.focus();
         focusableElements.forEach((focusableElement) => {
@@ -193,8 +194,7 @@ function close(modalWindow) {
 
     let testModalOverte = modalWindow.getAttribute('aria-hidden');
     
-    if (testModalOverte == "true") { 
-        console.log("test");
+    if (testModalOverte == "true") {
         return; 
     }
     let recupBtnOpen = document.getElementById(recupIdBtn); 
@@ -203,4 +203,30 @@ function close(modalWindow) {
     
     recupBtnOpen.focus();
     recupIdBtn="";
+}
+
+// recupération des données du client sélectionner
+
+    //declaration variables
+
+var numId = "";
+var infoCompteNom = document.getElementById("infoCompte-nom");
+var infoComptePrenom = document.getElementById("infoCompte-prenom");
+var infoCompteMail = document.getElementById("infoCompte-mail");
+var infoCompteAdresse = document.getElementById("infoCompte-adresse");
+var infoCompteTel = document.getElementById("infoCompte-tel");
+
+function collectNumId() {
+    numId = recupIdBtn.split("js__btnModif-")[1];
+    let recupNom = document.getElementById("js__nomCompte-"+numId).innerHTML.trim();
+    let recupPrenom = document.getElementById("js__prénomCompte-"+numId).innerHTML.trim();
+    let recupMail = document.getElementById("js__mailCompte-"+numId).innerHTML.trim();
+    let recupAdresse = document.getElementById("js__adressecompte-"+numId).innerHTML.trim();
+    let recupTel = document.getElementById("js__telcompte-"+numId).innerHTML.trim();
+
+    infoCompteNom.value = recupNom;
+    infoComptePrenom.value = recupPrenom;
+    infoCompteMail.value = recupMail;
+    infoCompteAdresse.value = recupAdresse;
+    infoCompteTel.value = recupTel;
 }

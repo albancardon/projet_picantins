@@ -12,7 +12,6 @@ btnLogin.addEventListener("click", (evt)=>{
     let chaineChiffre = /[0-9]/g;
     let resultSearch = valuePass.search(chaineMaj,chaineMin,chaineChiffre); 
     if(resultSearch !== -1){
-        console.log("test ok");
     } else{
         alert("votre mot de passe ne contient pas les caractères demandé.");
         evt.preventDefault();
@@ -20,7 +19,7 @@ btnLogin.addEventListener("click", (evt)=>{
 });
 
 //Vérification si le mot de passe contient les caractères demander lors de l'inscription 
-//et si le mot de pass est semble a la ré-écriture de ce dernier
+//et si le mot de passe est semblable à la ré-écriture de ce dernier
 btnInscpt.addEventListener("click", (evt)=>{
     let valuePass = passInscrpt.value;
     let valuePassConfirm = passInscrptConfirm.value;
@@ -33,7 +32,6 @@ btnInscpt.addEventListener("click", (evt)=>{
         let chaineChiffre = /[0-9]/g;
         let resultSearch = valuePass.search(chaineMaj,chaineMin,chaineChiffre); 
         if(resultSearch !== -1){
-            console.log("test ok");
         } else{
             alert("votre mot de passe ne contient pas les caractères demandé.");
             evt.preventDefault();

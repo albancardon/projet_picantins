@@ -3,7 +3,9 @@
 * 
 *   1.0 css page gestion compte
 *       1.1 css page gestion compte responsive
-*   2.0 css carousel
+*   2.0 carousel
+*   3.0 aside modification compte 
+*       3.1 aside modification compte responsive 
 *
 */
 
@@ -25,9 +27,11 @@
 }
 .table-row{
     display: flex;
-    justify-content:space-between;
+    justify-content:center;
     align-items: center;
+    padding-bottom: 2%;
     margin-bottom: 2%;
+    height: 6em;
     width: 100%;
     border-bottom: 2px solid #271A0F;
 }
@@ -78,7 +82,7 @@ margin: 0;
         }
     }
 
-/* 2.0 css carousel */
+/* 2.0 carousel */
 
 .active{
     display: flex;
@@ -92,95 +96,3 @@ margin: 0;
     border: 1px solid #271A0F;
 }
 
-/* 3.0 css formulaire information */
-
-.aside-modification{
-    position: fixed;
-    z-index: 100;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content:space-around;
-    align-items: center;
-    padding: 2%;
-    width: 100%;
-    overflow-y: scroll;
-    transition: .2s;
-    background-color: rgba(0,0,0, .75);
-}
-.aside-modification[aria-hidden="true"] {
-    visibility: hidden;
-    opacity: 0;
-}
-.modale__box {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content:space-around;
-    align-items: center;
-    margin: auto;
-    padding: 2%;
-}
-.form-modification{
-    display: flex;
-    flex-direction: column;
-    justify-content:space-around;
-    align-items: center;
-    height:80%;
-    width: 100%;
-    padding: 5% 0;
-    background-color: #BDBCBC;
-    border-radius: 20px;
-}
-.modification-identiter{
-    display: flex;
-    justify-content:space-around;
-    align-items: center;
-}
-.champ-modification{
-    display: flex;
-    flex-direction: column;
-    justify-content:space-around;
-    align-items: center;
-    margin: 5%;
-    width: 100%;
-}
-.label-modification{
-    margin:1em;
-}
-.zone-text-nom{
-    text-align: center;
-}
-.zone-text{
-    text-align: center;
-}
-
-    /* 2.1 aside modification responsive */
-
-
-    @media screen and (min-width:768px) {
-        .btn{
-            border-radius: 9em/2em; 
-        }
-        .modale__box {
-            width: 60%;
-        }
-        .zone-text{
-            width: 50%;
-        }
-    }
-    @media screen and (max-width:768px) {
-        .btn{
-            font-size: 0.7em;
-            border-radius: 7em/2em; 
-        }
-        .modale__box {
-            width: 80%;
-        }
-        .modification-identiter{
-            flex-direction: column;
-        }
-    }

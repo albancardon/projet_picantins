@@ -8,6 +8,8 @@
 *   3 header responsive
 *   4 footer
 *       4.1 footer responsive
+*   5.1  css modal
+*       5.1  css modal responsive
 */
 
 
@@ -333,5 +335,93 @@ details[open] .detail-nav-responsive:before {
         }
         .icon-footer{
             font-size: 0.7em;
+        }
+    }
+
+/* 5.0  css modal */
+
+.aside-modification{
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    align-items: center;
+    padding: 2%;
+    width: 100%;
+    overflow-y: scroll;
+    transition: .2s;
+    background-color: rgba(0,0,0, .75);
+}
+.aside-modification[aria-hidden="true"] {
+    visibility: hidden;
+    opacity: 0;
+}
+.modale__box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    align-items: center;
+    margin: auto;
+    padding: 2%;
+}
+.form-modification{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    align-items: center;
+    min-height:80%;
+    width: 100%;
+    padding: 5% 0;
+    background-color: #BDBCBC;
+    border-radius: 20px;
+}
+.champ-identiter{
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+}
+.champ-modification{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    align-items: center;
+    margin: 5%;
+    width: 100%;
+}
+.label-modification{
+    margin:1em;
+}
+.zone-text-nom{
+    text-align: center;
+}
+.zone-text{
+    text-align: center;
+}
+.btn-form{
+    font-size: 0.6em;
+}
+
+    /* 5.1  css modal responsive */
+
+    @media screen and (min-width:768px) {
+        .modale__box {
+            width: 60%;
+        }
+        .zone-text{
+            width: 50%;
+        }
+    }
+    @media screen and (max-width:768px) {
+        .modale__box {
+            width: 80%;
+        }
+        .champ-identiter{
+            flex-direction: column;
         }
     }

@@ -18,21 +18,16 @@
             <div class="form-group">
                 <label class="legend-form" for="category-product">Catégorie Du Produit</label>
                 <select name="category-product" id="category-product" class="form-champ" required>
-                    <option>Choisissez une Catégorie</option>
-                    <option value="">spécialitées</option>
-                    <option value="">chocolat</option>
+                    <option>Choisissez une catégorie</option>
+                    <option value="">spécialité</option>
+                    <option value="">assortiment</option>
                     <option value="">sucrerie</option>
                 </select>
             </div>
 
             <div class="form-group">
                 <label class="legend-form" for="size-product">Taille Du Produit</label>
-                <select name="size-product" id="size-product" class="form-champ" required>
-                    <option>Choisissez une taille</option>
-                    <option value="">50</option>
-                    <option value="">100</option>
-                    <option value="">200</option>
-                </select>
+                <input class="form-champ" type="text" name="size-product" id="size-product" pattern="[0-9]{3,20}" required />
             </div>
 
             <div class="form-group">
@@ -51,7 +46,7 @@
     <aside class="part">
         <h2 class="title-chap ombre">Gestion Produits</h2>
         <article class="content-part ombre">
-            <h3 class="title-part title-article ombre majDbutMot">Spécialitées</h3>
+            <h3 class="title-part title-article ombre majDbutMot">Spécialités</h3>
             <details class="box-produit">
                 <summary class="title-part menu-part ombre majDbutMot">
                     Les Picantins
@@ -95,7 +90,7 @@
                                 5€70
                             </td>
                             <td class="table-column">
-                                <button class="btn btn-brown" title="Modifier produit">
+                                <button id="js__btnModif-0" class="btn btn-brown btn-form js__btnOpenModale" type="button" aria-haspopup="dialog" aria-controls="dialog" title="Modifier compte">
                                     modifier
                                 </button>
                             </td>
@@ -119,7 +114,7 @@
                                 11€40
                             </td>
                             <td class="table-column">
-                                <button class="btn btn-brown" title="Modifier produit">
+                                <button id="js__btnModif-0" class="btn btn-brown btn-form js__btnOpenModale" type="button" aria-haspopup="dialog" aria-controls="dialog" title="Modifier compte">
                                     modifier
                                 </button>
                             </td>
@@ -143,7 +138,7 @@
                                 17.10€
                             </td>
                             <td class="table-column">
-                                <button class="btn btn-brown" title="Modifier produit">
+                                <button id="js__btnModif-0" class="btn btn-brown btn-form js__btnOpenModale" type="button" aria-haspopup="dialog" aria-controls="dialog" title="Modifier compte">
                                     modifier
                                 </button>
                             </td>
@@ -167,7 +162,7 @@
                                 22.80€
                             </td>
                             <td class="table-column">
-                                <button class="btn btn-brown" title="Modifier produit">
+                                <button id="js__btnModif-0" class="btn btn-brown btn-form js__btnOpenModale" type="button" aria-haspopup="dialog" aria-controls="dialog" title="Modifier compte">
                                     modifier
                                 </button>
                             </td>
@@ -191,7 +186,7 @@
                                 28.50€
                             </td>
                             <td class="table-column">
-                                <button class="btn btn-brown" title="Modifier produit">
+                                <button id="js__btnModif-0" class="btn btn-brown btn-form js__btnOpenModale" type="button" aria-haspopup="dialog" aria-controls="dialog" title="Modifier compte">
                                     modifier
                                 </button>
                             </td>
@@ -248,7 +243,7 @@
                                 7€
                             </td>
                             <td class="table-column">
-                                <button class="btn btn-brown" title="Modifier produit">
+                                <button id="js__btnModif-0" class="btn btn-brown btn-form js__btnOpenModale" type="button" aria-haspopup="dialog" aria-controls="dialog" title="Modifier compte">
                                     modifier
                                 </button>
                             </td>
@@ -296,7 +291,7 @@
                                 21€
                             </td>
                             <td class="table-column">
-                                <button class="btn btn-brown" title="Modifier produit">
+                                <button id="js__btnModif-0" class="btn btn-brown btn-form js__btnOpenModale" type="button" aria-haspopup="dialog" aria-controls="dialog" title="Modifier compte">
                                     modifier
                                 </button>
                             </td>
@@ -320,7 +315,7 @@
                                 28€
                             </td>
                             <td class="table-column img-responsive">
-                                <button class="btn btn-brown" title="Modifier produit">
+                                <button id="js__btnModif-0" class="btn btn-brown btn-form js__btnOpenModale" type="button" aria-haspopup="dialog" aria-controls="dialog" title="Modifier compte">
                                     modifier
                                 </button>
                             </td>
@@ -377,7 +372,7 @@
                                 x.xx€
                             </td>
                             <td class="table-column">
-                                <button class="btn btn-brown" title="Modifier produit">
+                                <button id="js__btnModif-0" class="btn btn-brown btn-form js__btnOpenModale" type="button" aria-haspopup="dialog" aria-controls="dialog" title="Modifier compte">
                                     modifier
                                 </button>
                             </td>
@@ -401,7 +396,7 @@
                                 x.xx€
                             </td>
                             <td class="table-column">
-                                <button class="btn btn-brown" title="Modifier produit">
+                                <button id="js__btnModif-0" class="btn btn-brown btn-form js__btnOpenModale" type="button" aria-haspopup="dialog" aria-controls="dialog" title="Modifier compte">
                                     modifier
                                 </button>
                             </td>
@@ -425,7 +420,7 @@
                                 x.xx€
                             </td>
                             <td class="table-column">
-                                <button class="btn btn-brown" title="Modifier produit">
+                                <button id="js__btnModif-0" class="btn btn-brown btn-form js__btnOpenModale" type="button" aria-haspopup="dialog" aria-controls="dialog" title="Modifier compte">
                                     modifier
                                 </button>
                             </td>
@@ -449,7 +444,7 @@
                                 x.xx€
                             </td>
                             <td class="table-column">
-                                <button class="btn btn-brown" title="Modifier produit">
+                                <button id="js__btnModif-0" class="btn btn-brown btn-form js__btnOpenModale" type="button" aria-haspopup="dialog" aria-controls="dialog" title="Modifier compte">
                                     modifier
                                 </button>
                             </td>
@@ -473,7 +468,7 @@
                                 x.xx€
                             </td>
                             <td class="table-column">
-                                <button class="btn btn-brown" title="Modifier produit">
+                                <button id="js__btnModif-0" class="btn btn-brown btn-form js__btnOpenModale" type="button" aria-haspopup="dialog" aria-controls="dialog" title="Modifier compte">
                                     modifier
                                 </button>
                             </td>
@@ -532,7 +527,7 @@
                                 5€70
                             </td>
                             <td class="table-column">
-                                <button class="btn btn-brown" title="Modifier produit">
+                                <button id="js__btnModif-0" class="btn btn-brown btn-form js__btnOpenModale" type="button" aria-haspopup="dialog" aria-controls="dialog" title="Modifier compte">
                                     modifier
                                 </button>
                             </td>
@@ -556,7 +551,7 @@
                                 11€40
                             </td>
                             <td class="table-column">
-                                <button class="btn btn-brown" title="Modifier produit">
+                                <button id="js__btnModif-0" class="btn btn-brown btn-form js__btnOpenModale" type="button" aria-haspopup="dialog" aria-controls="dialog" title="Modifier compte">
                                     modifier
                                 </button>
                             </td>
@@ -580,7 +575,7 @@
                                 17.10€
                             </td>
                             <td class="table-column">
-                                <button class="btn btn-brown" title="Modifier produit">
+                                <button id="js__btnModif-0" class="btn btn-brown btn-form js__btnOpenModale" type="button" aria-haspopup="dialog" aria-controls="dialog" title="Modifier compte">
                                     modifier
                                 </button>
                             </td>
@@ -604,7 +599,7 @@
                                 22.80€
                             </td>
                             <td class="table-column">
-                                <button class="btn btn-brown" title="Modifier produit">
+                                <button id="js__btnModif-0" class="btn btn-brown btn-form js__btnOpenModale" type="button" aria-haspopup="dialog" aria-controls="dialog" title="Modifier compte">
                                     modifier
                                 </button>
                             </td>
@@ -628,289 +623,7 @@
                                 28.50€
                             </td>
                             <td class="table-column">
-                                <button class="btn btn-brown" title="Modifier produit">
-                                    modifier
-                                </button>
-                            </td>
-                            <td class="table-column">
-                                <button class="btn btn-brown" title="Spprimer produit">
-                                    supprimer
-                                </button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </details>
-            <hr class="seprator">
-            <details class="box-produit">
-                <summary class="title-part menu-part ombre majDbutMot">
-                    Les Pâtes de fruits
-                </summary>
-                <table class="table-product">
-                    <thead class="table-box">
-                        <tr class="table-row">
-                            <th class="table-column invisible img-responsive">
-                                image
-                            </th>
-                            <th class="table-column  gras majDbutMot">
-                                nom produit
-                            </th>
-                            <th class="table-column  gras majDbutMot">
-                                taille ballotin
-                            </th>
-                            <th class="table-column  gras majDbutMot">
-                                prix produit
-                            </th>
-                            <th class="table-column invisible">
-                                modifier
-                            </th>
-                            <th class="table-column invisible">
-                                supprimer
-                            </th>
-                        </tr>
-                    </thead>
-    
-                    <tbody class="table-box">
-                        <tr class="table-row">
-                            <td class="table-column img-responsive">
-                                <img class="img-product" src="../asset/img/produit/pate-fruit.jpg" alt="photo pâte de fruit">
-                            </td>
-                            <td class="table-column  gras majDbutMot">
-                                pâte de fruit
-                            </td>
-                            <td class="table-column">
-                                100g
-                            </td>
-                            <td class="table-column">
-                                7€
-                            </td>
-                            <td class="table-column">
-                                <button class="btn btn-brown" title="Modifier produit">
-                                    modifier
-                                </button>
-                            </td>
-                            <td class="table-column">
-                                <button class="btn btn-brown" title="Spprimer produit">
-                                    supprimer
-                                </button>
-                            </td>
-                        </tr>
-                        <tr class="table-row">
-                            <td class="table-column img-responsive">
-                                <img class="img-product" src="../asset/img/produit/pate-fruit.jpg" alt="photo pâte de fruit">
-                            </td>
-                            <td class="table-column  gras majDbutMot">
-                                pâte de fruit
-                            </td>
-                            <td class="table-column">
-                                200g
-                            </td>
-                            <td class="table-column">
-                                14€
-                            </td>
-                            <td class="table-column">
-                                <button class="btn btn-brown" title="Modifier produit">
-                                    modifier
-                                </button>
-                            </td>
-                            <td class="table-column">
-                                <button class="btn btn-brown" title="Spprimer produit">
-                                    supprimer
-                                </button>
-                            </td>
-                        </tr>
-                        <tr class="table-row">
-                            <td class="table-column img-responsive">
-                                <img class="img-product" src="../asset/img/produit/pate-fruit.jpg" alt="photo pâte de fruit">
-                            </td>
-                            <td class="table-column  gras majDbutMot">
-                                pâte de fruit
-                            </td>
-                            <td class="table-column">
-                                300g
-                            </td>
-                            <td class="table-column">
-                                21€
-                            </td>
-                            <td class="table-column">
-                                <button class="btn btn-brown" title="Modifier produit">
-                                    modifier
-                                </button>
-                            </td>
-                            <td class="table-column">
-                                <button class="btn btn-brown" title="Spprimer produit">
-                                    supprimer
-                                </button>
-                            </td>
-                        </tr>
-                        <tr class="table-row">
-                            <td class="table-column img-responsive">
-                                <img class="img-product" src="../asset/img/produit/pate-fruit.jpg" alt="photo pâte de fruit">
-                            </td>
-                            <td class="table-column  gras majDbutMot">
-                                pâte de fruit
-                            </td>
-                            <td class="table-column">
-                                400g
-                            </td>
-                            <td class="table-column">
-                                28€
-                            </td>
-                            <td class="table-column">
-                                <button class="btn btn-brown" title="Modifier produit">
-                                    modifier
-                                </button>
-                            </td>
-                            <td class="table-column">
-                                <button class="btn btn-brown" title="Spprimer produit">
-                                    supprimer
-                                </button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </details>
-            <hr class="seprator">
-            <details class="box-produit">
-                <summary class="title-part menu-part ombre majDbutMot">
-                    Les Pâtes d'Amandes
-                </summary>
-                <table class="table-product">
-                    <thead class="table-box">
-                        <tr class="table-row">
-                            <th class="table-column invisible img-responsive">
-                                image
-                            </th>
-                            <th class="table-column  gras majDbutMot">
-                                nom produit
-                            </th>
-                            <th class="table-column">
-                                taille ballotin
-                            </th>
-                            <th class="table-column">
-                                prix produit
-                            </th>
-                            <th class="table-column invisible">
-                                modifier
-                            </th>
-                            <th class="table-column invisible">
-                                supprimer
-                            </th>
-                        </tr>
-                    </thead>
-    
-                    <tbody class="table-box">
-                        <tr class="table-row">
-                            <td class="table-column img-responsive">
-                                <img class="img-product" src="../asset/img/produit/pate-amande.jpg" alt="photo pate d'amande">
-                            </td>
-                            <td class="table-column  gras majDbutMot">
-                                pate d'amande
-                            </td>
-                            <td class="table-column">
-                                xxxg
-                            </td>
-                            <td class="table-column">
-                                x.xx€
-                            </td>
-                            <td class="table-column">
-                                <button class="btn btn-brown" title="Modifier produit">
-                                    modifier
-                                </button>
-                            </td>
-                            <td class="table-column">
-                                <button class="btn btn-brown" title="Spprimer produit">
-                                    supprimer
-                                </button>
-                            </td>
-                        </tr>
-                        <tr class="table-row">
-                            <td class="table-column img-responsive">
-                                <img class="img-product" src="../asset/img/produit/pate-amande.jpg" alt="photo pate d'amande">
-                            </td>
-                            <td class="table-column  gras majDbutMot">
-                                pate d'amande
-                            </td>
-                            <td class="table-column">
-                                xxxg
-                            </td>
-                            <td class="table-column">
-                                x.xx€
-                            </td>
-                            <td class="table-column">
-                                <button class="btn btn-brown" title="Modifier produit">
-                                    modifier
-                                </button>
-                            </td>
-                            <td class="table-column">
-                                <button class="btn btn-brown" title="Spprimer produit">
-                                    supprimer
-                                </button>
-                            </td>
-                        </tr>
-                        <tr class="table-row">
-                            <td class="table-column img-responsive">
-                                <img class="img-product" src="../asset/img/produit/pate-amande.jpg" alt="photo pate d'amande">
-                            </td>
-                            <td class="table-column  gras majDbutMot">
-                                pate d'amande
-                            </td>
-                            <td class="table-column">
-                                xxxg
-                            </td>
-                            <td class="table-column">
-                                x.xx€
-                            </td>
-                            <td class="table-column">
-                                <button class="btn btn-brown" title="Modifier produit">
-                                    modifier
-                                </button>
-                            </td>
-                            <td class="table-column">
-                                <button class="btn btn-brown" title="Spprimer produit">
-                                    supprimer
-                                </button>
-                            </td>
-                        </tr>
-                        <tr class="table-row">
-                            <td class="table-column img-responsive">
-                                <img class="img-product" src="../asset/img/produit/pate-amande.jpg" alt="photo pate d'amande">
-                            </td>
-                            <td class="table-column  gras majDbutMot">
-                                pate d'amande
-                            </td>
-                            <td class="table-column">
-                                xxxg
-                            </td>
-                            <td class="table-column">
-                                x.xx€
-                            </td>
-                            <td class="table-column">
-                                <button class="btn btn-brown" title="Modifier produit">
-                                    modifier
-                                </button>
-                            </td>
-                            <td class="table-column">
-                                <button class="btn btn-brown" title="Spprimer produit">
-                                    supprimer
-                                </button>
-                            </td>
-                        </tr>
-                        <tr class="table-row">
-                            <td class="table-column img-responsive">
-                                <img class="img-product" src="../asset/img/produit/pate-amande.jpg" alt="photo pate d'amande">
-                            </td>
-                            <td class="table-column  gras majDbutMot">
-                                pate d'amande
-                            </td>
-                            <td class="table-column">
-                                xxxg
-                            </td>
-                            <td class="table-column">
-                                x.xx€
-                            </td>
-                            <td class="table-column">
-                                <button class="btn btn-brown" title="Modifier produit">
+                                <button id="js__btnModif-0" class="btn btn-brown btn-form js__btnOpenModale" type="button" aria-haspopup="dialog" aria-controls="dialog" title="Modifier compte">
                                     modifier
                                 </button>
                             </td>
@@ -927,7 +640,7 @@
         <article class="content-part ombre">
             <details class="box-produit">
                 <summary class="title-part menu-part ombre majDbutMot">
-                    Les Assortiements
+                    Les Assortiments
                 </summary>
                 <table class="table-product">
                     <thead class="table-box">
@@ -968,7 +681,7 @@
                                 5€70
                             </td>
                             <td class="table-column">
-                                <button class="btn btn-brown" title="Modifier produit">
+                                <button id="js__btnModif-0" class="btn btn-brown btn-form js__btnOpenModale" type="button" aria-haspopup="dialog" aria-controls="dialog" title="Modifier compte">
                                     modifier
                                 </button>
                             </td>
@@ -992,7 +705,7 @@
                                 11€40
                             </td>
                             <td class="table-column">
-                                <button class="btn btn-brown" title="Modifier produit">
+                                <button id="js__btnModif-0" class="btn btn-brown btn-form js__btnOpenModale" type="button" aria-haspopup="dialog" aria-controls="dialog" title="Modifier compte">
                                     modifier
                                 </button>
                             </td>
@@ -1016,7 +729,7 @@
                                 17.10€
                             </td>
                             <td class="table-column">
-                                <button class="btn btn-brown" title="Modifier produit">
+                                <button id="js__btnModif-0" class="btn btn-brown btn-form js__btnOpenModale" type="button" aria-haspopup="dialog" aria-controls="dialog" title="Modifier compte">
                                     modifier
                                 </button>
                             </td>
@@ -1040,7 +753,7 @@
                                 22.80€
                             </td>
                             <td class="table-column">
-                                <button class="btn btn-brown" title="Modifier produit">
+                                <button id="js__btnModif-0" class="btn btn-brown btn-form js__btnOpenModale" type="button" aria-haspopup="dialog" aria-controls="dialog" title="Modifier compte">
                                     modifier
                                 </button>
                             </td>
@@ -1064,7 +777,7 @@
                                 28.50€
                             </td>
                             <td class="table-column">
-                                <button class="btn btn-brown" title="Modifier produit">
+                                <button id="js__btnModif-0" class="btn btn-brown btn-form js__btnOpenModale" type="button" aria-haspopup="dialog" aria-controls="dialog" title="Modifier compte">
                                     modifier
                                 </button>
                             </td>
@@ -1079,4 +792,33 @@
             </details>
         </article>
     </aside>
+    <aside class="aside-modification" id="js__modalWindow" role="dialog" aria-labelledby="dialog-title" aria-describedby="dialog-desc" aria-modal="true" aria-hidden="true" tabindex="-1">
+        <div role="document" class="modale__box">
+            <button id="js__btnClose" class="btn btn-white btn-connexion" type="button" aria-label="Fermer" title="Fermer cette fenêtre modale" data-dismiss="dialog">ferner</button>
+            <form class="form-modification"  method="get">
+                <div class="champ-modification">
+                    <label class="label-modification majDbutMot" for="infoProduit-nom">Nom </label>
+                    <input class="zone-text" type="text" name="infoProduit-nom" id="infoProduit-nom" placeholder="nom"  pattern="[A-Za-z0-9\u00c0-\u00ff]{3,20}" required/>
+                </div>
+                <div class="champ-modification">
+                    <label class="label-modification majDbutMot" for="infoProduit-categorie">Categorie </label>
+                    <input class="zone-text" type="text" name="infoProduit-categorie" id="infoProduit-categorie" placeholder="categorie"  pattern="[A-Za-z0-9\u00c0-\u00ff]{3,20}" required/>
+                </div>
+                <div class="champ-modification">
+                    <label class="label-modification majDbutMot" for="infoProduit-taille">Taille</label>
+                    <input class="zone-text" type="text" name="infoProduit-taille" id="infoProduit-taille" placeholder="taille" required/>
+                </div>
+                <div class="champ-modification">
+                    <label class="label-modification majDbutMot" for="infoProduit-prix">Prix</label>
+                    <input class="zone-text" type="text" name="infoProduit-prix" id="infoProduit-prix" placeholder="prix" required/>
+                </div>
+                <div class="champ-modification">
+                    <label class="label-modification majDbutMot" for="infoProduit-description">Description Du Produit</label>
+                    <textarea class="zone-text"  name="infoProduit-description" id="infoProduit-description" cols="50" rows="5" maxlength="250" wrap="hard" required></textarea>
+                </div>
+                <button class="btn btn-white">modification</button>
+            </form>
+        </div>
+    </aside>
+    <script src="../asset/script/scriptGestionProduits.js" defer></script>
 </body>
