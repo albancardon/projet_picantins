@@ -354,7 +354,7 @@ details[open] .detail-nav-responsive:before {
     padding: 2%;
     width: 100%;
     overflow-y: scroll;
-    transition: .2s;
+    transition: 0.2s;
     background-color: rgba(0,0,0, .75);
 }
 .aside-modification[aria-hidden="true"] {

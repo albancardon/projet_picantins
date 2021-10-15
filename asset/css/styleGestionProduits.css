@@ -125,6 +125,17 @@
 details[open] .menu-part:before {
     content: "-";
 }
+.description-part{
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    text-align: center;
+    margin: 0% 10%;
+    padding: 2%;
+    height:4em;
+    background-color: white;
+    cursor: default;
+}
 .table-product{
     display: flex;
     flex-direction: column;
