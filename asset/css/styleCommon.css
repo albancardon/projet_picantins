@@ -90,6 +90,10 @@
     color: #FCCA87;
     background-color: #422818;
 }
+.btn-fat{
+    width: 15em;
+    height:3.5em;
+}
 
 @media screen and (min-width:768px) {
     .btn{
@@ -118,12 +122,22 @@
     margin:0.5em;
     text-align: center;
     background-color: #FCCA87;
-    font-size: 1.3em;
     border-radius: 10px;
 }
 .link-page{
     text-decoration:none;
     color: #271A0F;
+}
+.icon-panier-box{
+    height: 2em;
+    width: 2em;
+    background-image: url("../icon/panier.svg");
+    background-size: contain;
+}
+.icon-panier{
+    display:flex;
+    justify-content: center;
+    align-items: center;
 }
 .header{
     align-items: center;
@@ -306,7 +320,6 @@ details[open] .detail-nav-responsive:before {
     text-align: center;
     background-color: #FCCA87;
     font-family: "gothamBold";
-    font-size: 1em;
     list-style-type: none;
 }
 

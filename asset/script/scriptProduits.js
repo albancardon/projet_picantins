@@ -1,13 +1,14 @@
 
-// ouverture/fermeture fenetre produit box choix poids
+// 1.0 ouverture/fermeture fenetre produit box choix poids
 
-    //déclaration variables
+    // 1.1 déclaration variables
 
 var boxDescriptifProduit = document.getElementsByClassName("js__boxDescriptifProduit");
 var boxDescriptifProduitTab = Array.from(boxDescriptifProduit);
 var produitChoix = document.getElementsByClassName("js__produitChoix");
 var produitChoixTab = Array.from(produitChoix);
-var mainContent = document.getElementById("js__mainContent");
+var btnFermetureBox = document.getElementsByClassName("croix-fermeture");
+var btnFermetureBoxTab = Array.from(btnFermetureBox);
 var valueClassNameOpen = "produit-box-choix ombre visible";
 var valueClassNameTransitionOpen = "produit-box-choix ombre transitionOpen";
 var valueClassNameMask = "produit-box-choix ombre js__produitChoix mask";
@@ -16,6 +17,7 @@ var recupNumBox = "";
 var boxABouger;
 var clickHorsBox = true;
 
+    // 1.2.0 ajout des listener ouverture/fermeture box choix poids
 
 document.addEventListener('DOMContentLoaded', ()=>{
 
@@ -27,27 +29,16 @@ document.addEventListener('DOMContentLoaded', ()=>{
             moveBox(boxABouger);
         })
     });
+
+    btnFermetureBoxTab.forEach((btnFermetureBox) => {
+        btnFermetureBox.addEventListener('click', (e) => {
+            e.preventDefault();
+            recupNumBox = btnFermetureBox.id.split("js__btnFermetureBox-")[1];
+            boxABouger = document.getElementById("js__choixPoids-"+recupNumBox);
+            closeBox(boxABouger);
+        })
+    });
 });
-
-    // fonction ouverture/fermeture box choix poids
-
-function moveBox(boxABouger) {
-    if (boxABouger.className === valueClassNameMask) {
-        openBox(boxABouger);
-    }else if (boxABouger.className === valueClassNameOpen){
-        closeBox(boxABouger);
-    }
-}
-
-function openBox(boxABouger) {
-    boxABouger.className = valueClassNameTransitionOpen;
-    setTimeout(()=>{boxABouger.className = valueClassNameOpen}, 800);
-}
-
-function closeBox(boxABouger) {
-    boxABouger.className = valueClassNameTransitionClose;
-    setTimeout(()=>{boxABouger.className = valueClassNameMask}, 800);
-}
 
 window.addEventListener('click', () => {
     produitChoixTab.forEach((boxChoix) => {
@@ -67,28 +58,49 @@ window.addEventListener('click', () => {
     clickHorsBox = true;
 });
 
-    // navigation au clavier ouverture/fermeture box choix poids
+        // 1.2.1 navigation au clavier ouverture/fermeture box choix poids
 
 window.addEventListener("keydown", function(e) {
-    boxDescriptifProduitTab.forEach((boxDescriptif) => {
-        if (e.key === "Enter" && boxDescriptif.id === document.activeElement.id ) {
-            recupNumBox = boxDescriptif.id.split("js__boxProduit-")[1];
-            boxABouger = document.getElementById("js__choixPoids-"+recupNumBox);
-            openBox(boxABouger);
-        }
-    })
-    if (e.key === "Escape" || e.key === "Esc") {
-        produitChoixTab.forEach((boxChoix)=>{
-            if (boxChoix.className === valueClassNameOpen){
-                closeBox(boxChoix);
-            }
-        })
+boxDescriptifProduitTab.forEach((boxDescriptif) => {
+    if (e.key === "Enter" && boxDescriptif.id === document.activeElement.id ) {
+        recupNumBox = boxDescriptif.id.split("js__boxProduit-")[1];
+        boxABouger = document.getElementById("js__choixPoids-"+recupNumBox);
+        openBox(boxABouger);
     }
 })
+if (e.key === "Escape" || e.key === "Esc") {
+    produitChoixTab.forEach((boxChoix)=>{
+        if (boxChoix.className === valueClassNameOpen){
+            closeBox(boxChoix);
+        }
+    })
+}
+})
 
-// changement valeur de la quantité de produit
+    //1.3 fonction ouverture/fermeture box choix poids
 
-    //déclaration des variables
+function moveBox(boxABouger) {
+    if (boxABouger.className === valueClassNameMask) {
+        openBox(boxABouger);
+    }else if (boxABouger.className === valueClassNameOpen){
+        closeBox(boxABouger);
+    }
+}
+
+function openBox(boxABouger) {
+    boxABouger.className = valueClassNameTransitionOpen;
+    setTimeout(()=>{boxABouger.className = valueClassNameOpen}, 800);
+}
+
+function closeBox(boxABouger) {
+    boxABouger.className = valueClassNameTransitionClose;
+    setTimeout(()=>{boxABouger.className = valueClassNameMask}, 800);
+}
+
+
+// 2.0 changement valeur de la quantité de produit
+
+    // 2.1 déclaration des variables modification quantité de produit
 
 var btnMoinsList = document.getElementsByClassName("js__btnMoins");
 var btnMoinsListTab = Array.from(btnMoinsList);
@@ -97,8 +109,9 @@ var btnPlusListTab = Array.from(btnPlusList);
 var recupIdProduit = "";
 var recupNumQuantite = "";
 
+    // 2.2 ajout des listeners et fonction modification quantité de produit
 
-window.addEventListener("DOMContentLoaded", function(e) {
+document.addEventListener("DOMContentLoaded", function(e) {
     btnMoinsListTab.forEach((btnMoins) => {
         let x = 0;
         btnMoins.addEventListener('click', (e) => {

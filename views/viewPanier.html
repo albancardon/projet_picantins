@@ -5,15 +5,15 @@
     <link rel="stylesheet" href="../asset/css/stylePanier.css" type="text/css">
 </head>
 
-<body class="bodyCommon">
+<body id="contentPanier" class="bodyCommon">
     <h1 class="titlePage majDbutMot">Mon Panier</h1>
-    <main class="main-panier">
+    <main id="js__panierListeArticle" class="main-panier">
         <!-- entete du panier -->
         <article class="header-panier">
             <h2 class="title-panier majDbutMot">Contenu panier</h2>
             <section class="total-container">
                 <p class="legend-prix-panier">Sous Total</p>
-                <p> 53,70€</p>
+                <p class=" js__prixPanier"></p>
                 <button class="btn btn-white btn-fat" title="Passer commande">
                     passer commande
                 </button>
@@ -21,86 +21,20 @@
         </article>
 
         <!-- liste des produit dans le panier -->
-
-        <article class="produit-panier ombre">
-            <img class="img-produit ombre" src="../asset/img/produit/picantin.jpg" alt="image produit">
-            <section class="legende-produit">
-                <h3 class="gras majDbutMot">Picantins</h3>
-                <p>
-                    3 noisettes grillées délicatement enrobées de chocolat et de nougatine.
-                </p>
-                <p>
-                    Ballotin de <span>100</span>g
-                </p>
-                <div class="quantite-produit-box">
-                    <div class="quantite-produit ombre">
-                        <label for="panier-quantite1">Qté:</label>
-                        <input class="quantite-value" type="number" min="0" max="99" name="panier-quantite1" id="panier-quantite1" value="1" pattern="[0-9]{1,2}">
-                    </div>
-                    <p class="produit-supprimer">Supprimer</p>
-                </div>
-            </section>
-            <section class="prix-article-panier">
-                <p>Prix Unitaire </p>
-                <p class="gras">5.70€</p>
-            </section>
+        <article id="js__panierVide" class="produit-panier ombre">
+                <h3 class="message-panier-vide">Votre panier est vide!</h3>
         </article>
 
-        <article class="produit-panier ombre">
-            <img class="img-produit ombre" src="../asset/img/produit/marron-glace.jpg" alt="image produit">
-            <section class="legende-produit">
-                <h3 class="gras majDbutMot">Marrons Glacées</h3>
-                <p>
-                    Marrons en provenance de Turin en Italie.
-                </p>
-                <p>
-                    Ballotin de <span>100</span>g
-                </p>
-                <div class="quantite-produit-box">
-                    <div class="quantite-produit ombre">
-                        <label for="panier-quantite1">Qté:</label>
-                        <input class="quantite-value" type="number" min="0" max="99" name="panier-quantite1" id="panier-quantite1" value="3" pattern="[0-9]{1,2}">
-                    </div>
-                    <p class="produit-supprimer">Supprimer</p>
-                </div>
-            </section>
-            <section class="prix-article-panier">
-                <p>Prix Unitaire </p>
-                <p class="gras">9€</p>
-            </section>
-        </article>
-
-        <article class="produit-panier ombre">
-            <img class="img-produit ombre" src="../asset/img/produit/rocher.jpg" alt="image produit">
-            <section class="legende-produit">
-                <h3 class="gras majDbutMot">Rocher Compiègnois</h3>
-                <p>
-                    Des pralinés feuilletés avec du riz soufflé.
-                </p>
-                <p>
-                    Ballotin de <span>300</span>g
-                </p>
-                <div class="quantite-produit-box">
-                    <div class="quantite-produit ombre">
-                        <label for="panier-quantite1">Qté:</label>
-                        <input class="quantite-value" type="number" min="0" max="99" name="panier-quantite1" id="panier-quantite1" value="1" pattern="[0-9]{1,2}">
-                    </div>
-                    <p class="produit-supprimer">Supprimer</p>
-                </div>
-            </section>
-            <section class="prix-article-panier">
-                <p>Prix Unitaire </p>
-                <p class="gras">21€</p>
-            </section>
-        </article>
     </main>
 
-    <aside class="aside-panier">
+    <aside id="js_asidePanier" class="invisible">
         <P>
-            Sous-Total: <span class="gras">53.70</span>€
+            Sous-Total: <span class="gras js__prixPanier"></span>
         </P>
         <button class="btn btn-grey btn-fat" title="Passer commande">
             passer commande
         </button>
     </aside>
+    <script src="../asset/script/scriptPanier.js" defer></script>
+    <script src="../asset/script/scriptCommonLocalStorage.js" defer></script>
 </body>
