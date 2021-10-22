@@ -41,7 +41,20 @@ function recupProduitStorage() {
         let prixUnitaireProduit = produit[3];
         let quantiteProduitPanier = produit[4];
         let descriptionPanier = produit[5];
-        let imagePanier = produit[6];
+        let imagePanier = "";
+        let addressImgTab = produit[6].split("/");
+        if (addressImgTab[0] === "..") {
+            imagePanier = produit[6];
+        }else{
+            for (i = 0; i < addressImgTab.length; i++) {
+                if (addressImgTab[i] === "asset") {
+                    imagePanier = ".."
+                    for (j = i; j < addressImgTab.length; j++) {
+                        imagePanier = imagePanier + "/" + addressImgTab[j];
+                    }
+                }
+            }
+        }
         let produitTab = [idProduitPanier, nomProduitPanier, poidsProduit, prixUnitaireProduit, quantiteProduitPanier, descriptionPanier, imagePanier];
         insert(produitTab);
         calculPrixArticle(prixUnitaireProduit,quantiteProduitPanier);
