@@ -1,3 +1,7 @@
+<?php
+
+$this ->_page = "Accueil";
+?>
 <body class="bodyCommon">
     <!-- main contenu -->
     <main class="main-container">
@@ -19,27 +23,18 @@
     </main>
     <!-- aside-produit  -->
     <aside class="aside-container">
-    
-        <article class="premier-produit container-box-produit">
-            <div class="produit-box-img">
-                <img class="img-produit ombre" src="asset/img/acceuil/ballotin.jpg" alt="photo de ballotin">
+
+    <?php
+    foreach ($categorie as $categorie):
+    ?>
+        <article id="categorie-<?php echo $categorie->getIdCategorie()?>" class="container-box-produit">
+            <div id="boxImg-<?php echo $categorie->getIdCategorie()?>" class="produit-box-img">
+                <img class="img-produit ombre" src="asset/img/acceuil/<?php echo $categorie->getNomCategorie()?>.jpg" alt="photo de <?php echo $categorie->getNomCategorie()?>">
             </div>
-            <p class="produit-legende ombre majDbutMot">Nos Spécialités</p>
+            <p class="produit-legende ombre majDbutMot">Nos <?php echo $categorie->getNomCategorie()?></p>
         </article>
+    <?php endforeach; ?>
     
-        <article class="second-produit container-box-produit">
-            <div class="produit-box-img">
-                <img class="img-produit ombre" src="asset/img/acceuil/marronGlace.jpg" alt="photo de marron glacé">
-            </div>
-            <p class="produit-legende ombre majDbutMot">Nos Confiseries</p>
-        </article>
-    
-        <article class="troisieme-produit container-box-produit">
-            <div class="produit-box-img">
-                <img class="img-produit ombre" src="asset/img/acceuil/chocolat.jpg" alt="photo ballotin">
-            </div>
-            <p class="produit-legende ombre majDbutMot">Nos Assortiments</p>
-        </article>
     </aside>
     
     <!-- aside-phrase-de-fin -->
@@ -48,13 +43,4 @@
             N'oubliez pas de venir nous suivre sur notre Instagram
         </a>
     </aside>
-    <?php
-    foreach ($categorie as $categorie):
-    ?>
-    <h2>
-        <?php
-        echo $categorie->getNomCategorie()
-        ?>
-    </h2>
-    <?php endforeach; ?>
 </body>

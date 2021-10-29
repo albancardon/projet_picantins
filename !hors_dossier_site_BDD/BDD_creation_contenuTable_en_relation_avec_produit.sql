@@ -2,7 +2,7 @@ INSERT INTO categorie (nomCategorie)
 VALUES 
 ("spécialités"),
 ("confiseries"),
-("assortiment");
+("assortiments");
 
 INSERT INTO produit (categorie_idCategorie,nomProduit,descriptionProduit)
 VALUES 

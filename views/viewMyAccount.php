@@ -1,9 +1,3 @@
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="asset/css/styleCommon.css" type="text/css">
-    <link rel="stylesheet" href="asset/css/styleMyAccount.css" type="text/css">
-</head>
 
 <body class="bodyCommon">
     <h1 class="titlePage">Mon compte Client</h1>

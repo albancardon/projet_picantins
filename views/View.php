@@ -2,7 +2,7 @@
 class View
 {
     private $_file;
-    private $_t;
+    private $_page;
 
     public function __construct($action)
     {
@@ -13,9 +13,8 @@ class View
     public function generate($data)
     {
         $content = $this->generateFile($this->_file, $data);
-        $_t = $data["page"];
         
-        $view = $this->generateFile('views/template.php', array('t'=>$_t, 'content'=>$content));
+        $view = $this->generateFile('views/template.php', array('page'=> $this-> _page, 'content'=>$content));
 
         echo $view;
     }

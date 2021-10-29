@@ -1,6 +1,7 @@
 <?php
 class Categorie
 {
+    private $_id;
     private $_nomCategorie;
 
     // constructeur de l'objet
@@ -22,6 +23,13 @@ class Categorie
     }
 
     // setters
+    public function setIdCategorie($idCategorie)
+    {
+        $idCategorie = (int) $idCategorie;
+        if ($idCategorie > 0) {
+            $this->_id = $idCategorie;
+        }
+    }
     public function setNomCategorie($nomCategorie)
     {
         if (is_string($nomCategorie)) {
@@ -30,6 +38,11 @@ class Categorie
     }
 
     // getters
+
+    public function getIdCategorie()
+    {
+        return $this->_id;
+    }
     public function getNomCategorie()
     {
         return $this->_nomCategorie;

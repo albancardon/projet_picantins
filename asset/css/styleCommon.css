@@ -178,11 +178,12 @@
         padding: 0 5% ;
     }
     .logo-societe-header-fixed{
-        padding: 3%;
+        padding: 12%;
         margin: 1em;
-        height: 4em;
+        height: 5em;
         background-color: white;
         border-radius:10px;
+        font-size: 0.6em;
     }
     .barre-fixed-nav{
         display:flex;
@@ -304,7 +305,6 @@ details[open] .detail-nav-responsive:before {
 }
 .logo-societe-footer{
     padding: 2%;
-    height: 3em;
     background-color: white;
     border-radius:10px;
 }

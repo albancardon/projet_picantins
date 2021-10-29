@@ -20,10 +20,10 @@ abstract class Models
         return self::$_bdd;
     }
 
-    protected function getAll($table, $obj)
+    protected function getAll($table, $obj, $nomId)
     {
         $var = [];
-        $req = $this->getBdd()->prepare('SELECT * FROM ' . $table);
+        $req = $this->getBdd()->prepare('SELECT * FROM ' . $table . ' ORDER BY id' . $nomId . ' ASC');
         $req->execute();
         while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
             $var[] = new $obj($data);

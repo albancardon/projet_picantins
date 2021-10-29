@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="asset/css/styleCommon.css" type="text/css">
-    <link rel="stylesheet" href="asset/css/style<?php echo $t;?>.css" type="text/css">
+    <link rel="stylesheet" href="asset/css/style<?php echo $page;?>.css" type="text/css">
     <title>Les Picantins</title>
     <link rel="icon" type="image/png" href="asset/img/logo-lespicantins-cour.svg">
 </head>
@@ -16,14 +16,14 @@
         <!--header deployed-->
         <section class="header header-animation">
             <div>
-                <a class="link-page" href="">
+                <a class="link-page" href="<?=URL?>">
                     <img class="logo-societe-header" src="asset/img/logo-lespicantins.svg" alt="logo societe" />
                 </a>
             </div>
             <nav class="barre-nav gras">
                 <ul class="nav-liste">
                     <li class="liste-link">
-                        <a class="link-page" href="">Acceuil</a>
+                        <a class="link-page" href="<?=URL?>">Acceuil</a>
                     </li>
                     <li class="liste-link">
                         <a class="link-page" href="">Spécialités</a>
@@ -52,14 +52,14 @@
         <!--header contracted-->
         <section class="header header-animation-fixed-top" >
             <div>
-                <a class="link-page" href="">
+                <a class="link-page" href="<?=URL?>">
                     <img class="logo-societe-header-fixed" src="asset/img/logo-lespicantins-cour.svg" alt="logo societe" />
                 </a>
             </div>
             <nav class="barre-fixed-nav">
                 <ul class="nav-liste">
                     <li>
-                        <a class="link-page" href=""><img class="icon" src="asset/icon/home.svg" alt="icône login"></a>
+                        <a class="link-page" href="<?=URL?>"><img class="icon" src="asset/icon/home.svg" alt="icône home"></a>
                     </li>
                     <li class="liste-link">
                         <a class="link-page" href="">Spécialités</a>
@@ -90,13 +90,13 @@
     <!--header nav responsive-->
     <header class="header-mobile">
         <section class="header header-responsive" >
-            <a class="link-page" href="">
+            <a class="link-page" href="<?=URL?>">
                 <img class="logo-societe-responsive" src="asset/img/logo-lespicantins-cour.svg" alt="logo societe" />
             </a>
             <nav class="barre-nav-responsive">
                 <ul class="nav-liste">
                     <li>
-                        <a href=""><img class="icon-responsive" src="asset/icon/home.svg" alt="icône login"></a>
+                        <a href="<?=URL?>"><img class="icon-responsive" src="asset/icon/home.svg" alt="icône login"></a>
                     </li>
                     <details class="">
                         <summary class="detail-nav-responsive majDbutMot">
@@ -136,7 +136,7 @@
             <section class="box-footer">
                 <ul class="nav-footer">
                     <li class="liste-footer">
-                        <a class="link-page" href="">Acceuil</a>
+                        <a class="link-page" href="<?=URL?>">Acceuil</a>
                     </li>
                     <li class="liste-footer">
                         <a class="link-page" href="">Spécialités</a>
@@ -155,7 +155,7 @@
                     </li>
                 </ul>
             </section>
-            <a class="link-page box-footer" href="">
+            <a class="link-page box-footer" href="<?=URL?>">
                 <img class="logo-societe-footer" src="asset/img/logo-lespicantins-cour.svg" alt="logo societe" />
             </a>
             <section class="box-footer">
@@ -170,6 +170,8 @@
 
             </section>
         </footer>
-        <script src="asset/script/scriptCommon.js" defer></script>
+
 </body>
+        <script src="asset/script/scriptCommon.js" defer></script>
+        <script src="asset/script/script<?php echo $page;?>.js" defer></script>
 </html>

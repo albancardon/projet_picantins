@@ -1,9 +1,3 @@
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="asset/css/styleCommon.css" type="text/css">
-    <link rel="stylesheet" href="asset/css/styleGestionProduits.css" type="text/css">
-</head>
 
 <body id="pageGestionProduits" class="bodyCommon">
     <div id="js__mainContent">

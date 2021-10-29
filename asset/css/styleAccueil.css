@@ -21,7 +21,7 @@
     display:flex;
 }
 .img-boutique{
-    width:80%;
+    width:75%;
     height:max-content;
     border-radius: 20px;
 }
@@ -97,6 +97,7 @@
     display:flex;
     justify-content: space-between;
     align-items: flex-start;
+    flex-wrap: wrap;
 
 }
 .container-box-produit{
@@ -107,11 +108,11 @@
     align-items: center;
     align-content: space-between;
     flex-wrap: wrap;
+    margin: 0 3em;
     height: 100%;
 }
 .produit-box-img{
-    width: 75%;
-    max-width: 20em;
+    max-width: 17em;
 }
 .img-produit{
     width: 100%;
@@ -130,12 +131,6 @@
  /* 2.1 aside produit responsive */
 
     @media screen and (min-width:768px) {
-        .second-produit {
-            margin-top: 10%;
-        }
-        .troisieme-produit{
-            margin-top: 20%;
-        }
         .produit-legende{
             width: 60%;
             max-width: 9em;
@@ -147,7 +142,6 @@
         }
         .produit-legende{
             font-size: 0.8em;
-            width: 75%;
         }
     }
 
