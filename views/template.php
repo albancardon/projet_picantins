@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../asset/css/styleCommon.css" type="text/css">
+    <link rel="stylesheet" href="asset/css/styleCommon.css" type="text/css">
+    <link rel="stylesheet" href="asset/css/style<?php echo $t;?>.css" type="text/css">
     <title>Les Picantins</title>
-    <link rel="icon" type="image/png" href="../asset/img/logo-lespicantins-cour.svg">
+    <link rel="icon" type="image/png" href="asset/img/logo-lespicantins-cour.svg">
 </head>
 
 <body class="bodyCommon">
@@ -16,7 +17,7 @@
         <section class="header header-animation">
             <div>
                 <a class="link-page" href="">
-                    <img class="logo-societe-header" src="../asset/img/logo-lespicantins.svg" alt="logo societe" />
+                    <img class="logo-societe-header" src="asset/img/logo-lespicantins.svg" alt="logo societe" />
                 </a>
             </div>
             <nav class="barre-nav gras">
@@ -37,13 +38,13 @@
                         <a class="link-page" href="">Contact</a>
                     </li>
                     <li>
-                        <a class="link-page" href=""><img class="icon" src="../asset/icon/user.svg" alt="icône login"></a>
+                        <a class="link-page" href=""><img class="icon" src="asset/icon/user.svg" alt="icône login"></a>
                     </li>
                     <li class="icon-panier-box">
                         <a class="link-page icon-panier js__nbArticlePanier" href=""></a>
                     </li>
                     <li>
-                        <a class="link-page" href="https://www.instagram.com/lespicantins/?hl=fr"><img class="icon" src="../asset/icon/instagram.svg" alt="icône instagram"></a>
+                        <a class="link-page" href="https://www.instagram.com/lespicantins/?hl=fr"><img class="icon" src="asset/icon/instagram.svg" alt="icône instagram"></a>
                     </li>
                 </ul>
             </nav>
@@ -52,13 +53,13 @@
         <section class="header header-animation-fixed-top" >
             <div>
                 <a class="link-page" href="">
-                    <img class="logo-societe-header-fixed" src="../asset/img/logo-lespicantins-cour.svg" alt="logo societe" />
+                    <img class="logo-societe-header-fixed" src="asset/img/logo-lespicantins-cour.svg" alt="logo societe" />
                 </a>
             </div>
             <nav class="barre-fixed-nav">
                 <ul class="nav-liste">
                     <li>
-                        <a class="link-page" href=""><img class="icon" src="../asset/icon/home.svg" alt="icône login"></a>
+                        <a class="link-page" href=""><img class="icon" src="asset/icon/home.svg" alt="icône login"></a>
                     </li>
                     <li class="liste-link">
                         <a class="link-page" href="">Spécialités</a>
@@ -76,10 +77,10 @@
                         <a class="link-page icon-panier js__nbArticlePanier" href=""></a>
                     </li>
                     <li>
-                        <a class="link-page" href=""><img class="icon" src="../asset/icon/user.svg" alt="icône login"></a>
+                        <a class="link-page" href=""><img class="icon" src="asset/icon/user.svg" alt="icône login"></a>
                     </li>
                     <li>
-                        <a class="link-page" href="https://www.instagram.com/lespicantins/?hl=fr"><img class="icon" src="../asset/icon/instagram.svg" alt="icône instagram"></a>
+                        <a class="link-page" href="https://www.instagram.com/lespicantins/?hl=fr"><img class="icon" src="asset/icon/instagram.svg" alt="icône instagram"></a>
                     </li>
                 </ul>
             </nav>
@@ -90,12 +91,12 @@
     <header class="header-mobile">
         <section class="header header-responsive" >
             <a class="link-page" href="">
-                <img class="logo-societe-responsive" src="../asset/img/logo-lespicantins-cour.svg" alt="logo societe" />
+                <img class="logo-societe-responsive" src="asset/img/logo-lespicantins-cour.svg" alt="logo societe" />
             </a>
             <nav class="barre-nav-responsive">
                 <ul class="nav-liste">
                     <li>
-                        <a href=""><img class="icon-responsive" src="../asset/icon/home.svg" alt="icône login"></a>
+                        <a href=""><img class="icon-responsive" src="asset/icon/home.svg" alt="icône login"></a>
                     </li>
                     <details class="">
                         <summary class="detail-nav-responsive majDbutMot">
@@ -115,18 +116,20 @@
                         </li>
                     </details>
                     <li>
-                        <a href=""><img class="icon-responsive" src="../asset/icon/user.svg" alt="icône login"></a>
+                        <a href=""><img class="icon-responsive" src="asset/icon/user.svg" alt="icône login"></a>
                     </li>
                     <li class="icon-panier-box">
                         <a class="link-page icon-panier js__nbArticlePanier" href=""></a>
                     </li>
                     <li>
-                        <a href="https://www.instagram.com/lespicantins/?hl=fr"><img class="icon-responsive" src="../asset/icon/instagram.svg" alt="icône instagram"></a>
+                        <a href="https://www.instagram.com/lespicantins/?hl=fr"><img class="icon-responsive" src="asset/icon/instagram.svg" alt="icône instagram"></a>
                     </li>
                 </ul>
             </nav>
         </section>
     </header>
+
+    <?php echo $content; ?>
 
     <!--footer-->
         <footer class="footer">
@@ -148,12 +151,12 @@
                         <a class="link-page" href="">Contact</a>
                     </li>
                     <li class="icon-footer">
-                        <a class="link-page" href="https://www.instagram.com/lespicantins/?hl=fr"><img class="icon" src="../asset/icon/instagram.svg" alt="icône instagram"></a>
+                        <a class="link-page" href="https://www.instagram.com/lespicantins/?hl=fr"><img class="icon" src="asset/icon/instagram.svg" alt="icône instagram"></a>
                     </li>
                 </ul>
             </section>
             <a class="link-page box-footer" href="">
-                <img class="logo-societe-footer" src="../asset/img/logo-lespicantins-cour.svg" alt="logo societe" />
+                <img class="logo-societe-footer" src="asset/img/logo-lespicantins-cour.svg" alt="logo societe" />
             </a>
             <section class="box-footer">
                 <ul class="liste-info-footer">
@@ -167,6 +170,6 @@
 
             </section>
         </footer>
-        <script src="../asset/script/scriptCommon.js" defer></script>
+        <script src="asset/script/scriptCommon.js" defer></script>
 </body>
 </html>

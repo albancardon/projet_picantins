@@ -1,8 +1,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../asset/css/styleCommon.css" type="text/css">
-    <link rel="stylesheet" href="../asset/css/stylePanier.css" type="text/css">
+    <link rel="stylesheet" href="asset/css/styleCommon.css" type="text/css">
+    <link rel="stylesheet" href="asset/css/stylePanier.css" type="text/css">
 </head>
 
 <body id="contentPanier" class="bodyCommon">
@@ -35,6 +35,6 @@
             passer commande
         </button>
     </aside>
-    <script src="../asset/script/scriptPanier.js" defer></script>
-    <script src="../asset/script/scriptCommonLocalStorage.js" defer></script>
+    <script src="asset/script/scriptPanier.js" defer></script>
+    <script src="asset/script/scriptCommonLocalStorage.js" defer></script>
 </body>

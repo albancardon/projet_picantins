@@ -1,8 +1,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../asset/css/styleCommon.css" type="text/css">
-    <link rel="stylesheet" href="../asset/css/styleGestionCommandes.css" type="text/css">
+    <link rel="stylesheet" href="asset/css/styleCommon.css" type="text/css">
+    <link rel="stylesheet" href="asset/css/styleGestionCommandes.css" type="text/css">
 </head>
 
 <body class="bodyCommon">
@@ -199,7 +199,7 @@
                     </p>
                 </div>
                 <div class="commande-part-num">
-                    <button class="btn btn-white btn-fat" title="Commande traité">
+                <button class="btn btn-white btn-fat" title="Commande traité">
                         commande traité
                     </button>
                 </div>

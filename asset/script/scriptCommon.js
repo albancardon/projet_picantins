@@ -11,7 +11,6 @@ window.onload = majPanier();
 
 function majPanier() {
     nbArticle = JSON.parse(localStorage.getItem("panierTabSave"));
-    console.log(nbArticle);
     if (nbArticle!= null) { 
         nbArticle = JSON.parse(localStorage.getItem("panierTabSave"));
         nbArticlePanier.forEach((affichagePanier) => {

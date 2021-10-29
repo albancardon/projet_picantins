@@ -1,8 +1,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../asset/css/styleCommon.css" type="text/css">
-    <link rel="stylesheet" href="../asset/css/styleContact.css" type="text/css">
+    <link rel="stylesheet" href="asset/css/styleCommon.css" type="text/css">
+    <link rel="stylesheet" href="asset/css/styleContact.css" type="text/css">
 </head>
 
 <body class="bodyCommon">
@@ -19,16 +19,16 @@
             </section>
             <section class="part-qui-photo">
                 <div class="box-img-qui">
-                    <img src="../asset/img/contact/interieur-magasin.jpg" alt="photo interieur magasin" class="img-qui">
+                    <img src="asset/img/contact/interieur-magasin.jpg" alt="photo interieur magasin" class="img-qui">
                 </div>
                 <div class="box-img-qui">
-                    <img src="../asset/img/contact/picantin.jpg" alt="photo de Picantins" class="img-qui">
+                    <img src="asset/img/contact/picantin.jpg" alt="photo de Picantins" class="img-qui">
                 </div>
                 <div class="box-img-qui">
-                    <img src="../asset/img/contact/chocolat-vitine.jpg" alt="photo d'une vitrine de chocolat" class="img-qui">
+                    <img src="asset/img/contact/chocolat-vitine.jpg" alt="photo d'une vitrine de chocolat" class="img-qui">
                 </div>
                 <div class="box-img-qui">
-                    <img src="../asset/img/contact/devanture.jpg" alt="photo de la deventure du magasin" class="img-qui">
+                    <img src="asset/img/contact/devanture.jpg" alt="photo de la deventure du magasin" class="img-qui">
                 </div>
             </section>
         </div>

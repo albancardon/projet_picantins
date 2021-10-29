@@ -1,8 +1,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../asset/css/styleCommon.css" type="text/css">
-    <link rel="stylesheet" href="../asset/css/styleGestionProduits.css" type="text/css">
+    <link rel="stylesheet" href="asset/css/styleCommon.css" type="text/css">
+    <link rel="stylesheet" href="asset/css/styleGestionProduits.css" type="text/css">
 </head>
 
 <body id="pageGestionProduits" class="bodyCommon">
@@ -82,7 +82,7 @@
                         <tbody class="table-box">
                             <tr class="table-row">
                                 <td class="table-column img-responsive">
-                                    <img class="img-product" src="../asset/img/produit/picantin.jpg" alt="photo picantin">
+                                    <img class="img-product" src="asset/img/produit/picantin.jpg" alt="photo picantin">
                                 </td>
                                 <td id="js__nomProduit-prod-0_poids-0" class="table-column gras majDbutMot">
                                     picantins
@@ -106,7 +106,7 @@
                             </tr>
                             <tr class="table-row">
                                 <td class="table-column img-responsive">
-                                    <img class="img-product" src="../asset/img/produit/picantin.jpg" alt="photo picantin">
+                                    <img class="img-product" src="asset/img/produit/picantin.jpg" alt="photo picantin">
                                 </td>
                                 <td id="js__nomProduit-prod-0_poids-1" class="table-column gras majDbutMot">
                                     picantins
@@ -130,7 +130,7 @@
                             </tr>
                             <tr class="table-row">
                                 <td class="table-column img-responsive">
-                                    <img class="img-product" src="../asset/img/produit/picantin.jpg" alt="photo picantin">
+                                    <img class="img-product" src="asset/img/produit/picantin.jpg" alt="photo picantin">
                                 </td>
                                 <td id="js__nomProduit-prod-0_poids-2" class="table-column gras majDbutMot">
                                     picantins
@@ -154,7 +154,7 @@
                             </tr>
                             <tr class="table-row">
                                 <td class="table-column img-responsive">
-                                    <img class="img-product" src="../asset/img/produit/picantin.jpg" alt="photo picantin">
+                                    <img class="img-product" src="asset/img/produit/picantin.jpg" alt="photo picantin">
                                 </td>
                                 <td id="js__nomProduit-prod-0_poids-3" class="table-column gras majDbutMot">
                                     picantins
@@ -178,7 +178,7 @@
                             </tr>
                             <tr class="table-row">
                                 <td class="table-column img-responsive">
-                                    <img class="img-product" src="../asset/img/produit/picantin.jpg" alt="photo picantin">
+                                    <img class="img-product" src="asset/img/produit/picantin.jpg" alt="photo picantin">
                                 </td>
                                 <td id="js__nomProduit-prod-0_poids-4" class="table-column gras majDbutMot">
                                     picantins
@@ -202,7 +202,7 @@
                             </tr>
                             <tr class="table-row">
                                 <td class="table-column img-responsive">
-                                    <img class="img-product" src="../asset/img/produit/picantin.jpg" alt="photo picantin">
+                                    <img class="img-product" src="asset/img/produit/picantin.jpg" alt="photo picantin">
                                 </td>
                                 <td id="js__nomProduit-prod-0_poids-5" class="table-column gras majDbutMot">
                                     picantins
@@ -262,7 +262,7 @@
                         <tbody class="table-box">
                             <tr class="table-row">
                                 <td class="table-column img-responsive">
-                                    <img class="img-product" src="../asset/img/produit/rocher.jpg" alt="photo rocher compiégnois">
+                                    <img class="img-product" src="asset/img/produit/rocher.jpg" alt="photo rocher compiégnois">
                                 </td>
                                 <td id="js__nomProduit-prod-1_poids-0" class="table-column gras majDbutMot">
                                     rochers Compiégnois
@@ -286,7 +286,7 @@
                             </tr>
                             <tr class="table-row">
                                 <td class="table-column img-responsive">
-                                    <img class="img-product" src="../asset/img/produit/rocher.jpg" alt="photo rocher compiégnois">
+                                    <img class="img-product" src="asset/img/produit/rocher.jpg" alt="photo rocher compiégnois">
                                 </td>
                                 <td id="js__nomProduit-prod-1_poids-1" class="table-column gras majDbutMot">
                                     rochers Compiégnois
@@ -310,7 +310,7 @@
                             </tr>
                             <tr class="table-row">
                                 <td class="table-column img-responsive">
-                                    <img class="img-product" src="../asset/img/produit/rocher.jpg" alt="photo rocher compiégnois">
+                                    <img class="img-product" src="asset/img/produit/rocher.jpg" alt="photo rocher compiégnois">
                                 </td>
                                 <td id="js__nomProduit-prod-1_poids-2" class="table-column gras majDbutMot">
                                     rochers Compiégnois
@@ -334,7 +334,7 @@
                             </tr>
                             <tr class="table-row">
                                 <td class="table-column img-responsive">
-                                    <img class="img-product" src="../asset/img/produit/rocher.jpg" alt="photo rocher compiégnois">
+                                    <img class="img-product" src="asset/img/produit/rocher.jpg" alt="photo rocher compiégnois">
                                 </td>
                                 <td id="js__nomProduit-prod-1_poids-3" class="table-column gras majDbutMot">
                                     rochers Compiégnois
@@ -394,7 +394,7 @@
                         <tbody class="table-box">
                             <tr class="table-row">
                                 <td class="table-column img-responsive">
-                                    <img class="img-product" src="../asset/img/produit/marjorie.jpg" alt="photo marjorie">
+                                    <img class="img-product" src="asset/img/produit/marjorie.jpg" alt="photo marjorie">
                                 </td>
                                 <td id="js__nomProduit-prod-2_poids-0" class="table-column gras majDbutMot">
                                     marjorie
@@ -418,7 +418,7 @@
                             </tr>
                             <tr class="table-row">
                                 <td class="table-column img-responsive">
-                                    <img class="img-product" src="../asset/img/produit/marjorie.jpg" alt="photo marjorie">
+                                    <img class="img-product" src="asset/img/produit/marjorie.jpg" alt="photo marjorie">
                                 </td>
                                 <td id="js__nomProduit-prod-2_poids-1" class="table-column gras majDbutMot">
                                     marjorie
@@ -442,7 +442,7 @@
                             </tr>
                             <tr class="table-row">
                                 <td class="table-column img-responsive">
-                                    <img class="img-product" src="../asset/img/produit/marjorie.jpg" alt="photo marjorie">
+                                    <img class="img-product" src="asset/img/produit/marjorie.jpg" alt="photo marjorie">
                                 </td>
                                 <td id="js__nomProduit-prod-2_poids-2" class="table-column gras majDbutMot">
                                     marjorie
@@ -466,7 +466,7 @@
                             </tr>
                             <tr class="table-row">
                                 <td class="table-column img-responsive">
-                                    <img class="img-product" src="../asset/img/produit/marjorie.jpg" alt="photo marjorie">
+                                    <img class="img-product" src="asset/img/produit/marjorie.jpg" alt="photo marjorie">
                                 </td>
                                 <td id="js__nomProduit-prod-2_poids-3" class="table-column gras majDbutMot">
                                     marjorie
@@ -534,7 +534,7 @@
                         <tbody class="table-box">
                             <tr class="table-row">
                                 <td class="table-column img-responsive">
-                                    <img class="img-product" src="../asset/img/produit/marron-glace.jpg" alt="photo marron-glace">
+                                    <img class="img-product" src="asset/img/produit/marron-glace.jpg" alt="photo marron-glace">
                                 </td>
                                 <td id="js__nomProduit-prod-3_poids-0" class="table-column gras majDbutMot">
                                     marron glacée
@@ -595,7 +595,7 @@
                         <tbody class="table-box">
                             <tr class="table-row">
                                 <td class="table-column img-responsive">
-                                    <img class="img-product" src="../asset/img/produit/assortiment.jpg" alt="photo assortiment">
+                                    <img class="img-product" src="asset/img/produit/assortiment.jpg" alt="photo assortiment">
                                 </td>
                                 <td id="js__nomProduit-prod-4_poids-0" class="table-column gras majDbutMot">
                                     assortiments
@@ -619,7 +619,7 @@
                             </tr>
                             <tr class="table-row">
                                 <td class="table-column img-responsive">
-                                    <img class="img-product" src="../asset/img/produit/assortiment.jpg" alt="photo assortiment">
+                                    <img class="img-product" src="asset/img/produit/assortiment.jpg" alt="photo assortiment">
                                 </td>
                                 <td id="js__nomProduit-prod-4_poids-1" class="table-column gras majDbutMot">
                                     assortiments
@@ -643,7 +643,7 @@
                             </tr>
                             <tr class="table-row">
                                 <td class="table-column img-responsive">
-                                    <img class="img-product" src="../asset/img/produit/assortiment.jpg" alt="photo assortiment">
+                                    <img class="img-product" src="asset/img/produit/assortiment.jpg" alt="photo assortiment">
                                 </td>
                                 <td id="js__nomProduit-prod-4_poids-2" class="table-column gras majDbutMot">
                                     assortiments
@@ -667,7 +667,7 @@
                             </tr>
                             <tr class="table-row">
                                 <td class="table-column img-responsive">
-                                    <img class="img-product" src="../asset/img/produit/assortiment.jpg" alt="photo assortiment">
+                                    <img class="img-product" src="asset/img/produit/assortiment.jpg" alt="photo assortiment">
                                 </td>
                                 <td id="js__nomProduit-prod-4_poids-3" class="table-column gras majDbutMot">
                                     assortiments
@@ -691,7 +691,7 @@
                             </tr>
                             <tr class="table-row">
                                 <td class="table-column img-responsive">
-                                    <img class="img-product" src="../asset/img/produit/assortiment.jpg" alt="photo assortiment">
+                                    <img class="img-product" src="asset/img/produit/assortiment.jpg" alt="photo assortiment">
                                 </td>
                                 <td id="js__nomProduit-prod-4_poids-4" class="table-column gras majDbutMot">
                                     assortiments
@@ -743,6 +743,6 @@
             </form>
         </div>
     </aside>
-    <script src="../asset/script/scriptCommonModal.js" defer></script>
-    <script src="../asset/script/scriptGestionProduits.js" defer></script>
+    <script src="asset/script/scriptCommonModal.js" defer></script>
+    <script src="asset/script/scriptGestionProduits.js" defer></script>
 </body>

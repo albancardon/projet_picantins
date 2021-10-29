@@ -1,14 +1,8 @@
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../asset/css/styleCommon.css" type="text/css">
-    <link rel="stylesheet" href="../asset/css/styleAccueil.css" type="text/css">
-</head>    
 <body class="bodyCommon">
     <!-- main contenu -->
     <main class="main-container">
         <div class="container-image">
-            <img class="img-boutique ombre" src="../asset/img/acceuil/magasin.jpg" alt="photo du comptoir du magasin">
+            <img class="img-boutique ombre" src="asset/img/acceuil/magasin.jpg" alt="photo du comptoir du magasin">
         </div>
         <article class="container-text">
             <h1 class="text-title majDbutMot">
@@ -28,21 +22,21 @@
     
         <article class="premier-produit container-box-produit">
             <div class="produit-box-img">
-                <img class="img-produit ombre" src="../asset/img/acceuil/ballotin.jpg" alt="photo de ballotin">
+                <img class="img-produit ombre" src="asset/img/acceuil/ballotin.jpg" alt="photo de ballotin">
             </div>
             <p class="produit-legende ombre majDbutMot">Nos Spécialités</p>
         </article>
     
         <article class="second-produit container-box-produit">
             <div class="produit-box-img">
-                <img class="img-produit ombre" src="../asset/img/acceuil/marronGlace.jpg" alt="photo de marron glacé">
+                <img class="img-produit ombre" src="asset/img/acceuil/marronGlace.jpg" alt="photo de marron glacé">
             </div>
             <p class="produit-legende ombre majDbutMot">Nos Confiseries</p>
         </article>
     
         <article class="troisieme-produit container-box-produit">
             <div class="produit-box-img">
-                <img class="img-produit ombre" src="../asset/img/acceuil/chocolat.jpg" alt="photo ballotin">
+                <img class="img-produit ombre" src="asset/img/acceuil/chocolat.jpg" alt="photo ballotin">
             </div>
             <p class="produit-legende ombre majDbutMot">Nos Assortiments</p>
         </article>
@@ -54,4 +48,13 @@
             N'oubliez pas de venir nous suivre sur notre Instagram
         </a>
     </aside>
+    <?php
+    foreach ($categorie as $categorie):
+    ?>
+    <h2>
+        <?php
+        echo $categorie->getNomCategorie()
+        ?>
+    </h2>
+    <?php endforeach; ?>
 </body>

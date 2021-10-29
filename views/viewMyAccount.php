@@ -1,8 +1,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../asset/css/styleCommon.css" type="text/css">
-    <link rel="stylesheet" href="../asset/css/styleMyAccount.css" type="text/css">
+    <link rel="stylesheet" href="asset/css/styleCommon.css" type="text/css">
+    <link rel="stylesheet" href="asset/css/styleMyAccount.css" type="text/css">
 </head>
 
 <body class="bodyCommon">
@@ -37,7 +37,7 @@
         <article class="box-edit-profile">
             <section class="lien-edit js__btnOpenModale">
                 Editer profile
-                <img class="icon" src="../asset/icon/editer.svg" alt="icone édition">
+                <img class="icon" src="asset/icon/editer.svg" alt="icone édition">
             </section>
         </article>
     </main>
@@ -77,7 +77,7 @@
                     </td>
                     <td>
                         <a href="">
-                            <img class="icon" src="../asset/icon/pdf.svg" alt="">
+                            <img class="icon" src="asset/icon/pdf.svg" alt="">
                         </a>
                     </td>
                 </tr>
@@ -94,7 +94,7 @@
                     </td>
                     <td>
                         <a href="">
-                            <img class="icon" src="../asset/icon/pdf.svg" alt="">
+                            <img class="icon" src="asset/icon/pdf.svg" alt="">
                         </a>
                     </td>
                 </tr>
@@ -111,7 +111,7 @@
                     </td>
                     <td>
                         <a href="">
-                            <img class="icon" src="../asset/icon/pdf.svg" alt="">
+                            <img class="icon" src="asset/icon/pdf.svg" alt="">
                         </a>
                     </td>
                 </tr>
@@ -163,6 +163,6 @@
             </form>
         </div>
     </aside>
-    <script src="../asset/script/scriptCommonModal.js" defer></script>
-    <script src="../asset/script/scriptMyAccount.js" defer></script>
+    <script src="asset/script/scriptCommonModal.js" defer></script>
+    <script src="asset/script/scriptMyAccount.js" defer></script>
 </body>
