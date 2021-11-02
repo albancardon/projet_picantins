@@ -2,7 +2,6 @@
 class View
 {
     private $_file;
-    private $_page;
 
     public function __construct($action)
     {
@@ -13,8 +12,12 @@ class View
     public function generate($data)
     {
         $content = $this->generateFile($this->_file, $data);
-        
-        $view = $this->generateFile('views/template.php', array('page'=> $this-> _page, 'content'=>$content));
+        if(array_key_exists("page" , $data)) {
+            $view = $this->generateFile('views/template.php', array('page'=> $data["page"], 'content'=>$content));
+        }else {
+            $data["page"] = "accueil";
+            $view = $this->generateFile('views/template.php', array('page'=> $data["page"], 'content'=>$content));
+        }
 
         echo $view;
     }
@@ -23,7 +26,6 @@ class View
     private function generateFile($file, $data)
     {
         if(file_exists($file)){
-
             extract($data);
 
             ob_start();

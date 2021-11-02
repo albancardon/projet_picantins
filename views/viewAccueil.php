@@ -1,8 +1,10 @@
-<?php
 
-$this ->_page = "Accueil";
-?>
 <body class="bodyCommon">
+    <?php
+    echo "<pre>";
+    var_dump($contenuTab);
+    echo "</pre>";
+    ?>
     <!-- main contenu -->
     <main class="main-container">
         <div class="container-image">
@@ -24,16 +26,16 @@ $this ->_page = "Accueil";
     <!-- aside-produit  -->
     <aside class="aside-container">
 
-    <?php
-    foreach ($categorie as $categorie):
-    ?>
-        <article id="categorie-<?php echo $categorie->getIdCategorie()?>" class="container-box-produit">
-            <div id="boxImg-<?php echo $categorie->getIdCategorie()?>" class="produit-box-img">
-                <img class="img-produit ombre" src="asset/img/acceuil/<?php echo $categorie->getNomCategorie()?>.jpg" alt="photo de <?php echo $categorie->getNomCategorie()?>">
-            </div>
-            <p class="produit-legende ombre majDbutMot">Nos <?php echo $categorie->getNomCategorie()?></p>
-        </article>
-    <?php endforeach; ?>
+        <?php
+        foreach ($contenuTab['categorie'] as $categorie):
+        ?>
+            <article id="categorie-<?php echo $categorie->getIdCategorie()?>" class="container-box-produit">
+                <div id="boxImg-<?php echo $categorie->getIdCategorie()?>" class="produit-box-img">
+                    <img class="img-produit ombre" src="asset/img/acceuil/<?php echo $categorie->getNomCategorie()?>.jpg" alt="photo de <?php echo $categorie->getNomCategorie()?>">
+                </div>
+                <p class="produit-legende ombre majDbutMot">Nos <?php echo $categorie->getNomCategorie()?></p>
+            </article>
+        <?php endforeach; ?>
     
     </aside>
     

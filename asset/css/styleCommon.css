@@ -438,3 +438,9 @@ details[open] .detail-nav-responsive:before {
             flex-direction: column;
         }
     }
+
+/* 6.0  css page erreur */
+
+#msgError{
+    margin: 4em 0;
+}

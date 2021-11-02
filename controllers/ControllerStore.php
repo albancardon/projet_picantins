@@ -1,7 +1,7 @@
 <?php
 require_once('controllers/Controller.php');
 
-class ControllerAccueil extends Controller 
+class ControllerStore extends Controller 
 {
 
     public function __construct($url)

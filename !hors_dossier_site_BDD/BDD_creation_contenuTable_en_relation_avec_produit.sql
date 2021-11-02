@@ -6,13 +6,13 @@ VALUES
 
 INSERT INTO produit (categorie_idCategorie,nomProduit,descriptionProduit)
 VALUES 
-(1,"Les Picantins","3 noisettes grillées délicatement enrobées de chocolat et de nougatine."),
-(1,"Les Rochers Compiégnois","Des pralinés feuilletés avec du riz soufflé."),
-(1,"Les Marjories","Une ganache au chocolat noir parfumé aux écorces d’orange confite."),
+(1,"Picantins","3 noisettes grillées délicatement enrobées de chocolat et de nougatine."),
+(1,"Rochers Compiégnois","Des pralinés feuilletés avec du riz soufflé."),
+(1,"Marjories","Une ganache au chocolat noir parfumé aux écorces d’orange confite."),
 
-(2,"Les Marrons-glacée","Marrons en provenance de Turin en Italie."),
+(2,"Marrons-glacée","Marrons en provenance de Turin en Italie."),
 
-(3,"Les Assortiments","Un assortiment de nos spécialités.");
+(3,"Assortiments","Un assortiment de nos spécialités.");
 
 INSERT INTO FormatProduit (produit_idProduit,poids,prixUnitaire)
 VALUES 
