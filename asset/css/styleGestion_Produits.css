@@ -66,17 +66,46 @@
     margin-bottom: 3%;
     width: 100%;
 }
-.legend-form{
-    text-align: center;
-    font-family: "gothamBold";
-}
-.btn-add{
-    margin-bottom: 2%;
-}
 .form-champ{
     width:50%;
     max-width: 15em;
 }
+.form-img{
+    width:50%;
+    background-color:white;
+    text-align: center;
+}
+.legend-form{
+    margin : 0.5em;
+    text-align: center;
+    font-family: "gothamBold";
+}
+.form-box-btn{
+    display: flex;
+    align-items:center;
+    justify-content:space-around;
+    flex-direction: column;
+    width:80%;
+}
+.btn-add{
+    margin-bottom: 2%;
+}
+.btn-supp{
+    margin-bottom: 2%;
+}
+.legende{
+    display: flex;
+    justify-content:right;
+    width:100%;
+}
+
+    /* 1.1 main ajout produit responsive */
+
+    @media screen and (min-width:768px) {
+        .btn-supp{
+            font-size: 0.9em;
+        }
+    }
 
 /* 2.0 aside gestion produit */
 
@@ -166,6 +195,12 @@ details[open] .menu-part:before {
 .btn-brown{
     width:70%;
 }
+.hidden{
+    display: none;
+    visibility: hidden;
+    height: 0;
+    width: 0;
+}
 
     /* 2.1 aside gestion produit responsive */
 
@@ -173,7 +208,7 @@ details[open] .menu-part:before {
         .img-responsive{
             display: flex;
         }
-        .btn{
+        .btn-brown{
             font-size:1em;
         }
     }
@@ -181,8 +216,115 @@ details[open] .menu-part:before {
         .img-responsive{
             display: none;
         }
-        .btn{
+        .btn-brown{
             font-size:0.5em;
             width:75%;
         }
     }
+
+/* 2.2 css boite modificaiton des categories */
+
+.visible{
+    display: flex;
+    margin-top: 0;
+}
+.mask{
+    display: none;
+    margin-top: -25em;
+}
+.transitionOpen{
+    display: flex;
+    animation: slideFromTop 1s;
+}
+.transitionClose{
+    display: flex;
+    animation: slideGoToTop 1s;
+}
+.categorie_box{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    align-items: center;
+    margin: auto;
+    padding: 2%;
+    height: 70%;
+}
+.form-categorie{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    align-items: center;
+    height: 70%;
+    width: 100%;
+    max-width: 40em;
+    padding: 5% 0;
+    background-color: #BDBCBC;
+    border-radius: 20px;
+}
+.form-modif-categorie{
+    color: #987140;
+    text-decoration: underline;
+}
+
+@keyframes slideFromTop{
+    from{
+        transform: scale(0.8) translateY(-25em);
+        opacity: 0;
+    }
+    to{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+@keyframes slideGoToTop{
+    from{
+        transform:translateY(0);
+        opacity: 1;
+    }
+    to{
+        transform: scale(0.8) translateY(-25em);
+        opacity: 0;
+    }
+}
+    /* 2.3 css boite modificaiton des categories responsive */
+
+@media screen and (min-width:768px) {
+    .categorie_box {
+        width: 60%;
+    }
+}
+@media screen and (max-width:768px) {
+    .categorie_box {
+        width: 80%;
+    }
+}
+
+/* 3.0 boite validation suppression produit */
+
+#js__box-validation{
+    position: fixed;
+    justify-content:center;
+    align-items: center;
+    left: 0px;
+    top:0px;
+    width: 100%;
+    height: 100%;
+    z-index:1;
+    font-size:1.25em;
+}
+.form-suppr{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    align-items: center;
+    padding:0.5em;
+    height: 6em;
+    background-color:#BDBCBC;
+    border: 1px solid #271A0F;
+}
+.box-oui-non{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    width: 80%;
+}

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="asset/css/styleCommon.css" type="text/css">
-    <link rel="stylesheet" href="asset/css/style<?php echo $page;?>.css" type="text/css">
+    <link rel="stylesheet" href="asset/css/style<?= $page;?>.css" type="text/css">
     <title>Les Picantins</title>
     <link rel="icon" type="image/png" href="asset/img/logo-lespicantins-cour.svg">
 </head>
@@ -25,15 +25,11 @@
                     <li class="liste-link">
                         <a class="link-page" href="<?=URL?>">Acceuil</a>
                     </li>
-                    <li class="liste-link">
-                        <a class="link-page" href="">Spécialités</a>
-                    </li>
-                    <li class="liste-link">
-                        <a class="link-page" href="">Assortiments</a>
-                    </li>
-                    <li class="liste-link">
-                        <a class="link-page" href="">Confiseries</a>
-                    </li>
+                    <?php foreach ($data['categorie'] as $categorie):?>
+                        <li class="liste-link">
+                            <a class="link-page" href="<?=URL?>store#<?= $categorie->getNomCategorie()?>"><?= $categorie->getNomCategorie()?></a>
+                        </li>
+                    <?php endforeach; ?>
                     <li class="liste-link">
                         <a class="link-page" href="">Contact</a>
                     </li>
@@ -50,7 +46,7 @@
             </nav>
         </section>
         <!--header contracted-->
-        <section class="header header-animation-fixed-top" >
+        <!-- <section class="header header-animation-fixed-top" >
             <div>
                 <a class="link-page" href="<?=URL?>">
                     <img class="logo-societe-header-fixed" src="asset/img/logo-lespicantins-cour.svg" alt="logo societe" />
@@ -61,15 +57,11 @@
                     <li>
                         <a class="link-page" href="<?=URL?>"><img class="icon" src="asset/icon/home.svg" alt="icône home"></a>
                     </li>
-                    <li class="liste-link">
-                        <a class="link-page" href="">Spécialités</a>
-                    </li>
-                    <li class="liste-link">
-                        <a class="link-page" href="">Assortiments</a>
-                    </li>
-                    <li class="liste-link">
-                        <a class="link-page" href="">Confiseries</a>
-                    </li>
+                    <?php foreach ($data['categorie'] as $categorie):?>
+                        <li class="liste-link">
+                            <a class="link-page" href="<?=URL?>store#<?= $categorie->getNomCategorie()?>"><?= $categorie->getNomCategorie()?></a>
+                        </li>
+                    <?php endforeach; ?>
                     <li class="liste-link">
                         <a class="link-page" href="">Contact</a>
                     </li>
@@ -84,7 +76,7 @@
                     </li>
                 </ul>
             </nav>
-        </section>
+        </section> -->
     </header> 
 
     <!--header nav responsive-->
@@ -102,14 +94,11 @@
                         <summary class="detail-nav-responsive majDbutMot">
                             nos produits
                         </summary>
-                        <li class="liste-link-responsive">
-                            <a class="link-page" href="">Spécialités</a>
-                        </li>
-                        <li class="liste-link-responsive">
-                            <a class="link-page" href="">Assortiments</a>
-                        </li>
-                        <li class="liste-link-responsive">
-                            <a class="link-page" href="">Confiseries</a>
+                        <?php foreach ($data['categorie'] as $categorie):?>
+                            <li class="liste-link">
+                                <a class="link-page" href="<?=URL?>store#<?= $categorie->getNomCategorie()?>"><?= $categorie->getNomCategorie()?></a>
+                            </li>
+                        <?php endforeach; ?>
                         </li>
                         <li class="liste-link-responsive">
                             <a class="link-page" href="">Contact</a>
@@ -129,7 +118,7 @@
         </section>
     </header>
 
-    <?php echo $content; ?>
+    <?= $content; ?>
 
     <!--footer-->
         <footer class="footer">
@@ -167,11 +156,13 @@
                         <a class="link-page" href="">Condition générales de vente</a>
                     </li>
                 </ul>
-
             </section>
         </footer>
 
+    <!--bouton haut de page-->
+        <a class="bouton-up" href="#remonter"><img class="up" src="asset/icon/up.svg" alt="flèche vers le haut"></a>
+
 </body>
         <script src="asset/script/scriptCommon.js" defer></script>
-        <script src="asset/script/script<?php echo $page;?>.js" defer></script>
+        <script src="asset/script/script<?= $page;?>.js" defer></script>
 </html>

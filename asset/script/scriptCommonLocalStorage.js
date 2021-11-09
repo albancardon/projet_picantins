@@ -1,13 +1,15 @@
 
-// local storage panier
+// Sommaire Script local storage panier
+// 1.0 locale storage
 
-// 1. déclaration des variables storage panier 
+// 1.0 locale storage
 
+    // déclaration des variables storage panier 
 var btnAjoutPanier = document.getElementsByClassName("js__btnAjoutPanier");
 var btnAjoutPanierTab = Array.from(btnAjoutPanier);
 var panierTab = [];
 
-// 2. ajout des listeners
+    // ajout des listeners
 
     // modification panier
     document.addEventListener('DOMContentLoaded', ()=>{
@@ -52,7 +54,7 @@ var panierTab = [];
         });
     });
 
-// 3. fonction de création du stockage local storage ou du chargement des anciens produits
+    // fonction de création du stockage local storage ou du chargement des anciens produits
 function createStorage(){
     if ( typeof localStorage != "undefined" && JSON){
         if (localStorage.getItem("panierTabSave")==null){
@@ -65,7 +67,7 @@ function createStorage(){
     }
 }
 
-// 4. fonction reset valeur quantité recupProduitStorage
+    // fonction reset valeur quantité recupProduitStorage
 
 function resetProduit (idProduitPanier){
         tabNumProduitQauntite = idProduitPanier.split(/(\d)/);

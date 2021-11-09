@@ -3,3 +3,8 @@
         echo $errorMsg; 
     ?>
 </h1>
+<?php
+            // echo "<pre>";
+            // var_dump($data);
+            // echo "</pre>";
+?>

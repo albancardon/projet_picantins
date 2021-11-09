@@ -1,10 +1,5 @@
 
 <body class="bodyCommon">
-    <?php
-    echo "<pre>";
-    var_dump($contenuTab);
-    echo "</pre>";
-    ?>
     <!-- main contenu -->
     <main class="main-container">
         <div class="container-image">
@@ -26,15 +21,14 @@
     <!-- aside-produit  -->
     <aside class="aside-container">
 
-        <?php
-        foreach ($contenuTab['categorie'] as $categorie):
-        ?>
-            <article id="categorie-<?php echo $categorie->getIdCategorie()?>" class="container-box-produit">
-                <div id="boxImg-<?php echo $categorie->getIdCategorie()?>" class="produit-box-img">
-                    <img class="img-produit ombre" src="asset/img/acceuil/<?php echo $categorie->getNomCategorie()?>.jpg" alt="photo de <?php echo $categorie->getNomCategorie()?>">
+        <?php foreach ($contenuTab['categorie'] as $categorie):?>
+            <a id="categorie-<?= $categorie->getIdCategorie()?>" class="container-box-produit" href="<?=URL?>store#<?= $categorie->getNomCategorie()?>">
+                <div id="boxImg-<?= $categorie->getIdCategorie()?>" class="produit-box-img">
+                    <img class="img-produit ombre" src="asset/img/acceuil/<?= $categorie->getNomCategorie()?>.jpg" 
+                    alt="photo de <?= $categorie->getNomCategorie()?>">
                 </div>
-                <p class="produit-legende ombre majDbutMot">Nos <?php echo $categorie->getNomCategorie()?></p>
-            </article>
+                <p class="produit-legende ombre majDbutMot">Nos <?= $categorie->getNomCategorie()?></p>
+            </a>
         <?php endforeach; ?>
     
     </aside>

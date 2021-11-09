@@ -37,8 +37,8 @@ class Router
             }
         } catch (Exception $e) {
             $errorMsg = $e->getMessage();
-            $this->_view = new View ('Error');
-            $this->_view->generate(array('errorMsg' => $errorMsg));
+            require_once('controllers/ControllerError.php');
+            $this->_ctrl = new ControllerError($url, array('errorMsg' => $errorMsg));
         }
     }
 }

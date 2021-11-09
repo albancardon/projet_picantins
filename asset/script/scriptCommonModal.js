@@ -1,6 +1,11 @@
 
-// fenetre modale
+// Sommaire Script fenetre modale
+// 1.0 fenetre modale
 
+
+// 1.0 fenetre modale
+
+    // déclaration des variables storage panier 
 var btnOpenModales = document.getElementsByClassName("js__btnOpenModale");
 var btnModaleOpens = Array.from(btnOpenModales);
 var modalWindow = document.getElementById("js__modalWindow");
@@ -13,8 +18,8 @@ var focusableElementsArray = [
     '[tabindex]:not([tabindex="-1"])',
 ];
 
-
-    // ouverture modale
+    // mise en place des listeners
+        // ouverture modale
 document.addEventListener("DOMContentLoaded", ()=>{
     
     btnModaleOpens.forEach((btnModaleOpen) => {
@@ -26,7 +31,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     });
 });
 
-    // fermeture modale
+     // fermeture modale
 btnClose.addEventListener("click", (e) => {
     e.preventDefault();
     close(modalWindow);
@@ -38,13 +43,15 @@ window.addEventListener("click", (e) => {
     }
 });
 
-
 window.addEventListener("keydown", function(e) {
     if (e.key === "Escape" || e.key === "Esc") {
         close(modalWindow);
     }
 })
 
+
+    // déclaration des fonctions
+        // fonction ouverture boite modale
 function open(modalWindow) {
     let focusableElements = modalWindow.querySelectorAll(focusableElementsArray);
     let firstFocusableElement = focusableElements[0];
@@ -87,6 +94,7 @@ function open(modalWindow) {
     }, 100);
 }
 
+        // fonction fermeture boite modale
 function close(modalWindow) {
 
     let testModalOverte = modalWindow.getAttribute("aria-hidden");
@@ -101,4 +109,3 @@ function close(modalWindow) {
     recupBtnOpen.focus();
     recupIdBtn="";
 }
-

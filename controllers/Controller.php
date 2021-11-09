@@ -1,12 +1,11 @@
 <?php
-require_once('views/View.php');
 
-class Controller
+abstract class Controller
 {
     private $_contenuManager;
     private $_view;
     private $_page;
-    private $_nameContenu;
+    private $_nameContenu = 'categorie';
     private $_nameContenu2;
     private $_nameContenu3;
 
@@ -38,11 +37,7 @@ class Controller
     }
 
     private function getContenu(){
-        if ($this->_page === 'accueil' || $this->_page === 'Accueil') {
-            $this->_nameContenu = 'categorie';
-        }
-        else if ($this->_page === 'store') {
-            $this->_nameContenu = 'categorie';
+        if ($this->_page === 'store' || $this->_page === 'store' || $this->_page === 'gestion_produits' || $this->_page === 'Gestion_Produits') {
             $this->_nameContenu2 = 'produit';
             $this->_nameContenu3 = 'formatproduit';
         }

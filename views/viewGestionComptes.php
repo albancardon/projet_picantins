@@ -533,7 +533,7 @@
 
     <aside class="aside-modification" id="js__modalWindow" role="dialog" aria-labelledby="dialog-title" aria-describedby="dialog-desc" aria-modal="true" aria-hidden="true" tabindex="-1">
         <div role="document" class="modale__box">
-            <button id="js__btnClose" class="btn btn-white btn-connexion" type="button" aria-label="Fermer" title="Fermer cette fenêtre modale" data-dismiss="dialog">ferner</button>
+            <button id="js__btnClose" class="btn btn-white btn-connexion" type="button" aria-label="Fermer" title="Fermer cette fenêtre modale" data-dismiss="dialog">fermer</button>
             <form class="form-modification"  method="get">
                 <div class="champ-identiter">
                     <p class="champ-modification">

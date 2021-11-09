@@ -1,16 +1,27 @@
-//declaration des variables
 
-var pageClient = document.getElementsByClassName("js__tableClient_page");
-var nbPageClient = pageClient .length;
-let countPageClient = 0;
+// Sommaire Script page Gestion Comptes
+// 1.0 carroussel
+    // 1.1 création navigation caroussel 
+    // 1.2 caroussel changement de page compte client
+        // 1.2.1 changement avec les fleches
+        // 1.2.2 changement avec les chiffres
+// 2.0 recupération des données du client sélectionner
+
+// 1.0 carroussel
+
+    //declaration des variables
+var tableClient = document.getElementsByClassName("js__tableClient_page");
+var nbTableClient = tableClient .length;
+let countTableClient = 0;
 var navCarouselClient = document.getElementById("js__navCarouselClient");
 var pageCarousel = document.getElementsByClassName("page-carousel");
 var numPage= document.getElementsByClassName("js__numPage");
 
-//navigation caroussel pageClient
-
+    // 1.1 création navigation caroussel
+        // ajout des listeners
 window.onload = ajoutListeNavigation();
 
+        //déclaration des fonctions
 function ajoutListeNavigation(){
     let li = document.createElement("li");
     li.setAttribute( "id" , "js__btnPrecedentClient");
@@ -24,7 +35,7 @@ function ajoutListeNavigation(){
     li.appendChild(img);
     navCarouselClient.appendChild(li);
 
-    for (let i = 0; i < nbPageClient; i++) {
+    for (let i = 0; i < nbTableClient; i++) {
         let li = document.createElement("li");
         li.setAttribute( "id" , "carousselClientPage"+i);
         li.classList.add("page-carousel");
@@ -54,55 +65,56 @@ function ajoutListeNavigation(){
     btnPrecedentClient.addEventListener("click",slidePrecedentClient);
 }
 
-// caroussel changement de page compte client
+    // 1.2 caroussel changement de page compte client
 
-    // changement avec les fleches
+        //déclaration des fonctions
+        // 1.2.1 changement avec les fleches
     function slideSuivanteClient(){
-        pageClient[countPageClient].classList.remove('active');
-        pageClient[countPageClient].classList.add('inactive');
-        if (countPageClient < nbPageClient-1) {
-            countPageClient++;
+        tableClient[countTableClient].classList.remove('active');
+        tableClient[countTableClient].classList.add('inactive');
+        if (countTableClient < nbTableClient-1) {
+            countTableClient++;
         }else{
-            countPageClient = 0;
+            countTableClient = 0;
         }
-        pageClient[countPageClient].classList.remove('inactive');
-        pageClient[countPageClient].classList.add('active');
-        for (let i = 0; i < pageClient.length; i++) {
+        tableClient[countTableClient].classList.remove('inactive');
+        tableClient[countTableClient].classList.add('active');
+        for (let i = 0; i < tableClient.length; i++) {
             numPage[i].classList.remove('select');
         }
-        numPage[countPageClient].classList.add('select');
+        numPage[countTableClient].classList.add('select');
     }
 
     function slidePrecedentClient(){
-        pageClient[countPageClient].classList.remove('active');
-        pageClient[countPageClient].classList.add('inactive');
-        if (countPageClient > 0) {
-            countPageClient--;
+        tableClient[countTableClient].classList.remove('active');
+        tableClient[countTableClient].classList.add('inactive');
+        if (countTableClient > 0) {
+            countTableClient--;
         }else{
-            countPageClient = nbPageClient-1;
+            countTableClient = nbTableClient-1;
         }
-        pageClient[countPageClient].classList.remove('inactive');
-        pageClient[countPageClient].classList.add('active');
-        for (let i = 0; i < pageClient.length; i++) {
+        tableClient[countTableClient].classList.remove('inactive');
+        tableClient[countTableClient].classList.add('active');
+        for (let i = 0; i < tableClient.length; i++) {
             numPage[i].classList.remove('select');
         }
-        numPage[countPageClient].classList.add('select');
+        numPage[countTableClient].classList.add('select');
     }
 
-    // changement avec les chiffres
+        // 1.2.2 changement avec les chiffres
 
     function changementPage(id) {
-        for (let i = 0; i < pageClient.length; i++) {
-            pageClient[i].classList.remove('active');
-            pageClient[i].classList.add('inactive');
+        for (let i = 0; i < tableClient.length; i++) {
+            tableClient[i].classList.remove('active');
+            tableClient[i].classList.add('inactive');
             numPage[i].classList.remove('select');
         }
-        pageClient[id].classList.remove('inactive');
-        pageClient[id].classList.add('active');
+        tableClient[id].classList.remove('inactive');
+        tableClient[id].classList.add('active');
         numPage[id].classList.add('select');
     }
 
-// recupération des données du client sélectionner
+// 2.0 recupération des données du client sélectionner
 
     //declaration variables
 
@@ -113,6 +125,8 @@ var infoCompteMail = document.getElementById("infoCompte-mail");
 var infoCompteAdresse = document.getElementById("infoCompte-adresse");
 var infoCompteTel = document.getElementById("infoCompte-tel");
 
+    // déclaration de la fonction
+    //fonction appeler sur le script de la modale lors de l'overture de la fenetre modale
 function collectNumId() {
     numId = recupIdBtn.split("js__btnModif-")[1];
     let recupNom = document.getElementById("js__nomCompte-"+numId).innerHTML.trim();

@@ -1,7 +1,16 @@
 
+// Sommaire Script page panier
 // 1.0 recuprération des données du local storage
+    // 1.1 décalaration fonction de création du stockage local storage
+    // 1.2 décalaration fonction de récupération des données du local storage
+// 2.0 décalaration fonction d'insertion des articles au panier
+// 3.0 calcul des prix
+    // 3.1 fonction calcul du prix de l'article
+    // 3.2 fonction calcul prix du panier
+// 4.0 fonction modification quantité / suppression
 
-    //1.1 déclaration des variables et applicatrion des listener
+
+    // déclaration des variables 
 var panierTab = [];
 var panierListeArticle = document.getElementById("js__panierListeArticle");
 var panierVide = document.getElementById("js__panierVide");
@@ -12,10 +21,13 @@ var tabQuantite = document.getElementsByClassName("js__quantite");
 var btnSupprTab = document.getElementsByClassName("produit-suppr");
 var asidePanier = document.getElementById("js_asidePanier");
 
+
+// 1.0 recuprération des données du local storage
+        // ajout des listeners
 window.onload = createStorage();
 window.onload = recupProduitStorage();
 
-    // 1.2 décalaration fonction de création du stockage local storage
+    // 1.1 décalaration fonction de création du stockage local storage
 function createStorage(){
     if ( typeof localStorage != "undefined" && JSON){
         if (localStorage.getItem("panierTabSave")==null){
@@ -32,7 +44,7 @@ function createStorage(){
     }
 }
 
-    // 1.3 décalaration fonction de récupération des données du local storage
+    // 1.2 décalaration fonction de récupération des données du local storage
 function recupProduitStorage() {
     panierTab.forEach((produit) => {
         let idProduitPanier = produit[0];
@@ -66,7 +78,7 @@ function recupProduitStorage() {
     modifQuantite();
 }
 
-// 2.0 décalaration fonction d'insertion des articles du panier
+// 2.0 décalaration fonction d'insertion des articles au panier
 function insert(produitTab) {
     let recupId = produitTab[0].split(/(\d)/);
     let recupNom = produitTab[1];
@@ -112,13 +124,14 @@ function insert(produitTab) {
     `);
 }
 
-// 3.0 fonction calcul du prix de l'article
+// 3.0 calcul des prix
+    // 3.1 fonction calcul du prix de l'article
 function calculPrixArticle(prixUnitaire,quantiteProduit) {
     let prixProduit = prixUnitaire * quantiteProduit;
     tabPrixArticle.push(prixProduit);
 }
 
-//4.0 fonction calcul prix du panier
+    // 3.2 fonction calcul prix du panier
 function calculPrixPanier(tabPrixArticle){
     prixPanier = 0;
     for (let i = 0; i < tabPrixArticle.length; i++) {
@@ -127,7 +140,7 @@ function calculPrixPanier(tabPrixArticle){
     return prixPanier;
 }
 
-// 5.0 fonction modification quantité / suppression
+// 4.0 fonction modification quantité / suppression
 
 function modifQuantite() {
     for (i = 0; i < tabQuantite.length; i++) {

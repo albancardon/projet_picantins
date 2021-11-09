@@ -1,4 +1,7 @@
 
+// Sommaire Script de la page Accueil
+// 1.0 css pour les categories
+
 // 1.0 css pour les categories
 
     //déclaration des variables
@@ -16,7 +19,6 @@ function majCSS() {
     let marginBox = 64*nbCategotie;
     let resultatLargeur = Math.floor((largeurEcran/nbCategotie) - marginBox);
     if (window.matchMedia("(min-width: 768px)").matches) {
-        console.log(resultatLargeur);
         tabCategorie.forEach((categorie) => {
             let recupNumId = categorie.id.split("categorie-")[1];
             let boxImg = document.getElementById("boxImg-"+recupNumId);

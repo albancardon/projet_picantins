@@ -13,10 +13,13 @@ class View
     {
         $content = $this->generateFile($this->_file, $data);
         if(array_key_exists("page" , $data)) {
-            $view = $this->generateFile('views/template.php', array('page'=> $data["page"], 'content'=>$content));
+            // echo "<pre>";
+            // var_dump($data);
+            // echo "</pre>";
+            $view = $this->generateFile('views/template.php', array('categorie'=> $data["contenuTab"]["categorie"], 'page'=> $data["page"], 'content'=>$content));
         }else {
             $data["page"] = "accueil";
-            $view = $this->generateFile('views/template.php', array('page'=> $data["page"], 'content'=>$content));
+            $view = $this->generateFile('views/template.php', array('categorie'=> $data["contenuTab"]["categorie"], 'page'=> $data["page"], 'content'=>$content));
         }
 
         echo $view;

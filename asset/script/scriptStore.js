@@ -1,7 +1,17 @@
 
+// Sommaire Script page store
+// 1.0 ouverture/fermeture fenetre produit box choix poids
+        // 1.1.1 ajout des listener ouverture/fermeture box choix poids
+        // 1.1.2 navigation au clavier ouverture/fermeture box choix poids
+    //1.2 fonction ouverture/fermeture box choix poids
+// 2.0 changement valeur de la quantité de produit
+    // 2.1 déclaration des variables modification quantité de produit
+    // 2.2 ajout des listeners et fonction modification quantité de produit
+
+
 // 1.0 ouverture/fermeture fenetre produit box choix poids
 
-    // 1.1 déclaration variables
+    // déclaration variables
 
 var boxDescriptifProduit = document.getElementsByClassName("js__boxDescriptifProduit");
 var boxDescriptifProduitTab = Array.from(boxDescriptifProduit);
@@ -17,7 +27,7 @@ var recupNumBox = "";
 var boxABouger;
 var clickHorsBox = true;
 
-    // 1.2.0 ajout des listener ouverture/fermeture box choix poids
+        // 1.1.1 ajout des listener ouverture/fermeture box choix poids
 
 document.addEventListener('DOMContentLoaded', ()=>{
 
@@ -58,7 +68,7 @@ window.addEventListener('click', () => {
     clickHorsBox = true;
 });
 
-        // 1.2.1 navigation au clavier ouverture/fermeture box choix poids
+        // 1.1.2 navigation au clavier ouverture/fermeture box choix poids
 
 window.addEventListener("keydown", function(e) {
 boxDescriptifProduitTab.forEach((boxDescriptif) => {
@@ -77,7 +87,7 @@ if (e.key === "Escape" || e.key === "Esc") {
 }
 })
 
-    //1.3 fonction ouverture/fermeture box choix poids
+    //1.2 fonction ouverture/fermeture box choix poids
 
 function moveBox(boxABouger) {
     if (boxABouger.className === valueClassNameMask) {

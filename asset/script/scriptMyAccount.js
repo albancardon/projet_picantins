@@ -1,14 +1,19 @@
 
+// Sommaire Script page login
+// 1.0 Vérification si le mot de passe contient les caractères demander
 
-// 1.1 déclaration des variables
+
+// 1.0 Vérification si le mot de passe contient les caractères demander
+
+// déclaration des variables
 var passNew = document.getElementById("passNew");
 var passNewConfirm = document.getElementById("passNewConfirm");
 var btnInscpt = document.getElementById("js__btnInscpt");
 
 
-
-
-
+    // ajout des listeners et mise en place des fonctions
+//Vérification si le mot de passe contient les caractères demander lors de la modification 
+//et si le mot de passe est semblable à la ré-écriture de ce dernier
 btnInscpt.addEventListener("click", (evt)=>{
     let valuePass = passNew.value;
     let valuePassConfirm = passNewConfirm.value;
