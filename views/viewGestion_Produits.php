@@ -8,12 +8,18 @@ $modifBdd = isset($_SESSION['modif'])?$_SESSION['modif']:'';
 if (isset($modifBdd)&& $modifBdd == "ok"){
     echo'
         <script language=javascript>
-            alert(\'Action effectuer!\');
+            alert(\'Action effectuer.\');
         </script> ';
 }else if(isset($modifBdd)&& $modifBdd == "no"){
     echo'
         <script language=javascript>
             alert(\'Action non effectuer!\');
+        </script> ';
+    
+}else if(isset($modifBdd)&& $modifBdd == "errorKey"){
+    echo'
+        <script language=javascript>
+            alert(\'Suppression impossible: element non vide!\');
         </script> ';
     
 }
@@ -88,18 +94,19 @@ if (isset($modifBdd)&& $modifBdd == "ok"){
         <aside class="aside-modification mask" id="js__boxModifCategorie">
             <div role="document" class="categorie_box">
                 <button id="js__btnCloseBoxModif" class="btn btn-white btn-connexion" type="button" aria-label="Fermer" title="Fermer cette fenêtre modale" data-dismiss="dialog">fermer</button>
-                <form class="form-categorie"  method="get">
+                <form class="form-categorie" action="ajoutBdd" method="post">
                     <div class="champ-modification">
-                        <label class="legend-form" for="name-categoryOld">Nom de l'ancienne categorie*</label>
-                        <input class="form-champ" type="text" name="name-categoryOld" id="name-categoryOld" pattern="[A-Za-z0-9\u00c0-\u00ff]{3,20}"/>
-                    </div>
-                    <div class="champ-modification">
-                        <label class="legend-form" for="name-category">Nom de la nouvelle categorie</label>
+                        <label class="legend-form" for="name-category">Nom de la catégorie à supprimer ou nouveau nom de la catégorie</label>
                         <input class="form-champ" type="text" name="name-category" id="name-category" pattern="[A-Za-z0-9\u00c0-\u00ff]{3,20}" required />
                     </div>
+                    <div class="champ-modification">
+                        <label class="legend-form" for="name-categoryOld">Ancien nom de la catégorie*</label>
+                        <input class="form-champ" type="text" name="name-categoryOld" id="name-categoryOld" pattern="[A-Za-z0-9\u00c0-\u00ff]{3,20}"/>
+                    </div>
                     <div class="form-box-btn">
-                        <button class="btn btn-white" title="Mofdifier ou ajouter categorie">modification</button>
-                        <p class="legende">* champs optionnel si nouvelle categorie</p>
+                        <button type="submit" value="ajoutCat" name="ajoutCat"  class="btn btn-white btn-categorie" title="Mofdifier ou ajouter categorie">modification</button>
+                        <button type="submit" value="suppCat" name="suppCat"  class="btn btn-white btn-categorie" title="Mofdifier ou ajouter categorie">supprimer</button>
+                        <p class="legende">* champs optionnel si nouvelle catégorie ou si suppression de la catégorie</p>
                     </div>
                 </form>
             </div>
@@ -126,6 +133,12 @@ if (isset($modifBdd)&& $modifBdd == "ok"){
                             <p id="js__descriptionProduit-prod-<?= $produit->getIdProduit()?>" class="description-part">
                                 <?= $produit->getDescriptionProduit()?>
                             </p>
+                            <div action="" class="box-supp-produit">
+                                <button id="cat-<?= $produit->getCategorie_idCategorie()?>-prod-<?= $produit->getIdProduit()?>-<?= $produit->getNomProduit()?>"
+                                class="btn btn-brown js__btn-supp-produit" title="Supprimer produit">
+                                    supprimer le produit
+                                </button>
+                            </div>
 
                             <table class="table-product">
                                 <thead class="table-box">
@@ -183,7 +196,7 @@ if (isset($modifBdd)&& $modifBdd == "ok"){
                                         </td>
                                         <td class="table-column">
                                             <button id="cat-<?= $produit->getCategorie_idCategorie()?>-prod-<?= $produit->getIdProduit()?>-<?= $produit->getNomProduit()?>-idPoids-<?= $formatproduit->getIdFormatProduit()?>"
-                                        class="btn btn-brown js__btn-supp-produit" title="Supprimer produit">
+                                        class="btn btn-brown js__btn-supp-format" title="Supprimer produit">
                                                 supprimer
                                             </button>
                                         </td>
@@ -214,10 +227,26 @@ if (isset($modifBdd)&& $modifBdd == "ok"){
                     </div>
                     <p>Voulez-vous supprimer ce format de produit?</p>
                     <div class="box-oui-non">
-                    <button type="submit" value="supprimer" name="supprimer" class="btn btn-white" title="Valider demande du format du produit">
+                    <button type="submit" value="supprimer" name="supprimer" class="btn btn-white" title="Valider demande de suppresion du format du produit">
                         oui
                     </button>
-                    <button id="js__btnRefusSupp" class="btn btn-white" title="Ne pas supprimer produit">
+                    <button id="js__btnRefusSupp" class="btn btn-white" title="Ne pas supprimer le format du produit">
+                        non
+                    </button>
+                    </div>
+                </form>
+            </article>
+            <article id="js__box-validation-suppProduit" class="hidden">
+                <form class="form-suppr" action="ajoutBdd" method="post">
+                    <div class="hidden">
+                        <input type="text" name="name-product" id="infoSuppProd-id"/>
+                    </div>
+                    <p>Voulez-vous supprimer ce produit, ainsi que tous les formats du produit?</p>
+                    <div class="box-oui-non">
+                    <button type="submit" value="suppProd" name="suppProd" class="btn btn-white" title="Valider demande de supression du produit">
+                        oui
+                    </button>
+                    <button id="js__btnRefusSuppProd" class="btn btn-white" title="Ne pas supprimer produit">
                         non
                     </button>
                     </div>

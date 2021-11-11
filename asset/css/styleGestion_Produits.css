@@ -201,6 +201,13 @@ details[open] .menu-part:before {
     height: 0;
     width: 0;
 }
+.box-supp-produit{
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    width: 100%;
+    margin: 1em;
+}
 
     /* 2.1 aside gestion produit responsive */
 
@@ -265,6 +272,9 @@ details[open] .menu-part:before {
     color: #987140;
     text-decoration: underline;
 }
+.btn-categorie{
+    margin: 0.5em;
+}
 
 @keyframes slideFromTop{
     from{
@@ -301,7 +311,7 @@ details[open] .menu-part:before {
 
 /* 3.0 boite validation suppression produit */
 
-#js__box-validation{
+.js__box-validation{
     position: fixed;
     justify-content:center;
     align-items: center;

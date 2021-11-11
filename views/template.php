@@ -31,7 +31,7 @@
                         </li>
                     <?php endforeach; ?>
                     <li class="liste-link">
-                        <a class="link-page" href="">Contact</a>
+                        <a class="link-page" href="<?=URL?>contact">Contact</a>
                     </li>
                     <li>
                         <a class="link-page" href=""><img class="icon" src="asset/icon/user.svg" alt="icône login"></a>
@@ -46,7 +46,7 @@
             </nav>
         </section>
         <!--header contracted-->
-        <!-- <section class="header header-animation-fixed-top" >
+        <section class="header header-animation-fixed-top" >
             <div>
                 <a class="link-page" href="<?=URL?>">
                     <img class="logo-societe-header-fixed" src="asset/img/logo-lespicantins-cour.svg" alt="logo societe" />
@@ -76,7 +76,7 @@
                     </li>
                 </ul>
             </nav>
-        </section> -->
+        </section>
     </header> 
 
     <!--header nav responsive-->

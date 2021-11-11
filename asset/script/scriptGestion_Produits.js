@@ -54,7 +54,6 @@ function changeChamp(){
         nameProduct.setAttribute("required","");
     }else{
         let recupCat = chooseProduct.value.split("-")[1];
-        console.log(recupCat);
         ouvertureModif.options[recupCat].setAttribute("selected", "");
     }
 }
@@ -103,13 +102,13 @@ function closeBoxModif(boxModifABouger) {
 }
 
 
-// 4.0 demande suppression
+// 4.0 demande suppression du format
 
     // déclaration des variables
-var btnSuppTab = Array.from(document.getElementsByClassName("js__btn-supp-produit"));
+var btnSuppTab = Array.from(document.getElementsByClassName("js__btn-supp-format"));
 var btnRefusSupp = document.getElementById("js__btnRefusSupp");
 var boxValidation = document.getElementById("js__box-validation");
-var classVisible = "ombre visible";
+var classVisible = "js__box-validation ombre visible";
 var classHidden = "hidden";
 var recupIdBtnSupp = "";
 
@@ -151,4 +150,50 @@ var infoSuppId = document.getElementById("infoSupp-id");
 
 function collectInfoSupp() {
     infoSuppId.value = recupIdBtnSupp;
+}
+
+
+// 6.0 demande suppression du produit
+
+    // déclaration des variables
+var btnSuppProdTab = Array.from(document.getElementsByClassName("js__btn-supp-produit"));
+var btnRefusSuppProd = document.getElementById("js__btnRefusSuppProd");
+var boxValidationProd = document.getElementById("js__box-validation-suppProduit");
+var recupIdBtnSuppProd = "";
+    
+        // ajout des listeners 
+document.addEventListener("DOMContentLoaded", ()=>{
+
+    btnSuppProdTab.forEach((btnSuppProd) => {
+
+        btnSuppProd.addEventListener("click", (e) => {
+            recupIdBtnSuppProd = btnSuppProd.id;
+            collectInfoSuppProd()
+            e.preventDefault();
+            boxValidationProd.className = classVisible;
+        })
+    });
+});
+btnRefusSuppProd.addEventListener("click",(e)=>{
+    e.preventDefault();
+    closeBoxValdationProd();
+})
+
+    // declaration des fonction
+
+function closeBoxValdationProd(){
+    boxValidationProd.className = classHidden;
+    recupIdBtnSuppProd = "";
+}
+
+//7.0 recupération des données du produit à supprimer
+
+    //declaration variables
+var numIdSuppProd = "";
+var infoSuppIdProd = document.getElementById("infoSuppProd-id");
+    
+    // déclaration de la fonction
+
+function collectInfoSuppProd() {
+    infoSuppIdProd.value = recupIdBtnSuppProd;
 }

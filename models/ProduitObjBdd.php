@@ -1,6 +1,6 @@
 <?php
 
-class ProduitBdd
+class ProduitObjBdd
 {
     private $_idProduit;
     private $_categorie_idCategorie;
