@@ -1,9 +1,5 @@
 
 <?php 
-// echo "<pre>";
-// var_dump($contenuTab);
-// echo "</pre>";
-
 $modifBdd = isset($_SESSION['modif'])?$_SESSION['modif']:'';
 if (isset($modifBdd)&& $modifBdd == "ok"){
     echo'
@@ -104,8 +100,8 @@ if (isset($modifBdd)&& $modifBdd == "ok"){
                         <input class="form-champ" type="text" name="name-categoryOld" id="name-categoryOld" pattern="[A-Za-z0-9\u00c0-\u00ff]{3,20}"/>
                     </div>
                     <div class="form-box-btn">
-                        <button type="submit" value="ajoutCat" name="ajoutCat"  class="btn btn-white btn-categorie" title="Mofdifier ou ajouter categorie">modification</button>
-                        <button type="submit" value="suppCat" name="suppCat"  class="btn btn-white btn-categorie" title="Mofdifier ou ajouter categorie">supprimer</button>
+                        <button type="submit" value="ajoutCat" name="ajoutCat" class="btn btn-white btn-categorie" title="Mofdifier ou ajouter categorie">modification</button>
+                        <button type="submit" value="suppCat" name="suppCat" class="btn btn-white btn-categorie" title="Mofdifier ou ajouter categorie">supprimer</button>
                         <p class="legende">* champs optionnel si nouvelle catégorie ou si suppression de la catégorie</p>
                     </div>
                 </form>

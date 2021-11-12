@@ -14,6 +14,11 @@ class ControllerAjoutBdd
     private $_catBdd;
     private $_idCategorie;
     private $_nomCategorie;
+    private $_tmpNameImg;
+    private $_nameImg;
+    private $_sizeImg;
+    private $_errorImg;
+    private $_typeImg;
 
 
     public function __construct()
@@ -54,6 +59,40 @@ class ControllerAjoutBdd
                 $this->_categorie_idCategorie = explode('-',$params["*category-product"])[0];
             }else{
                 $this->_categorie_idCategorie = "";
+            }
+
+            // recupération et stockage de l'image envoyer, si elle existe envoyer
+            if(isset($_FILES['img-product'])){
+                $this->_tmpNameImg = $_FILES['img-product']['tmp_name'];
+                $this->_nameImg = $_FILES['img-product']['name'];
+                $this->_sizeImg = $_FILES['img-product']['size'];
+                $this->_errorImg = $_FILES['img-product']['error'];
+                $this->_typeImg = $_FILES['img-product']['type'];
+
+
+                // vérification du type de fichier envoyer
+                $tabExtension = explode('.', $this->_nameImg);
+                $extension = strtolower(end($tabExtension));
+
+                //condition autoriser
+                $extensionAutorisees = ['jpg', 'jpeg', 'gif', 'png'];
+                $tailleMax = 400000;
+
+                if ($this->_errorImg == 0) {
+                    if (in_array($extension, $extensionAutorisees)){
+                        if ($this->_sizeImg <=$tailleMax) {
+                            $nomImgUpload = $this->_nomProduit. '.jpg';
+                            echo $nomImgUpload;
+                            move_uploaded_file($this->_tmpNameImg, 'asset/img/produit/'.$nomImgUpload);
+                        }else{
+                            throw new Exception('Fichier trop volumineux');
+                        }
+                    }else{
+                        throw new Exception('Mauvais type de fichier envoyer');
+                    }
+                }else{
+                    throw new Exception('Erreur sur le fichier envoyer');
+                }
             }
 
             $this->_poidsProduit =  isset($params["*size-product"])?$params["*size-product"]:'';

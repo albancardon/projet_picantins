@@ -23,7 +23,7 @@
             <nav class="barre-nav gras">
                 <ul class="nav-liste">
                     <li class="liste-link">
-                        <a class="link-page" href="<?=URL?>">Acceuil</a>
+                        <a class="link-page" href="<?=URL?>">acceuil</a>
                     </li>
                     <?php foreach ($data['categorie'] as $categorie):?>
                         <li class="liste-link">
@@ -31,7 +31,7 @@
                         </li>
                     <?php endforeach; ?>
                     <li class="liste-link">
-                        <a class="link-page" href="<?=URL?>contact">Contact</a>
+                        <a class="link-page" href="<?=URL?>contact">info/contact</a>
                     </li>
                     <li>
                         <a class="link-page" href=""><img class="icon" src="asset/icon/user.svg" alt="icône login"></a>
@@ -63,7 +63,7 @@
                         </li>
                     <?php endforeach; ?>
                     <li class="liste-link">
-                        <a class="link-page" href="">Contact</a>
+                        <a class="link-page" href="<?=URL?>contact">Contact</a>
                     </li>
                     <li class="icon-panier-box">
                         <a class="link-page icon-panier js__nbArticlePanier" href=""></a>
@@ -101,7 +101,7 @@
                         <?php endforeach; ?>
                         </li>
                         <li class="liste-link-responsive">
-                            <a class="link-page" href="">Contact</a>
+                            <a class="link-page" href="<?=URL?>contact">Contact</a>
                         </li>
                     </details>
                     <li>
@@ -125,7 +125,7 @@
             <section class="box-footer">
                 <ul class="nav-footer">
                     <li class="liste-footer">
-                        <a class="link-page" href="<?=URL?>">Acceuil</a>
+                        <a class="link-page" href="<?=URL?>">acceuil</a>
                     </li>
                     <li class="liste-footer">
                         <a class="link-page" href="">Spécialités</a>
@@ -137,7 +137,7 @@
                         <a class="link-page" href="">Confiseries</a>
                     </li>
                     <li class="liste-footer">
-                        <a class="link-page" href="">Contact</a>
+                        <a class="link-page" href="<?=URL?>contact">Contact</a>
                     </li>
                     <li class="icon-footer">
                         <a class="link-page" href="https://www.instagram.com/lespicantins/?hl=fr"><img class="icon" src="asset/icon/instagram.svg" alt="icône instagram"></a>

@@ -1,4 +1,19 @@
 
+<?php 
+$mail = isset($_SESSION['envoieMail'])?$_SESSION['envoieMail']:'';
+if (isset($mail)&& $mail == "ok"){
+    echo'
+        <script language=javascript>
+            alert(\'Votre message a bien été envoyé.\');
+        </script> ';
+}else if(isset($mail)&& $mail == "no"){
+    echo'
+        <script language=javascript>
+            alert(\'Tous les champs doivent être complétés !\');
+        </script> ';
+    
+}
+?>
 <body class="bodyCommon">
     <main class="main-qui-sommes-nous">
         <h1 class="titlePage ombre majDbutMot">Qui sommes nous?</h1>
@@ -34,31 +49,31 @@
         <h2 class="title-contact ombre majDbutMot">
             Contactez nous
         </h2>
-        <form class="form-contact ombre" action="">
+        <form class="form-contact ombre"  action="sendContact" method="post">
             <section class="form-group-info">
                 <div class="form-info">
-                    <label class="" for="name-contact">Nom</label>
-                    <input class="zone-texte-info" type="text" name="name-contact" id="name-contact" placeholder="Nom" pattern="[A-Za-z0-9\u00c0-\u00ff]{3,20}" required />
+                    <label class="" for="nom">Nom</label>
+                    <input class="zone-texte-info" type="text" name="nom" id="nom" placeholder="Nom" pattern="[A-Za-z0-9\u00c0-\u00ff]{3,20}" required />
                 </div>
     
                 <div class="form-info">
-                    <label class="" for="first-name-contact">Prénom</label>
-                    <input class="zone-texte-info" type="text" name="first-name-contact" id="first-name-contact" placeholder="Prénom" pattern="[A-Za-z0-9\u00c0-\u00ff]{3,20}" required />
+                    <label class="" for="prenom">Prénom</label>
+                    <input class="zone-texte-info" type="text" name="prenom" id="prenom" placeholder="Prénom" pattern="[A-Za-z0-9\u00c0-\u00ff]{3,20}" required />
                 </div>
     
                 <div class="form-info">
-                    <label class="" for="mail-contact">Adresse e-mail</label>
-                    <input class="zone-texte-info" type="email" name="mail-contact" id="mail-contact" placeholder="e-mail" required />
+                    <label class="" for="mail">Adresse e-mail</label>
+                    <input class="zone-texte-info" type="email" name="mail" id="mail" placeholder="e-mail" required />
                     </select>
                 </div>
             </section>
 
             <div class="form-box-message">
-                <label for="description-product">Votre commentaire (maximums 250 caractères)</label>
-                <textarea class="form-zone-message" name="description-product" id="description-product" cols="50" rows="15" maxlength="250" wrap="hard" required></textarea>
+                <label for="message">Votre commentaire (maximums 250 caractères)</label>
+                <textarea class="form-zone-message" name="message" id="message" cols="50" rows="15" maxlength="250" wrap="hard" required></textarea>
             </div>
             <div class="form-btn-box">
-                <button class="btn btn-white" title="Envoyer message">
+                <button type="submit" value="contactForm" name="contactForm" class="btn btn-white" title="Envoyer message">
                     Envoyer
                 </button>
             </div>

@@ -10,13 +10,13 @@
     display: flex;
     flex-direction: column;
     align-items:center;
-    margin: 10%;
+    margin:0 10%;
 }
 .title-chap{
     display: flex;
     align-items:center;
     justify-content:center;
-    margin-bottom:5%;
+    margin-top:5%;
     height: 2em;
     width:15em;
     text-align: center;
@@ -48,8 +48,6 @@
     display: flex;
     align-items:center;
     justify-content:space-around;
-    padding: 2%;
-    margin: 1%;
     width: 60%;
 }
 .form-group{
@@ -63,7 +61,7 @@
 }
 .form-group-bas{
     flex-direction: column;
-    margin-bottom: 3%;
+    margin-bottom: 1em;
     width: 100%;
 }
 .form-champ{
