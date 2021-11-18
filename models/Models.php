@@ -19,7 +19,7 @@ abstract class Models
     private $_nomForm;
     private $request;
 
-    //instencie la connection à la bdd si elle n'existe pas
+    //instencie la connexion à la bdd si elle n'existe pas
     private static function setBdd()
     {
         self::$_bdd = new PDO('mysql:host=localhost;dbname=lespicantins', 'root', '');
@@ -27,7 +27,7 @@ abstract class Models
         self::$_bdd->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
     }
 
-    //récupération de la connection à la bdd
+    //récupération de la connexion à la bdd
     protected function getBdd()
     {
         if (self::$_bdd == null) {
@@ -39,34 +39,48 @@ abstract class Models
     // récupération des informations de la base de données
     protected function getAll($table, $obj, $nomId)
     {
-        $var = [];
-        if ($table == "formatproduit") {
-            $req = $this->getBdd()->prepare('SELECT * FROM ' . $table . ' ORDER BY poids+0 ASC');
-        }else{
-            $req = $this->getBdd()->prepare('SELECT * FROM ' . $table . ' ORDER BY id' . $nomId . ' ASC');
+        try {
+            $var = [];
+                if ($table == "formatproduit") {
+                    $req = $this->getBdd()->prepare('SELECT * FROM ' . $table . ' ORDER BY poids+0 ASC');
+                }else{
+                    $req = $this->getBdd()->prepare('SELECT * FROM ' . $table . ' ORDER BY id' . $nomId . ' ASC');
+                }
+                $req->execute();
+                while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
+                    $var[] = new $obj($data);
+                }
+                return $var;
+                $req->closeCursor();
+        }catch (PDOException $e) {
+            $errorMsg = $e->getMessage();
+            require_once('controllers/ControllerError.php');
+            //passage l'information de l'echecs de l'action via la variable $_session
+            $this->_ctrl = new ControllerError($url, array('errorMsg' => $errorMsg));
         }
-        $req->execute();
-        while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
-            $var[] = new $obj($data);
-        }
-        return $var;
-        $req->closeCursor();
     }
 
     // envoie des données pour vérifier leur existences dans la base de donnée
     protected function verifPropriete($propAVerif,$objProduit)
     {
-        if (isset($propAVerif)) {
-            $this->_req = $this->getBdd()->prepare('SELECT * FROM Produit WHERE idProduit = ' . $propAVerif);
-            $this->_req->execute();
-            $verifBdd = $this->_req->fetch(PDO::FETCH_ASSOC);
-            $retourBdd = $this->verifExistanceBdd ($verifBdd, $objProduit);
-        }else{
-            $dataBdd = "";
-            $this->modifBddProduit($dataBdd, $objProduit);
+        try {
+            if (isset($propAVerif)) {
+                $this->_req = $this->getBdd()->prepare('SELECT * FROM Produit WHERE idProduit = ' . $propAVerif);
+                $this->_req->execute();
+                $verifBdd = $this->_req->fetch(PDO::FETCH_ASSOC);
+                $retourBdd = $this->verifExistanceBdd ($verifBdd, $objProduit);
+            }else{
+                $dataBdd = "";
+                $this->modifBddProduit($dataBdd, $objProduit);
+            }
+            return $retourBdd;
+            $this->_req->closeCursor();
+        }catch (PDOException $e) {
+            $errorMsg = $e->getMessage();
+            require_once('controllers/ControllerError.php');
+            //passage l'information de l'echecs de l'action via la variable $_session
+            $this->_ctrl = new ControllerError($url, array('errorMsg' => $errorMsg));
         }
-        return $retourBdd;
-        $this->_req->closeCursor();
     }
 
     // extraction des données récupérer dans la base de donnée
@@ -211,31 +225,38 @@ abstract class Models
     // vérification si la catégorie existe
     protected function verifExistanceCat($nomCategorie, $newNomCategorie)
     {
-        // si le nom de la catégorie existe et non nul: recupération des données de la table Categorie  
-        // où le nom est égale à la variables nomCategorie
-        if (isset($nomCategorie)) {
-            $this->_req = $this->getBdd()->prepare("SELECT * FROM Categorie WHERE nomCategorie =  '$nomCategorie'");
-            $this->_req->execute();
-            $verifBdd = $this->_req->fetch(PDO::FETCH_ASSOC);
-
-            // extraction des données retournées si elles existent,sont non null et sont vrai
-            if (!empty($verifBdd)) {
-                foreach($verifBdd as $key => $value){
-                    $dataBdd [":" . $key] = $value;
-                };
-            }
-            // vérification que les données extraitent existes et sont non null pour faire appel 
-            // à la méthode de modification de la base de donnée des catégories
-            if (isset($dataBdd)){
-                $this->modifBddCat($dataBdd, $nomCategorie, $newNomCategorie);
+        try {
+            // si le nom de la catégorie existe et non nul: recupération des données de la table Categorie  
+            // où le nom est égale à la variables nomCategorie
+            if (isset($nomCategorie)) {
+                $this->_req = $this->getBdd()->prepare("SELECT * FROM Categorie WHERE nomCategorie =  '$nomCategorie'");
+                $this->_req->execute();
+                $verifBdd = $this->_req->fetch(PDO::FETCH_ASSOC);
+    
+                // extraction des données retournées si elles existent,sont non null et sont vrai
+                if (!empty($verifBdd)) {
+                    foreach($verifBdd as $key => $value){
+                        $dataBdd [":" . $key] = $value;
+                    };
+                }
+                // vérification que les données extraitent existes et sont non null pour faire appel 
+                // à la méthode de modification de la base de donnée des catégories
+                if (isset($dataBdd)){
+                    $this->modifBddCat($dataBdd, $nomCategorie, $newNomCategorie);
+                }else{
+                    $dataBdd = "";
+                    $this->modifBddCat($dataBdd, $nomCategorie, $newNomCategorie);
+                }
             }else{
-                $dataBdd = "";
-                $this->modifBddCat($dataBdd, $nomCategorie, $newNomCategorie);
+                //passage l'information de l'echecs de l'action via la variable $_session
+                $_SESSION['modif']='noCatAbs';
+                die();
             }
-        }else{
+        }catch (PDOException $e) {
+            $errorMsg = $e->getMessage();
+            require_once('controllers/ControllerError.php');
             //passage l'information de l'echecs de l'action via la variable $_session
-            $_SESSION['modif']='noCatAbs';
-            die();
+            $this->_ctrl = new ControllerError($url, array('errorMsg' => $errorMsg));
         }
     }
 
@@ -377,12 +398,20 @@ abstract class Models
     // vérification si l'utilisateur existe
     protected function verifExistanceAddUser($objUser)
     {
+        
+        try {
+        }catch (PDOException $e) {
+            $errorMsg = $e->getMessage();
+            require_once('controllers/ControllerError.php');
+            //passage l'information de l'echecs de l'action via la variable $_session
+            $this->_ctrl = new ControllerError($url, array('errorMsg' => $errorMsg));
+        }
         //récupération de l'adresse mail dans l'objet User
         $this->_mail = $objUser->getMail();
         // si le mail existe et non nul: recupération des données de la table Compte 
         if (isset($this->_mail)) {
-            $this->_req = $this->getBdd()->prepare("SELECT * FROM Compte WHERE mail =  '$this->_mail'");
-            $this->_req->execute();
+            $this->_req = $this->getBdd()->prepare("SELECT * FROM Compte WHERE mail = '?");
+            $this->_req->execute($this->_mail);
             $verifBdd = $this->_req->fetch(PDO::FETCH_ASSOC);
 
             // extraction des données retournées si elles existent,sont non null et sont vrai
@@ -439,7 +468,8 @@ abstract class Models
             $qry->execute(array($mail,$mdp,$nom,$prenom,$adresse,$tel,$dateInsciption,$statut,$droit));
             //passage l'information de la réussite de l'action via la variable $_session
             $_SESSION['ajoutUser']='ok';
-            
+            header('Location: /php_projet-CDA/0.projet_les_picantins-code/login');
+            die();
         //recupération des eventuelles erreurs
         } catch (PDOException $e) {
             $errorMsg = $e->getMessage();
@@ -458,17 +488,27 @@ abstract class Models
     // vérification et récupération des données du compte
     protected function verifMailMdp($objUser)
     {
-        //récupération du mail et du mdp
+        echo "<br>";
+        echo "objUser<pre>";
+        var_dump($objUser);
+        echo "</pre>";
+        //récupération du mail
+        $this->_idCompte = $objUser->getIdCompte();
         $this->_mail = $objUser->getMail();
-        $this->_motDePasse = $objUser->getMotDePasse();
         $this->_nomForm = $objUser->getNomForm();
         
         // si le mail  et le mot de passe existent et sont non nul: recupération des données de la table Compte 
         try {
-            if (isset($this->_mail) && isset($this->_motDePasse)) {
-                $this->_req = $this->getBdd()->prepare("SELECT * FROM compte WHERE mail = ? AND motDePasse = ? AND active = ? ");
-                $this->_req->execute(array($this->_mail,$this->_motDePasse,1));
-                $recupBdd = $this->_req->fetch(PDO::FETCH_ASSOC);
+            if (isset($this->_mail)) {
+                if ($this->_nomForm == "logCompte") {
+                    $this->_req = $this->getBdd()->prepare("SELECT * FROM compte WHERE mail = ?  AND active = ? ");
+                    $this->_req->execute(array($this->_mail,1));
+                    $recupBdd = $this->_req->fetch(PDO::FETCH_ASSOC);
+                } elseif ($this->_nomForm == "modifCompte"){
+                    $this->_req = $this->getBdd()->prepare("SELECT * FROM compte WHERE idCompte = ?  AND active = ? ");
+                    $this->_req->execute(array($this->_idCompte,1));
+                    $recupBdd = $this->_req->fetch(PDO::FETCH_ASSOC);
+                }
                     echo "mail : ".$this->_mail." <br>";
                     echo "motDePasse : ".$this->_motDePasse." <br>";
                 // extraction des données retournées si elles existent,sont non null et sont vrai
@@ -478,26 +518,47 @@ abstract class Models
                     };
                 }else{
                     $_SESSION['ajoutUser']='compteInexistant';
-                    header('Location: /php_projet-CDA/0.projet_les_picantins-code/accueil');
+                    //a refaire pour non connexion
+                    // header('Location: /php_projet-CDA/0.projet_les_picantins-code/accueil');
                 }
                 echo "<br>";
                 echo "dataBdd1<pre>";
                 var_dump($dataBdd);
                 echo "</pre>";
-                // vérification si les données extraitent existes et sont non null 
-                if (isset($dataBdd) && $this->_nomForm == "logCompte"){
-                    echo "test2 <br>";
-                    $this-> connexion($dataBdd);
-                }elseif (isset($dataBdd) &&  $this->_nomForm == "modifCompte"){
-                    $this-> verifModifCompte($dataBdd,$objUser);
-                }
-                else{
-                    //passage l'information de l'echecs de l'action via la variable $_session
-                    $_SESSION['ajoutUser']='compteInexistant';
-                }
+
+
+                //mauvais mail => $dataBdd undefined faire alerte ici (ligne 515)
+
+
+                $this->_motDePasse = $dataBdd[':motDePasse'];
+                echo "test pass ".((isset($_POST["passLogin"]) && !empty($_POST["passLogin"])) ? htmlspecialchars($_POST["passLogin"]) : null)." <br>";
+                echo "test _motDePasse ".$this->_motDePasse." <br>";
+                echo "test password_verify ".(password_verify(((isset($_POST["passLogin"]) && !empty($_POST["passLogin"])) ? htmlspecialchars($_POST["passLogin"]) : null), $this->_motDePasse))." <br>";
+                if (password_verify(
+                    ((isset($_POST["passLogin"]) && !empty($_POST["passLogin"])) ? htmlspecialchars($_POST["passLogin"]) : null), 
+                    $dataBdd[':motDePasse'])) 
+                    {
+                        // vérification si les données extraitent existes et sont non null 
+                        if (isset($dataBdd) && $this->_nomForm == "logCompte"){
+                            
+                            echo "test2 <br>";
+                            $this-> connexion($dataBdd);
+                        }elseif (isset($dataBdd) &&  $this->_nomForm == "modifCompte"){
+
+                            $this-> verifModifCompte($dataBdd,$objUser);
+                        }
+                        else{
+                            //passage l'information de l'echecs de l'action via la variable $_session
+                            $_SESSION['ajoutUser']='compteInexistant';
+                        }
+                    }else{
+                        //passage l'information de l'echecs de l'action via la variable $_session
+                        $_SESSION['ajoutUser']='mauvaisMdp';
+                        die();
+                    }
             }else{
                 //passage l'information de l'echecs de l'action via la variable $_session
-                $_SESSION['ajoutUser']='mdpMailVide';
+                $_SESSION['ajoutUser']='MailVide';
                 die();
             }
         }catch(Exception $e) {
@@ -506,41 +567,6 @@ abstract class Models
         }
     }
     
-    // compte trouvé, récuprétion des données du compte et envoie de ces dernières dans le $_SESSION 
-    // pour récupération dans d'autre page
-    private function connexion($data)
-    {
-        // récupération des données de la base de donné sauf pour l'adresse mail qui est récupérer de la connexion
-        $this->_nom = $data[':nom'];
-        $this->_prenom = $data[':prenom'];
-        $this->_mail = "mailLogin";
-        $this->_mail = htmlspecialchars($_POST[$this->_mail]);
-        $this->_adresse = $data[':adresse'];
-        $this->_telephone = $data[':telephone'];
-        for($i=strlen($this->_telephone); $i>0; $i--){
-            if($i%2==0 && $i!=10){
-                $this->_telephone = substr_replace($this->_telephone, '-', $i, 0);
-            }
-        }
-        $this->_active = $data[':active'];
-        
-        // ajout des données récupérées dans un tableau pour le passage dans la variable $_SESSION
-        // et envoie confirmation de la connexion
-        $user = array (
-            'nom'=>$this->_nom,
-            'prenom'=>$this->_prenom,
-            'mail'=>$this->_mail,
-            'adresse'=>$this->_adresse,
-            'tel'=>$this->_telephone,
-            'active'=>$this->_active
-        );
-        $_SESSION['derniere_action'] = time();
-        $_SESSION['logged']=true;
-        $_SESSION['user']=$user;
-        header('Location: /php_projet-CDA/0.projet_les_picantins-code/myAccount');
-        exit();
-    }
-
     //comparaison entre les données récupéré de la Bdd et les données entrés dans le formulaire
     private function verifModifCompte($dataBdd,$objUser)
     {
@@ -576,7 +602,6 @@ abstract class Models
         $objUser->setNomForm("logCompte");
         $objUser->setMotDePasse($this->_motDePasseNew);
         $this->verifMailMdp($objUser);
-
     }
 
     private function modifCompteBdd($idCompte,$nomKey,$valeur)
@@ -594,6 +619,45 @@ abstract class Models
             $errorMsg = $e->getMessage();
             throw new Exception('Erreur: '.$errorMsg);
         }
+    }
+
+    // compte trouvé, récuprétion des données du compte et envoie de ces dernières dans le $_SESSION 
+    // pour récupération dans d'autre page
+    private function connexion($data)
+    {
+        echo "data<pre>";
+        var_dump($data);
+        echo "</pre>";
+        // récupération des données de la base de donné sauf pour l'adresse mail qui est récupérer de la connexion
+        $this->_idCompte = $data[':idCompte'];
+        $this->_nom = $data[':nom'];
+        $this->_prenom = $data[':prenom'];
+        $this->_mail = $data[':mail'];
+        $this->_adresse = $data[':adresse'];
+        $this->_telephone = $data[':telephone'];
+        for($i=strlen($this->_telephone); $i>0; $i--){
+            if($i%2==0 && $i!=10){
+                $this->_telephone = substr_replace($this->_telephone, '-', $i, 0);
+            }
+        }
+        $this->_active = $data[':active'];
+        
+        // ajout des données récupérées dans un tableau pour le passage dans la variable $_SESSION
+        // et envoie confirmation de la connexion
+        $user = array (
+            'idCompte'=>$this->_idCompte,
+            'nom'=>$this->_nom,
+            'prenom'=>$this->_prenom,
+            'mail'=>$this->_mail,
+            'adresse'=>$this->_adresse,
+            'tel'=>$this->_telephone,
+            'active'=>$this->_active
+        );
+        $_SESSION['derniere_action'] = time();
+        $_SESSION['logged']=true;
+        $_SESSION['user']=$user;
+        // header('Location: /php_projet-CDA/0.projet_les_picantins-code/myAccount');
+        exit();
     }
 
 

@@ -29,7 +29,7 @@ function ajoutListeNavigation(){
 
     let img = document.createElement("img");
     img.classList.add("icon-carousel");
-    img.setAttribute( "src" , "../asset/icon/fleche-gauche.png");
+    img.setAttribute( "src" , "asset/icon/fleche-gauche.png");
     img.setAttribute( "alt" , "fléche vers la gauche");
 
     li.appendChild(img);
@@ -52,7 +52,7 @@ function ajoutListeNavigation(){
 
     let img1 = document.createElement("img");
     img1.classList.add("icon-carousel");
-    img1.setAttribute( "src" , "../asset/icon/fleche-droite.png");
+    img1.setAttribute( "src" , "asset/icon/fleche-droite.png");
     img1.setAttribute( "alt" , "fléche vers la droite");
 
     li1.appendChild(img1);

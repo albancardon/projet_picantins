@@ -40,6 +40,8 @@ abstract class Controller
         if ($this->_page === 'store' || $this->_page === 'store' || $this->_page === 'gestion_produits' || $this->_page === 'Gestion_Produits') {
             $this->_nameContenu2 = 'produit';
             $this->_nameContenu3 = 'formatproduit';
+        }elseif ($this->_page === 'gestion_comptes' || $this->_page === 'Gestion_Comptes'){
+            $this->_nameContenu2 = 'compte';
         }
     }
 }

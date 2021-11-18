@@ -1,19 +1,35 @@
 <?php
 
-class User
+class Compte
 {
     private $_idCompte;
     private $_nom;
     private $_prenom;
     private $_mail;
     private $_motDePasse;
-    private $_motDePasseNew;
     private $_adresse;
     private $_telephone;
     private $_dateInsciption;
     private $_statut;
     private $_droit;
-    private $_nomForm;
+
+    // constructeur de l'objet
+    public function __construct(array $data)
+    {
+        $this->hydrate($data);
+    }
+
+    // hydratation: remplissage de l'objet avec les données récupérer
+    public function hydrate(array $data)
+    {
+        foreach ($data as $key => $value) {
+            $method = 'set' . ucfirst($key);
+
+            if (method_exists($this, $method)) {
+                $this->$method($value);
+            }
+        }
+    }
 
     // setters
 
@@ -49,13 +65,6 @@ class User
             $this->_motDePasse = $motDePasse;
         }
     }
-    public function setMotDePasseNew($motDePasseNew)
-    {
-        
-        if (is_string($motDePasseNew)) {
-            $this->_motDePasseNew = $motDePasseNew;
-        }
-    }
     public function setAdresse($adresse)
     {
         if (is_string($adresse)) {
@@ -81,12 +90,6 @@ class User
             $this->_droit = $droit;
         }
     }
-    public function setNomForm($nomForm)
-    {
-        if (is_string($nomForm)) {
-            $this->_nomForm = $nomForm;
-        }
-    }
 
     // getters
 
@@ -110,10 +113,6 @@ class User
     {
         return $this->_motDePasse;
     }
-    public function getMotDePasseNew()
-    {
-        return $this->_motDePasseNew;
-    }
     public function getAdresse()
     {
         return $this->_adresse;
@@ -133,9 +132,5 @@ class User
     public function getDroit()
     {
         return $this->_droit;
-    }
-    public function getNomForm()
-    {
-        return $this->_nomForm;
     }
 }

@@ -5,16 +5,13 @@ if (empty($_SESSION['logged'])) {
     exit();
 }
 $user = isset($_SESSION['user'])?$_SESSION['user']:'';
+if (!empty($user)){
+    echo "user<pre>";
+    var_dump($user);
+    echo "</pre>";
+}
 ?>
 <body class="bodyCommon">
-    <?php
-        
-        if (isset($user)){
-            echo "data<pre>";
-            var_dump($user);
-            echo "</pre>";
-        }
-    ?>
     <div id="js__mainContent">
         <h1 class="titlePage">Mon compte Client</h1>
         <!-- main container info compte client -->
@@ -138,6 +135,10 @@ $user = isset($_SESSION['user'])?$_SESSION['user']:'';
                 <p class="gras"> Remplissez et modifier les champs que vous voulez à changer</p>
                 <p class="gras"> Pour toute demande de modification merci d'entré votre mot de passe</p>
                 <p>(les champs nouveau mot de passe ainsi que la confirmation du nouveau ne sont nécessaire que pour modifier le mot de passe)</p>
+                <div class="hidden">
+                    <input class="zone-text" type="text" name="idCompte" 
+                    placeholder="e-mail" value="<?=$user["idCompte"]?>" required/>
+                </div>
                 <div class="champ-identiter">
                     <p class="champ-modification">
                         <label class="label-modification majDbutMot" for="compte-nom">Nom </label>

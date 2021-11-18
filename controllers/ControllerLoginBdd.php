@@ -3,6 +3,7 @@
 class ControllerLoginBdd
 {
     private $_compteBdd;
+    private $_idCompte;
     private $_nom;
     private $_prenom;
     private $_mail;
@@ -47,11 +48,13 @@ class ControllerLoginBdd
             header('Location: /php_projet-CDA/0.projet_les_picantins-code/login');
         }
         //recupération du reste des données sécurisés et vérification de l'existance des clées/valeurs
+        $this->_idCompte =  ucfirst(isset($params["*idCompte"])?$params["*idCompte"]:'');
         $this->_nom =  ucfirst(isset($params["*compte-nom"])?$params["*compte-nom"]:'');
         $this->_prenom =  ucfirst(isset($params["*compte-prenom"])?$params["*compte-prenom"]:'');
         $this->_mail =  isset($params["*mailLogin"])?$params["*mailLogin"]:'';
-        $this->_motDePasse =  isset($params["*passLogin"])?$params["*passLogin"]:'';
-        $this->_motDePasseNew =  isset($params["*passLoginNew"])?$params["*passLoginNew"]:'';
+        // cryptage du mot de passe
+        $this->_motDePasse = password_hash((isset($params["*passLogin"])?$params["*passLogin"]:''), PASSWORD_DEFAULT, ['cost' => 12]);
+        $this->_motDePasseNew =  password_hash((isset($params["*passLoginNew"])?$params["*passLoginNew"]:''), PASSWORD_DEFAULT, ['cost' => 12]);
         $this->_adresse =  isset($params["*compte-adressse"])?$params["*compte-adressse"]:'';
         // mise en forme du numéro de téléphone pour qu'il ait toujours la même
         $this->_recupTel = isset($params["*compte-tel"])?$params["*compte-tel"]:'';
@@ -79,13 +82,7 @@ class ControllerLoginBdd
         if (isset($params["*addCompte"]) && $params["*addCompte"] == "addCompte") {
 
             //recupération du mot de passe ainsi que sa confirmation et vérification de la concordence
-            $this->_motDePasseConfirm =  isset($params["*passConfirm"])?$params["*passConfirm"]:'';
-            
-            if ($this->_motDePasse === $this->_motDePasseConfirm) {
-
-                // cryptage des données sensible adresse e-mail et mot de passe
-                $this->_mail = md5(md5($this->_mail) . strlen($this->_mail));
-                $this->_motDePasse = sha1(md5($this->_mail) . md5($this->_motDePasse));
+            if (password_verify((isset($params["*passConfirm"])?$params["*passConfirm"]:''), $this->_motDePasse)) {
                 //ajout du nom du fomulaire ayant été envoyer
                 $this->_nomForm =  "addCompte";
                 //recupération des donné manquante pour la création du compte
@@ -107,9 +104,6 @@ class ControllerLoginBdd
             }
         // vérification du formulaire envoyer envoyer est "logCompte"
         }elseif (isset($params["*logCompte"]) && $params["*logCompte"] == "logCompte") {
-            // cryptage des données sensible
-            $this->_mail = md5(md5($this->_mail) . strlen($this->_mail));
-            $this->_motDePasse = sha1(md5($this->_mail) . md5($this->_motDePasse));
             //ajout du nom du fomulaire ayant été envoyer
             $this->_nomForm =  "logCompte";
             // création de l'objet 
@@ -128,15 +122,13 @@ class ControllerLoginBdd
 
         // vérification du formulaire envoyer envoyer est "modifCompte"
         }elseif (isset($params["*modifCompte"]) && $params["*modifCompte"] == "modifCompte") {
+            echo "test 1<br>";
             //recupération du nouveau mot de passe ainsi que sa confirmation et vérification de la concordence
             $this->_motDePasseConfirm =  isset($params["*passConfirm"])?$params["*passConfirm"]:false;
 
-            if ($this->_motDePasseNew === $this->_motDePasseConfirm) {
+            if (password_verify((isset($params["*passConfirm"])?$params["*passConfirm"]:''), $this->_motDePasseNew)) {
                 
-                // cryptage des données sensible adresse e-mail et mot de passe
-                $this->_mail = md5(md5($this->_mail) . strlen($this->_mail));
-                $this->_motDePasse = sha1(md5($this->_mail) . md5($this->_motDePasse));
-                $this->_motDePasseNew = sha1(md5($this->_mail) . md5($this->_motDePasseNew));
+                echo "test 2<br>";
                 //ajout du nom du fomulaire ayant été envoyer
                 $this->_nomForm =  "modifCompte";
 
@@ -157,6 +149,8 @@ class ControllerLoginBdd
     }
 
     private function hydrateModelCompte($Obj){
+        echo "test 3<br>";
+        $Obj->setIdCompte($this->_idCompte);
         $Obj->setNom($this->_nom);
         $Obj->setPrenom($this->_prenom);
         $Obj->setMail($this->_mail);

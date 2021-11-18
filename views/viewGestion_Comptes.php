@@ -1,5 +1,10 @@
 
 <body id="pageGestionComptes" class="bodyCommon">
+    <?php
+        echo "user<pre>";
+        var_dump($contenuTab);
+        echo "</pre>";
+    ?>
     <main id="js__mainContent" class="part">
         <h1 class="titlePage">Gestion des comptes</h1>
         <h2 class="title-chap">Liste des Comptes des Clients</h2>
@@ -31,6 +36,58 @@
             </thead>
 
             <tbody class="table-box js__tableClient_page active">
+
+
+                <?php foreach ($contenuTab['compte'] as $compte): ?>
+                    <tr id="js__compte-<?= $compte->getIdCompte()?>" class="table-row">
+                        <td id="js__nomCompte-<?= $compte->getIdCompte()?>" class="table-column gras majDbutMot">
+                            <?= $compte->getNom()?>
+                        </td>
+                        <td id="js__prénomCompte-<?= $compte->getIdCompte()?>" class="table-column gras majDbutMot">
+                            <?= $compte->getPrenom()?>
+                        </td>
+                        <td class="table-column mail-responsive">
+                            <details>
+                                <summary>
+                                    E-mail
+                                </summary>
+                                <p id="js__mailCompte-<?= $compte->getIdCompte()?>" class="details-paragraph">
+                                    paul.dupont@gmail.com
+                                </p>
+                            </details>
+                        </td>
+                        <td class="table-column mail-responsive">
+                            <details>
+                                <summary>
+                                    Adresse
+                                </summary>
+                                <p id="js__adresseCompte-<?= $compte->getIdCompte()?>" class="details-paragraph">
+                                    100 bvl Etats Unis 60200 Compiègne
+                                </p>
+                            </details>
+                        </td>
+                        <td class="table-column mail-responsive">
+                            <details>
+                                <summary>
+                                    Tel
+                                </summary>
+                                <p id="js__telcompte-<?= $compte->getIdCompte()?>" class="details-paragraph">
+                                    01.02.03.04.05
+                                </p>
+                            </details>
+                        </td>
+                        <td class="table-column gras majDbutMot">
+                            <button id="js__btnModif-<?= $compte->getIdCompte()?>" class="btn btn-grey btn-form js__btnOpenModale" type="button" aria-haspopup="dialog" aria-controls="dialog" title="Modifier compte">
+                                modifier
+                            </button>
+                        </td>
+                        <td class="table-column gras majDbutMot">
+                            <button class="btn btn-grey btn-form" title="Supprimer compte">
+                                supprimer
+                            </button>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
                 <tr id="js__compte-0" class="table-row">
                     <td id="js__nomCompte-0" class="table-column gras majDbutMot">
                         Dupond
@@ -562,5 +619,4 @@
         </div>
     </aside>
     <script src="asset/script/scriptCommonModal.js" defer></script>
-    <script src="asset/script/scriptGestionComptes.js" defer></script>
 </body>

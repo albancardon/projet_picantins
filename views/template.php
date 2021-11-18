@@ -13,6 +13,7 @@ if(empty($_SESSION['logged']) || empty($_SESSION['derniere_action']) || (time() 
     $_SESSION['derniere_action'] = time(); // mise à jour de la variable
 }
 $user = isset($_SESSION['user'])?$_SESSION['user']:'';
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,6 +52,9 @@ $user = isset($_SESSION['user'])?$_SESSION['user']:'';
                     </li>
                     <li class="liste-link">
                         <a class="link-page" href="<?=URL?>gestion_produits">gestion produit</a>
+                    </li>
+                    <li class="liste-link">
+                        <a class="link-page" href="<?=URL?>gestion_comptes">gestion compte</a>
                     </li>
                     <?php if (empty($_SESSION['logged'])): ?>
                         <li class="liste-icone">
@@ -101,6 +105,9 @@ $user = isset($_SESSION['user'])?$_SESSION['user']:'';
                     </li>
                     <li class="liste-link">
                         <a class="link-page" href="<?=URL?>gestion_produits">gestion produit</a>
+                    </li>
+                    <li class="liste-link">
+                        <a class="link-page" href="<?=URL?>gestion_comptes">gestion compte</a>
                     </li>
                     <li class="icon-panier-box">
                         <a class="link-page icon-panier js__nbArticlePanier" href=""></a>
