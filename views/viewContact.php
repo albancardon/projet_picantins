@@ -6,7 +6,7 @@ if (isset($mail)&& $mail == "ok"){
         <script language=javascript>
             alert(\'Votre message a bien été envoyé.\');
         </script> ';
-}else if(isset($mail)&& $mail == "no"){
+}elseif (isset($mail)&& $mail == "no"){
     echo'
         <script language=javascript>
             alert(\'Tous les champs doivent être complétés !\');
@@ -79,4 +79,7 @@ if (isset($mail)&& $mail == "ok"){
             </div>
         </form>
     </aside>
+    <?php
+        $_SESSION['envoieMail']="?"
+    ?>
 </body>

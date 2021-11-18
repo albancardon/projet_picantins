@@ -8,12 +8,23 @@ abstract class Models
     private $_req;
     private $_objProduit;
     private $_ctrl;
+    private $_nom;
+    private $_prenom;
+    private $_mail;
+    private $_motDePasse;
+    private $_motDePasseNew;
+    private $_adresse;
+    private $_telephone;
+    private $_active;
+    private $_nomForm;
+    private $request;
 
     //instencie la connection à la bdd si elle n'existe pas
     private static function setBdd()
     {
         self::$_bdd = new PDO('mysql:host=localhost;dbname=lespicantins', 'root', '');
         self::$_bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
+        self::$_bdd->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
     }
 
     //récupération de la connection à la bdd
@@ -70,7 +81,7 @@ abstract class Models
     }
 
     // modification de la base de données
-    protected function modifBddProduit($dataBdd, $objProduit)
+    private function modifBddProduit($dataBdd, $objProduit)
     {
         try{
             // récuprération des données extraites 
@@ -125,7 +136,7 @@ abstract class Models
                 }
                 
             // si les données de la base de données existent, non null et vrai,et l'idProduit existe et non null : création du format dans la base de données 
-            }else if(!empty($dataBddFormat) && isset($idProduit)){
+            }elseif(!empty($dataBddFormat) && isset($idProduit)){
                 $qry = $this->getBdd()->prepare("INSERT INTO formatProduit (produit_idProduit, poids, prixUnitaire) Values (?,?,?)");
                 $qry->execute(array($idProduit, $poidsProduit, $prixProduit));
             
@@ -222,17 +233,14 @@ abstract class Models
                 $this->modifBddCat($dataBdd, $nomCategorie, $newNomCategorie);
             }
         }else{
-
-            //recupération des eventuelles erreurs
-            throw new Exception('Erreur: nom de catégorie absent!');
             //passage l'information de l'echecs de l'action via la variable $_session
-            $_SESSION['modif']='no';
+            $_SESSION['modif']='noCatAbs';
             die();
         }
     }
 
     // méthode de modification de la base de donnée des catégories
-    protected function modifBddCat($dataBdd, $nomCategorie, $newNomCategorie)
+    private function modifBddCat($dataBdd, $nomCategorie, $newNomCategorie)
     {
         try{
             // si dataBdd et newNomCategorie existent,sont non null et sont vrai alors
@@ -365,4 +373,228 @@ abstract class Models
         exit();
         
     }
+
+    // vérification si l'utilisateur existe
+    protected function verifExistanceAddUser($objUser)
+    {
+        //récupération de l'adresse mail dans l'objet User
+        $this->_mail = $objUser->getMail();
+        // si le mail existe et non nul: recupération des données de la table Compte 
+        if (isset($this->_mail)) {
+            $this->_req = $this->getBdd()->prepare("SELECT * FROM Compte WHERE mail =  '$this->_mail'");
+            $this->_req->execute();
+            $verifBdd = $this->_req->fetch(PDO::FETCH_ASSOC);
+
+            // extraction des données retournées si elles existent,sont non null et sont vrai
+            if (!empty($verifBdd)) {
+                foreach($verifBdd as $key => $value){
+                    $dataBdd [":" . $key] = $value;
+                };
+            }
+            // vérification si les données extraitent existes et sont non null car pas de mail en double 
+            if (!isset($dataBdd)){
+                $this->addUserBdd($objUser);
+            }else{
+
+
+                //création de l'erreur mail existant
+                // throw new Exception('Erreur: adresse e-mail déjà utilisé!');
+
+
+
+                //passage l'information de l'echecs de l'action via la variable $_session
+                $_SESSION['ajoutUser']='mailExistant';
+            }
+        }else{
+
+
+            //création de l'erreur mail non renseignée
+            // throw new Exception("Erreur: veuillez renseignée un adresse mail s'il vous plait!");
+
+
+            //passage l'information de l'echecs de l'action via la variable $_session
+            $_SESSION['ajoutUser']='manqueMail';
+            die();
+        }
+    }
+
+    //ajout d'un nouveau utilisateur dans la bdd
+    private function addUserBdd($objUser)    {
+        try{            
+            // récuprération des données de l'objet
+            $nom = $objUser->getNom();
+            $prenom = $objUser->getPrenom();
+            $mail = $objUser->getMail();
+            $mdp = $objUser->getMotDePasse();
+            $adresse = $objUser->getAdresse();
+            $tel = $objUser->getTelephone();
+            $dateInsciption= $objUser->getDateInsciption();
+            $statut = $objUser->getStatut();
+            $droit = $objUser->getDroit();
+            
+            // envoie de la d'un nouvel utilisateur de la base de données
+            $qry = $this->getBdd()->prepare(
+            "INSERT INTO compte( mail, motDePasse, nom, prenom, adresse, telephone, dateInsciption, active, droit) 
+            VALUES (?,?,?,?,?,?,?,?,?)");
+            $qry->execute(array($mail,$mdp,$nom,$prenom,$adresse,$tel,$dateInsciption,$statut,$droit));
+            //passage l'information de la réussite de l'action via la variable $_session
+            $_SESSION['ajoutUser']='ok';
+            
+        //recupération des eventuelles erreurs
+        } catch (PDOException $e) {
+            $errorMsg = $e->getMessage();
+            require_once('controllers/ControllerError.php');
+            //passage l'information de l'echecs de l'action via la variable $_session
+            $this->_ctrl = new ControllerError($url, array('errorMsg' => $errorMsg));
+            $_SESSION['ajoutUser']='no';
+            die();
+        }
+        
+        //retour automatique à la page gestion_produits
+        // header('Location: /php_projet-CDA/0.projet_les_picantins-code/gestion_produits');
+        exit();
+    }
+
+    // vérification et récupération des données du compte
+    protected function verifMailMdp($objUser)
+    {
+        //récupération du mail et du mdp
+        $this->_mail = $objUser->getMail();
+        $this->_motDePasse = $objUser->getMotDePasse();
+        $this->_nomForm = $objUser->getNomForm();
+        
+        // si le mail  et le mot de passe existent et sont non nul: recupération des données de la table Compte 
+        try {
+            if (isset($this->_mail) && isset($this->_motDePasse)) {
+                $this->_req = $this->getBdd()->prepare("SELECT * FROM compte WHERE mail = ? AND motDePasse = ? AND active = ? ");
+                $this->_req->execute(array($this->_mail,$this->_motDePasse,1));
+                $recupBdd = $this->_req->fetch(PDO::FETCH_ASSOC);
+                    echo "mail : ".$this->_mail." <br>";
+                    echo "motDePasse : ".$this->_motDePasse." <br>";
+                // extraction des données retournées si elles existent,sont non null et sont vrai
+                if (!empty($recupBdd)) {
+                    foreach($recupBdd as $key => $value){
+                        $dataBdd [":" . $key] = $value;
+                    };
+                }else{
+                    $_SESSION['ajoutUser']='compteInexistant';
+                    header('Location: /php_projet-CDA/0.projet_les_picantins-code/accueil');
+                }
+                echo "<br>";
+                echo "dataBdd1<pre>";
+                var_dump($dataBdd);
+                echo "</pre>";
+                // vérification si les données extraitent existes et sont non null 
+                if (isset($dataBdd) && $this->_nomForm == "logCompte"){
+                    echo "test2 <br>";
+                    $this-> connexion($dataBdd);
+                }elseif (isset($dataBdd) &&  $this->_nomForm == "modifCompte"){
+                    $this-> verifModifCompte($dataBdd,$objUser);
+                }
+                else{
+                    //passage l'information de l'echecs de l'action via la variable $_session
+                    $_SESSION['ajoutUser']='compteInexistant';
+                }
+            }else{
+                //passage l'information de l'echecs de l'action via la variable $_session
+                $_SESSION['ajoutUser']='mdpMailVide';
+                die();
+            }
+        }catch(Exception $e) {
+            $errorMsg = $e->getMessage();
+            throw new Exception('Erreur: '.$errorMsg);
+        }
+    }
+    
+    // compte trouvé, récuprétion des données du compte et envoie de ces dernières dans le $_SESSION 
+    // pour récupération dans d'autre page
+    private function connexion($data)
+    {
+        // récupération des données de la base de donné sauf pour l'adresse mail qui est récupérer de la connexion
+        $this->_nom = $data[':nom'];
+        $this->_prenom = $data[':prenom'];
+        $this->_mail = "mailLogin";
+        $this->_mail = htmlspecialchars($_POST[$this->_mail]);
+        $this->_adresse = $data[':adresse'];
+        $this->_telephone = $data[':telephone'];
+        for($i=strlen($this->_telephone); $i>0; $i--){
+            if($i%2==0 && $i!=10){
+                $this->_telephone = substr_replace($this->_telephone, '-', $i, 0);
+            }
+        }
+        $this->_active = $data[':active'];
+        
+        // ajout des données récupérées dans un tableau pour le passage dans la variable $_SESSION
+        // et envoie confirmation de la connexion
+        $user = array (
+            'nom'=>$this->_nom,
+            'prenom'=>$this->_prenom,
+            'mail'=>$this->_mail,
+            'adresse'=>$this->_adresse,
+            'tel'=>$this->_telephone,
+            'active'=>$this->_active
+        );
+        $_SESSION['derniere_action'] = time();
+        $_SESSION['logged']=true;
+        $_SESSION['user']=$user;
+        header('Location: /php_projet-CDA/0.projet_les_picantins-code/myAccount');
+        exit();
+    }
+
+    //comparaison entre les données récupéré de la Bdd et les données entrés dans le formulaire
+    private function verifModifCompte($dataBdd,$objUser)
+    {
+        echo "<br>";
+        echo "dataBdd<pre>";
+        var_dump($dataBdd);
+        echo "</pre>";
+        echo "<br>";
+        echo "objUser<pre>";
+        var_dump($objUser);
+        echo "</pre>";
+        $idcompte =  $dataBdd[":idCompte"];
+        $this->_motDePasseNew = $objUser->getMotDePasseNew();
+        echo "idCompte = ".$idcompte."<br>";
+        foreach($dataBdd as $Key => $value){
+            $nomKey = str_replace(":", "", $Key);
+            if ($Key != ":idCompte" && $Key != ":motDePasse" && $Key != ":dateInsciption" && $Key != ":active" ) {
+                $methodeNomKey=  "get".ucfirst($nomKey);
+                $recupObjet =  $objUser->$methodeNomKey();
+                if( $value != $recupObjet && !empty($recupObjet)){
+                    echo "réussite";
+                    echo "<br>";
+                    $this->modifCompteBdd($idcompte,$nomKey,$recupObjet);
+                }else{
+                    echo "<br>";
+                    echo "ECHEC!!!!!!!!!!!! <br>";
+                    echo "<br>";
+                }
+            }elseif($Key == ":motDePasse" && !empty($this->_motDePasseNew)){
+                $this->modifCompteBdd($idcompte,$nomKey,$this->_motDePasseNew);
+            }
+        }
+        $objUser->setNomForm("logCompte");
+        $objUser->setMotDePasse($this->_motDePasseNew);
+        $this->verifMailMdp($objUser);
+
+    }
+
+    private function modifCompteBdd($idCompte,$nomKey,$valeur)
+    {
+        echo "modifCompteBdd nomKey  ".$nomKey."<br>";
+        echo "modifCompteBdd valeur  ".$valeur."<br>";
+        echo "modifCompteBdd idCompte  ".$idCompte."<br>";
+        try{
+            if (!empty($idCompte) && !empty($nomKey) && !empty($valeur)) {
+                $this->request = "UPDATE compte SET $nomKey = '$valeur' WHERE idCompte = $idCompte";
+                $qry = $this->getBdd()->prepare($this->request);
+                $qry->execute();
+            }
+        }catch(Exception $e){
+            $errorMsg = $e->getMessage();
+            throw new Exception('Erreur: '.$errorMsg);
+        }
+    }
+
+
 }

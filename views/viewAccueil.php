@@ -1,4 +1,14 @@
 
+<?php 
+$mail = isset($_SESSION['envoieMail'])?$_SESSION['envoieMail']:'';
+$modifBdd = isset($_SESSION['modif'])?$_SESSION['modif']:'';
+if (isset($mail)){
+    $_SESSION['envoieMail'] = "?";
+}
+if (isset($modifBdd)){
+    $_SESSION['modif'] = "?";
+}
+?>
 <body class="bodyCommon">
     <!-- main contenu -->
     <main class="main-container">

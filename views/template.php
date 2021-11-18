@@ -1,3 +1,19 @@
+
+<?php 
+// deconnexion automatique au bout de 15 min d'inactivité
+if(empty($_SESSION['logged']) || empty($_SESSION['derniere_action']) || (time() - $_SESSION['derniere_action']) > 900) {
+    // fermeture de la $_SESSION
+    $_SESSION=array();
+    if (isset($_COOKIE[session_name()])){
+        setcookie(session_name(), '', time()-1);
+    }
+    //Détruire la session
+    session_destroy();
+}else {
+    $_SESSION['derniere_action'] = time(); // mise à jour de la variable
+}
+$user = isset($_SESSION['user'])?$_SESSION['user']:'';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,20 +49,38 @@
                     <li class="liste-link">
                         <a class="link-page" href="<?=URL?>contact">info/contact</a>
                     </li>
-                    <li>
-                        <a class="link-page" href=""><img class="icon" src="asset/icon/user.svg" alt="icône login"></a>
+                    <li class="liste-link">
+                        <a class="link-page" href="<?=URL?>gestion_produits">gestion produit</a>
                     </li>
+                    <?php if (empty($_SESSION['logged'])): ?>
+                        <li class="liste-icone">
+                            <a class="link-page" href="<?=URL?>login"><img class="icon" src="asset/icon/user.svg" alt="icône login"></a>
+                            <p class="legende-icone">connexion</p>
+                        </li>
+                    <?php else: ?>
+                        <li class="liste-icone">
+                            <a class="link-page" href="<?=URL?>myAccount"><img class="icon" src="asset/icon/userConnected.svg" alt="icône compte"></a>
+                            <p class="legende-icone">mon compte</p>
+                        </li>
+                    <?php endif ?>
                     <li class="icon-panier-box">
                         <a class="link-page icon-panier js__nbArticlePanier" href=""></a>
                     </li>
-                    <li>
+                    <li class="liste-icone">
                         <a class="link-page" href="https://www.instagram.com/lespicantins/?hl=fr"><img class="icon" src="asset/icon/instagram.svg" alt="icône instagram"></a>
                     </li>
+                    <?php if (!empty($_SESSION['logged'])): ?>
+                        <li class="liste-icone">
+                            <form action="loginBdd" method="post">
+                                <button type="submit" value="deconnect" name="deconnect" id="deconnect" class="legende-icone">déconnexion</button>
+                            </form>
+                        </li>
+                    <?php endif ?>
                 </ul>
             </nav>
         </section>
         <!--header contracted-->
-        <section class="header header-animation-fixed-top" >
+        <!-- <section class="header header-animation-fixed-top" >
             <div>
                 <a class="link-page" href="<?=URL?>">
                     <img class="logo-societe-header-fixed" src="asset/img/logo-lespicantins-cour.svg" alt="logo societe" />
@@ -54,7 +88,7 @@
             </div>
             <nav class="barre-fixed-nav">
                 <ul class="nav-liste">
-                    <li>
+                    <li class="liste-icone">
                         <a class="link-page" href="<?=URL?>"><img class="icon" src="asset/icon/home.svg" alt="icône home"></a>
                     </li>
                     <?php foreach ($data['categorie'] as $categorie):?>
@@ -63,20 +97,38 @@
                         </li>
                     <?php endforeach; ?>
                     <li class="liste-link">
-                        <a class="link-page" href="<?=URL?>contact">Contact</a>
+                        <a class="link-page" href="<?=URL?>contact">info/contact</a>
+                    </li>
+                    <li class="liste-link">
+                        <a class="link-page" href="<?=URL?>gestion_produits">gestion produit</a>
                     </li>
                     <li class="icon-panier-box">
                         <a class="link-page icon-panier js__nbArticlePanier" href=""></a>
                     </li>
-                    <li>
-                        <a class="link-page" href=""><img class="icon" src="asset/icon/user.svg" alt="icône login"></a>
-                    </li>
-                    <li>
+                    <?php if (empty($_SESSION['logged'])): ?>
+                        <li class="liste-icone">
+                            <a class="link-page" href="<?=URL?>login"><img class="icon" src="asset/icon/user.svg" alt="icône login"></a>
+                            <p class="legende-icone">connexion</p>
+                        </li>
+                    <?php else: ?>
+                        <li class="liste-icone">
+                            <a class="link-page" href="<?=URL?>myAccount"><img class="icon" src="asset/icon/userConnected.svg" alt="icône compte"></a>
+                            <p class="legende-icone">mon compte</p>
+                        </li>
+                    <?php endif ?>
+                    <li class="liste-icone">
                         <a class="link-page" href="https://www.instagram.com/lespicantins/?hl=fr"><img class="icon" src="asset/icon/instagram.svg" alt="icône instagram"></a>
                     </li>
+                    <?php if (!empty($_SESSION['logged'])): ?>
+                        <li class="liste-icone">
+                            <form action="loginBdd" method="post">
+                                <button type="submit" value="deconnect" name="deconnect" id="deconnect" class="legende-icone">déconnexion</button>
+                            </form>
+                        </li>
+                    <?php endif ?>
                 </ul>
             </nav>
-        </section>
+        </section> -->
     </header> 
 
     <!--header nav responsive-->
@@ -87,7 +139,7 @@
             </a>
             <nav class="barre-nav-responsive">
                 <ul class="nav-liste">
-                    <li>
+                    <li class="liste-icone">
                         <a href="<?=URL?>"><img class="icon-responsive" src="asset/icon/home.svg" alt="icône login"></a>
                     </li>
                     <details class="">
@@ -101,16 +153,19 @@
                         <?php endforeach; ?>
                         </li>
                         <li class="liste-link-responsive">
-                            <a class="link-page" href="<?=URL?>contact">Contact</a>
+                            <a class="link-page" href="<?=URL?>contact">info/contact</a>
+                        </li>
+                        <li class="liste-link-responsive">
+                            <a class="link-page" href="<?=URL?>gestion_produits">gestion produit</a>
                         </li>
                     </details>
-                    <li>
+                    <li class="liste-icone">
                         <a href=""><img class="icon-responsive" src="asset/icon/user.svg" alt="icône login"></a>
                     </li>
                     <li class="icon-panier-box">
                         <a class="link-page icon-panier js__nbArticlePanier" href=""></a>
                     </li>
-                    <li>
+                    <li class="liste-icone">
                         <a href="https://www.instagram.com/lespicantins/?hl=fr"><img class="icon-responsive" src="asset/icon/instagram.svg" alt="icône instagram"></a>
                     </li>
                 </ul>
@@ -137,7 +192,10 @@
                         <a class="link-page" href="">Confiseries</a>
                     </li>
                     <li class="liste-footer">
-                        <a class="link-page" href="<?=URL?>contact">Contact</a>
+                        <a class="link-page" href="<?=URL?>contact">info/contact</a>
+                    </li>
+                    <li class="liste-footer">
+                        <a class="link-page" href="<?=URL?>gestion_produits">gestion produit</a>
                     </li>
                     <li class="icon-footer">
                         <a class="link-page" href="https://www.instagram.com/lespicantins/?hl=fr"><img class="icon" src="asset/icon/instagram.svg" alt="icône instagram"></a>

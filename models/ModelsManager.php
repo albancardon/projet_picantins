@@ -23,12 +23,12 @@ class ModelsManager extends Models
     private function setObjtBdd($objProduit)
     {
         $idProduit = $objProduit->getIdProduit();
-        $categorie_idCategorie = $objProduit->getCategorie_idCategorie();
-        $nomProduit = $objProduit->getNomProduit();
-        $poidsProduit = $objProduit->getPoidsProduit();
-        $prixProduit = $objProduit->getPrixProduit();
-        $descriptionProduit = $objProduit->getDescriptionProduit();
         $this->verifPropriete($idProduit, $objProduit);
+    }
+
+    public function deleteProduitBdd($objProduit)
+    {
+        return $this->deleteObjtProduitBdd($objProduit);
     }
 
     public function deleteFromatBdd($objProduit)
@@ -52,9 +52,15 @@ class ModelsManager extends Models
         return $this->suppBddCat($objCat);
     }
 
-    
-    public function deleteProduitBdd($objProduit)
-    {
-        return $this->deleteObjtProduitBdd($objProduit);
+    public function addUser($ModelCompte){
+        return $this->verifExistanceAddUser($ModelCompte);
+    }
+
+    public function connexionUser($ModelCompte){
+        return $this->verifMailMdp($ModelCompte);
+    }
+
+    public function modifUser($ModelCompte){
+        return $this->verifMailMdp($ModelCompte);
     }
 }

@@ -3,7 +3,7 @@
 // 1.0 vérification ddes donnée entrée dans les formulaires
 
 
-// 1.0 vérification ddes donnée entrée dans les formulaires
+// 1.0 vérification des données entrées dans les formulaires
 
     //declaration variables
 var btnLogin = document.getElementById("js__btnLogin");

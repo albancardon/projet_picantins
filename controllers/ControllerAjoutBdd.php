@@ -47,7 +47,7 @@ class ControllerAjoutBdd
 
             if (!empty(explode('-',$this->_idName)[4]) && isset (explode('-',$this->_idName)[4])) {
                 $this->_nomProduit = explode('-',$this->_idName)[4];
-            }else if (!empty($params["*name-product"])){
+            }elseif (!empty($params["*name-product"])){
                 $this->_nomProduit = $params["*name-product"];
             }else{
                 $this->_nomProduit = "";
@@ -55,7 +55,7 @@ class ControllerAjoutBdd
 
             if (!empty(explode('-',$this->_idName)[1]) && isset (explode('-',$this->_idName)[1])) {
                 $this->_categorie_idCategorie = explode('-',$this->_idName)[1];
-            }else if (!empty(explode('-',$params["*category-product"])[0])){
+            }elseif (!empty(explode('-',$params["*category-product"])[0])){
                 $this->_categorie_idCategorie = explode('-',$params["*category-product"])[0];
             }else{
                 $this->_categorie_idCategorie = "";
@@ -111,16 +111,16 @@ class ControllerAjoutBdd
             {
                 $this->_produitBdd->setProduitBdd($ModelProduitBdd);
             }
-            else if(isset($_POST['supprimer']) AND $_POST['supprimer'] == 'supprimer')
+            elseif(isset($_POST['supprimer']) AND $_POST['supprimer'] == 'supprimer')
             {
                 $this->_produitBdd->deleteFromatBdd($ModelBdd);
             }
-            else if(isset($_POST['suppProd']) AND $_POST['suppProd'] == 'suppProd')
+            elseif(isset($_POST['suppProd']) AND $_POST['suppProd'] == 'suppProd')
             {
                 $this->_produitBdd->deleteProduitBdd($ModelBdd);
             }
         // Si la clef "name-product" n'est pas dans les données envoyer mais qu'il y a la clé name-category
-        }else if (isset($params["*name-category"])) {
+        }elseif (isset($params["*name-category"])) {
             // détermination des valeur des variables
             if (isset($params["*name-categoryOld"])) {
                 $this->_nomCategorie = $params["*name-categoryOld"];
@@ -141,7 +141,7 @@ class ControllerAjoutBdd
             if(isset($_POST['ajoutCat']) AND $_POST['ajoutCat'] == 'ajoutCat')
             {
                 $this->_catBdd->ajoutCatBdd($ModelCatBdd);
-            }else if(isset($_POST['suppCat']) AND $_POST['suppCat'] == 'suppCat')
+            }elseif(isset($_POST['suppCat']) AND $_POST['suppCat'] == 'suppCat')
             {
                 $this->_catBdd->deleteCatBdd($ModelCatBdd);
             }

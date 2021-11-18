@@ -6,16 +6,22 @@ if (isset($modifBdd)&& $modifBdd == "ok"){
         <script language=javascript>
             alert(\'Action effectuer.\');
         </script> ';
-}else if(isset($modifBdd)&& $modifBdd == "no"){
+}elseif(isset($modifBdd)&& $modifBdd == "no"){
     echo'
         <script language=javascript>
             alert(\'Action non effectuer!\');
         </script> ';
     
-}else if(isset($modifBdd)&& $modifBdd == "errorKey"){
+}elseif(isset($modifBdd)&& $modifBdd == "errorKey"){
     echo'
         <script language=javascript>
             alert(\'Suppression impossible: element non vide!\');
+        </script> ';
+    
+}elseif(isset($modifBdd)&& $modifBdd == "noCatAbs"){
+    echo'
+        <script language=javascript>
+            alert(\'Erreur: nom de catégorie absent!\');
         </script> ';
     
 }
@@ -62,12 +68,12 @@ if (isset($modifBdd)&& $modifBdd == "ok"){
     
                 <div class="form-group">
                     <label class="legend-form" for="size-product">Taille Du Produit</label>
-                    <input class="form-champ" type="text" name="size-product" id="size-product" pattern="[0-9]{3,20}" required value="100"/>
+                    <input class="form-champ" type="text" name="size-product" id="size-product" pattern="[0-9]{3,20}" required value=""/>
                 </div>
     
                 <div class="form-group">
                     <label class="legend-form" for="prixUnitaire-product">Prix Unitaire Du Produit*</label>
-                    <input class="form-champ" type="text" name="prixUnitaire-product" id="prixUnitaire-product" pattern="[A-Za-z0-9\u00c0-\u00ff]{1,20}" required value="10"/>
+                    <input class="form-champ" type="text" name="prixUnitaire-product" id="prixUnitaire-product" pattern="[A-Za-z0-9\u00c0-\u00ff]{1,20}" required value=""/>
                 </div>
     
                 <div class="form-group-haut-bas form-group-bas">

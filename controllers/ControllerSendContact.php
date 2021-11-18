@@ -14,8 +14,8 @@ class ControllerSendContact
         }
     }
 
-    private function getUrl(){
-
+    private function getUrl()
+	{
 		//recupération et securisation des données envoyées par le fomulaire
         foreach ($_POST as $key => $value) {
             $params['*' . $key] = (isset($_POST[$key]) && !empty($_POST[$key])) ? htmlspecialchars($_POST[$key]) : null;

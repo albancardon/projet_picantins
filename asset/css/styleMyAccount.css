@@ -56,7 +56,8 @@
     justify-content:space-around;
     align-items: center;
     width:12%;
-    text-decoration: none;
+    text-decoration: underline;
+    cursor: pointer;
     color: #271A0F;
 }
 
@@ -135,6 +136,13 @@ th, td{
 
 /*  3.0 aside modal */
 
+.form-modification{
+    text-align: center;
+}
 .champ-modification{
     margin: 0;
+}
+#js__btnModifCompte{
+    margin-top: 1.5em;
+    margin-bottom: 1em;
 }
