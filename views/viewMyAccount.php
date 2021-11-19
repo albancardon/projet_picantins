@@ -5,11 +5,6 @@ if (empty($_SESSION['logged'])) {
     exit();
 }
 $user = isset($_SESSION['user'])?$_SESSION['user']:'';
-if (!empty($user)){
-    echo "user<pre>";
-    var_dump($user);
-    echo "</pre>";
-}
 ?>
 <body class="bodyCommon">
     <div id="js__mainContent">

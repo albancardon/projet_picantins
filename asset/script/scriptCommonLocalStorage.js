@@ -22,7 +22,7 @@ var panierTab = [];
                 let numProduit = btnAjout.id.split("-")[1];
                 let numQuantite = btnAjout.id.split("js__btnAjoutProduit-"+numProduit+"-quantite-")[1];
                 let quantiteProduitPanier = Number (document.getElementById("js__choixPoids-"+numProduit+"-quantite-"+numQuantite).value);
-                let idProduitPanier = "p"+numProduit+"q"+numQuantite; // exemple p3q2 = produit n°3 quantité n°2
+                let idProduitPanier = "p-"+numProduit+"-q-"+numQuantite; // exemple p3q2 = produit n°3 quantité n°2
 
                 if (quantiteProduitPanier > 0) {
                     for (i = 0; i < panierTab.length; i++) {
@@ -40,7 +40,7 @@ var panierTab = [];
                     let nomProduitPanier = document.getElementById("js__produit-"+numProduit).innerHTML;
                     let poidsProduit = Number (document.getElementById("js__produit-"+numProduit+"-poids-"+numQuantite).innerHTML.trim().split("g")[0]);
                     let prixUnitaireProduit = Number (document.getElementById("js__produit-"+numProduit+"-prix-"+numQuantite).innerHTML.trim().split("€")[0]);
-                    let descriptionPanier = document.getElementById("js__ descriptionProduit-"+numProduit).innerHTML.trim();
+                    let descriptionPanier = document.getElementById("js__descriptionProduit-"+numProduit).innerHTML.trim();
                     let imagePanier = "../asset"+document.getElementById("js__imageProduit-"+numProduit).src.split("asset")[1];
                     let produitTab = [idProduitPanier, nomProduitPanier, poidsProduit, prixUnitaireProduit, quantiteProduitPanier, descriptionPanier, imagePanier];
                     panierTab.push(produitTab);
@@ -50,6 +50,7 @@ var panierTab = [];
                 }else {
                     return;
                 }
+                majPanier();
             })
         });
     });
@@ -70,7 +71,7 @@ function createStorage(){
     // fonction reset valeur quantité recupProduitStorage
 
 function resetProduit (idProduitPanier){
-        tabNumProduitQauntite = idProduitPanier.split(/(\d)/);
-        champNbArticle = document.getElementById("js__choixPoids-"+tabNumProduitQauntite[1]+"-quantite-"+tabNumProduitQauntite[3]);
+        tabNumProduitQuantite = idProduitPanier.split("-");
+        champNbArticle = document.getElementById("js__choixPoids-"+tabNumProduitQuantite[1]+"-quantite-"+tabNumProduitQuantite[3]);
         champNbArticle.value = 0;
 }

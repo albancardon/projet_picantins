@@ -13,9 +13,6 @@ if (isset($modifBdd)&& $modifBdd == "ok"){
         </script> ';
     
 }
-echo "contenuTab<pre>";
-var_dump($contenuTab['compte']);
-echo "</pre>";
 ?>
 <body id="pageGestionComptes" class="bodyCommon">
     <main id="js__mainContent" class="part">

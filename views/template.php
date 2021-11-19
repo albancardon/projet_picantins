@@ -68,7 +68,7 @@ $user = isset($_SESSION['user'])?$_SESSION['user']:'';
                         </li>
                     <?php endif ?>
                     <li class="icon-panier-box">
-                        <a class="link-page icon-panier js__nbArticlePanier" href=""></a>
+                        <a class="link-page icon-panier js__nbArticlePanier" href="<?=URL?>panier"></a>
                     </li>
                     <li class="liste-icone">
                         <a class="link-page" href="https://www.instagram.com/lespicantins/?hl=fr"><img class="icon" src="asset/icon/instagram.svg" alt="icône instagram"></a>

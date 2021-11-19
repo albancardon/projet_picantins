@@ -30,9 +30,6 @@ class ControllerLoginBdd
 
     private function getUrl()
     {
-        echo " controller<pre>";
-        var_dump($_POST);
-        echo "</pre>";
         // recupération et sécurisation des informations envoyer par le formulaire
         foreach ($_POST as $key => $value) {
             $params["*" . $key] = (isset($_POST[$key]) && !empty($_POST[$key])) ? htmlspecialchars($_POST[$key]) : null;
@@ -87,21 +84,8 @@ class ControllerLoginBdd
         }elseif (isset($params["*modifCompteGestion"]) && $params["*modifCompteGestion"] == "modifCompteGestion") {
             $this->_nomForm = "modifCompteGestion";
         }
-
-        echo "nom : ".$this->_nom."<br>";
-        echo "prenom : ".$this->_prenom."<br>";
-        echo "mail : ".$this->_mail."<br>";
-        echo "motDePasse : ".$this->_motDePasse."<br>";
-        echo "adresse : ".$this->_adresse."<br>";
-        echo "tel : ".$this->_telephone."<br>";
-        echo "nomForm : ".$this->_nomForm."<br>";
-
-
-
-
         // vérification du formulaire envoyer envoyer est "addCompte"
         if ($this->_nomForm == "addCompte") {
-
             //recupération du mot de passe ainsi que sa confirmation et vérification de la concordence
             if (password_verify((isset($params["*passConfirm"])?$params["*passConfirm"]:''), $this->_motDePasse)) {
                 //recupération des donné manquante pour la création du compte
@@ -126,9 +110,6 @@ class ControllerLoginBdd
             // création de l'objet 
             $this->_compteBdd = new ModelsManager;
             $CompteConnexionBdd = $this->_compteBdd->getModelForBdd('user');
-            echo " ModelCompteConnexion<pre>";
-            var_dump($CompteConnexionBdd);
-            echo "</pre>";
             // hydratation de l'objet (remplissage de l'objet avec les données récupéraient)
             $ModelCompteConnexion= $this->hydrateModelCompte($CompteConnexionBdd);
             // appel de la methode de connexion d'un utilisateur
