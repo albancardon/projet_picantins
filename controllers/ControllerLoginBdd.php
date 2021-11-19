@@ -15,6 +15,7 @@ class ControllerLoginBdd
     private $_telephone;
     private $_dateInsciption;
     private $_active;
+    private $_recupActive;
     private $_droit;
     private $_nomForm;
 
@@ -55,7 +56,7 @@ class ControllerLoginBdd
         // cryptage du mot de passe
         $this->_motDePasse = password_hash((isset($params["*passLogin"])?$params["*passLogin"]:''), PASSWORD_DEFAULT, ['cost' => 12]);
         $this->_motDePasseNew =  password_hash((isset($params["*passLoginNew"])?$params["*passLoginNew"]:''), PASSWORD_DEFAULT, ['cost' => 12]);
-        $this->_adresse =  isset($params["*compte-adressse"])?$params["*compte-adressse"]:'';
+        $this->_adresse =  isset($params["*compte-adresse"])?$params["*compte-adresse"]:'';
         // mise en forme du numéro de téléphone pour qu'il ait toujours la même
         $this->_recupTel = isset($params["*compte-tel"])?$params["*compte-tel"]:'';
         $presenceTiret = strstr($this->_recupTel, '-');
@@ -67,6 +68,25 @@ class ControllerLoginBdd
         }elseif (!empty($presenceTiret) && empty($presenceEspace)) {
             $this->_telephone =  str_replace("-", "", $this->_recupTel);
         }
+        // vérification si le compte est actif
+        $this->_recupActive = isset($params["*compte-active"])?$params["*compte-active"]:'';
+        if ($this->_recupActive == "oui") {
+            $this->_active = 1;
+        }elseif ($this->_recupActive == "non") {
+            $this->_active = 2;
+        }else{
+            $this->_active = '';
+        }
+        //ajout du nom du fomulaire ayant été envoyer
+        if (isset($params["*addCompte"]) && $params["*addCompte"] == "addCompte"){
+            $this->_nomForm = "addCompte";
+        }elseif (isset($params["*logCompte"]) && $params["*logCompte"] == "logCompte") {
+            $this->_nomForm = "logCompte";
+        }elseif (isset($params["*modifCompte"]) && $params["*modifCompte"] == "modifCompte") {
+            $this->_nomForm = "modifCompte";
+        }elseif (isset($params["*modifCompteGestion"]) && $params["*modifCompteGestion"] == "modifCompteGestion") {
+            $this->_nomForm = "modifCompteGestion";
+        }
 
         echo "nom : ".$this->_nom."<br>";
         echo "prenom : ".$this->_prenom."<br>";
@@ -74,17 +94,16 @@ class ControllerLoginBdd
         echo "motDePasse : ".$this->_motDePasse."<br>";
         echo "adresse : ".$this->_adresse."<br>";
         echo "tel : ".$this->_telephone."<br>";
+        echo "nomForm : ".$this->_nomForm."<br>";
 
 
 
 
         // vérification du formulaire envoyer envoyer est "addCompte"
-        if (isset($params["*addCompte"]) && $params["*addCompte"] == "addCompte") {
+        if ($this->_nomForm == "addCompte") {
 
             //recupération du mot de passe ainsi que sa confirmation et vérification de la concordence
             if (password_verify((isset($params["*passConfirm"])?$params["*passConfirm"]:''), $this->_motDePasse)) {
-                //ajout du nom du fomulaire ayant été envoyer
-                $this->_nomForm =  "addCompte";
                 //recupération des donné manquante pour la création du compte
                 $this->_dateInsciption =  date('Y-m-d');
                 $this->_active =  1;
@@ -103,9 +122,7 @@ class ControllerLoginBdd
                 throw new Exception('Erreur: Le mot de passe et la vérification du mot de passe ne sont pas identique!');
             }
         // vérification du formulaire envoyer envoyer est "logCompte"
-        }elseif (isset($params["*logCompte"]) && $params["*logCompte"] == "logCompte") {
-            //ajout du nom du fomulaire ayant été envoyer
-            $this->_nomForm =  "logCompte";
+        }elseif ($this->_nomForm == "logCompte") {
             // création de l'objet 
             $this->_compteBdd = new ModelsManager;
             $CompteConnexionBdd = $this->_compteBdd->getModelForBdd('user');
@@ -114,24 +131,15 @@ class ControllerLoginBdd
             echo "</pre>";
             // hydratation de l'objet (remplissage de l'objet avec les données récupéraient)
             $ModelCompteConnexion= $this->hydrateModelCompte($CompteConnexionBdd);
-
-            echo " ModelCompteConnexion<pre>";
-            var_dump($ModelCompteConnexion);
-            echo "</pre>";
+            // appel de la methode de connexion d'un utilisateur
             $this->_compteBdd->connexionUser($ModelCompteConnexion);
 
         // vérification du formulaire envoyer envoyer est "modifCompte"
-        }elseif (isset($params["*modifCompte"]) && $params["*modifCompte"] == "modifCompte") {
-            echo "test 1<br>";
+        }elseif ($this->_nomForm == "modifCompte") {
             //recupération du nouveau mot de passe ainsi que sa confirmation et vérification de la concordence
             $this->_motDePasseConfirm =  isset($params["*passConfirm"])?$params["*passConfirm"]:false;
 
             if (password_verify((isset($params["*passConfirm"])?$params["*passConfirm"]:''), $this->_motDePasseNew)) {
-                
-                echo "test 2<br>";
-                //ajout du nom du fomulaire ayant été envoyer
-                $this->_nomForm =  "modifCompte";
-
                 // création de l'objet User
                 $this->_compteBdd = new ModelsManager;
                 $CompteBdd = $this->_compteBdd->getModelForBdd('user');
@@ -139,17 +147,29 @@ class ControllerLoginBdd
                 // hydratation de l'objet (remplissage de l'objet avec les données récupéraient)
                 $ModelCompte = $this->hydrateModelCompte($CompteBdd);
                 
-                // appel de la methode d'ajout d'un utilisateur à la base de données
+                // appel de la methode de modification d'un utilisateur à la base de données
                 $this->_compteBdd->modifUser($ModelCompte);
 
             }else{
                 throw new Exception('Erreur: Le mot de passe et la vérification du mot de passe ne sont pas identique!');
             }
+
+            // vérification du formulaire envoyer envoyer est "modifCompteGestion"
+        }elseif ($this->_nomForm == "modifCompteGestion"){
+            // création de l'objet User
+            $this->_compteBdd = new ModelsManager;
+            $CompteBdd = $this->_compteBdd->getModelForBdd('user');
+            
+            // hydratation de l'objet (remplissage de l'objet avec les données récupéraient)
+            $ModelCompte = $this->hydrateModelCompte($CompteBdd);
+            // appel de la methode de modification d'un utilisateur à la base de données
+            $this->_compteBdd->modifUser($ModelCompte);
+
+            // vérification du formulaire envoyer envoyer est "supprCompte"
         }
     }
 
     private function hydrateModelCompte($Obj){
-        echo "test 3<br>";
         $Obj->setIdCompte($this->_idCompte);
         $Obj->setNom($this->_nom);
         $Obj->setPrenom($this->_prenom);
@@ -159,7 +179,7 @@ class ControllerLoginBdd
         $Obj->setAdresse($this->_adresse);
         $Obj->setTelephone($this->_telephone);
         $Obj->setDateInsciption($this->_dateInsciption);
-        $Obj->setStatut($this->_active);
+        $Obj->setActive($this->_active);
         $Obj->setDroit($this->_droit);
         $Obj->setNomForm($this->_nomForm);
         return $Obj;

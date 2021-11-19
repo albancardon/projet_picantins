@@ -23,6 +23,9 @@ window.onload = ajoutListeNavigation();
 
         //déclaration des fonctions
 function ajoutListeNavigation(){
+    tableClient[0].classList.remove('inactive');
+    tableClient[0].classList.add('active');
+
     let li = document.createElement("li");
     li.setAttribute( "id" , "js__btnPrecedentClient");
     li.classList.add("page-carousel");
@@ -119,6 +122,9 @@ function ajoutListeNavigation(){
     //declaration variables
 
 var numId = "";
+var actifOui = document.getElementById("js__actif-oui");
+var actifNon = document.getElementById("js__actif-non");
+var infoIdCompte = document.getElementById("idCompte");
 var infoCompteNom = document.getElementById("infoCompte-nom");
 var infoComptePrenom = document.getElementById("infoCompte-prenom");
 var infoCompteMail = document.getElementById("infoCompte-mail");
@@ -129,15 +135,29 @@ var infoCompteTel = document.getElementById("infoCompte-tel");
     //fonction appeler sur le script de la modale lors de l'overture de la fenetre modale
 function collectNumId() {
     numId = recupIdBtn.split("js__btnModif-")[1];
+    let recupActif = document.getElementById("js__active-"+numId).checked;
     let recupNom = document.getElementById("js__nomCompte-"+numId).innerHTML.trim();
     let recupPrenom = document.getElementById("js__prénomCompte-"+numId).innerHTML.trim();
     let recupMail = document.getElementById("js__mailCompte-"+numId).innerHTML.trim();
     let recupAdresse = document.getElementById("js__adresseCompte-"+numId).innerHTML.trim();
     let recupTel = document.getElementById("js__telcompte-"+numId).innerHTML.trim();
 
+    infoIdCompte.value = numId;
     infoCompteNom.value = recupNom;
     infoComptePrenom.value = recupPrenom;
     infoCompteMail.value = recupMail;
     infoCompteAdresse.value = recupAdresse;
     infoCompteTel.value = recupTel;
+    if (recupActif) {
+        actifOui.setAttribute("checked",'');
+    }else {
+        actifNon.setAttribute("checked",'');
+    }
+}
+
+// fonction suppression choix compte actif
+
+function closeModal() {
+    actifOui.removeAttribute("checked");
+    actifNon.removeAttribute("checked");
 }

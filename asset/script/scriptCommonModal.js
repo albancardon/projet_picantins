@@ -96,6 +96,7 @@ function open(modalWindow) {
 
         // fonction fermeture boite modale
 function close(modalWindow) {
+    let idPage = document.querySelector("body").id;
 
     let testModalOverte = modalWindow.getAttribute("aria-hidden");
     
@@ -108,4 +109,7 @@ function close(modalWindow) {
     
     recupBtnOpen.focus();
     recupIdBtn="";
+    if (idPage === "pageGestionComptes") {
+        closeModal();
+    }
 }

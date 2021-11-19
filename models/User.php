@@ -11,7 +11,7 @@ class User
     private $_adresse;
     private $_telephone;
     private $_dateInsciption;
-    private $_statut;
+    private $_active;
     private $_droit;
     private $_nomForm;
 
@@ -70,10 +70,10 @@ class User
     {
         $this->_dateInsciption = $dateInsciption;
     }
-    public function setStatut($statut)
+    public function setActive($active)
     {
-        $statut = (int) $statut;
-        $this->_statut = $statut;
+        $active = (int) $active;
+        $this->_active = $active;
     }
     public function setDroit($droit)
     {
@@ -126,9 +126,9 @@ class User
     {
         return $this->_dateInsciption;
     }
-    public function getStatut()
+    public function getActive()
     {
-        return $this->_statut;
+        return $this->_active;
     }
     public function getDroit()
     {

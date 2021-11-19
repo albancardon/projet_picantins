@@ -73,8 +73,8 @@ $user = isset($_SESSION['user'])?$_SESSION['user']:'';
                             pattern="[A-Za-z0-9_$]{8,}" required/>
                         </div>
                         <div class="champ-inscription">
-                            <label class="label-inscription majDbutMot" for="compte-adressse">Mon adresse</label>
-                            <input class="zone-text" type="text" name="compte-adressse" id="compte-adressse" value="château de Moulinsart 602000 Compiègne" placeholder="adresse" required/>
+                            <label class="label-inscription majDbutMot" for="compte-adresse">Mon adresse</label>
+                            <input class="zone-text" type="text" name="compte-adresse" id="compte-adresse" value="château de Moulinsart 602000 Compiègne" placeholder="adresse" required/>
                         </div>
                         <div class="champ-inscription">
                             <label class="label-inscription majDbutMot" for="compte-tel">Mon numéro de téléphone</label>

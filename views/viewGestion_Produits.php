@@ -31,7 +31,7 @@ if (isset($modifBdd)&& $modifBdd == "ok"){
         <h1 class="titlePage">Gestion des produits</h1>
         <main class="part">
             <h2 class="title-chap ombre">Ajout Produit</h2>
-            <form class="form-box ombre" action="ajoutBdd"
+            <form class="form-box ombre" action="produitBdd"
             enctype="multipart/form-data" method="post">
                 <div class="form-group-haut-bas">
                     <label class="legend-form" for="name-product">Nom Du Produit</label>
@@ -96,7 +96,7 @@ if (isset($modifBdd)&& $modifBdd == "ok"){
         <aside class="aside-modification mask" id="js__boxModifCategorie">
             <div role="document" class="categorie_box">
                 <button id="js__btnCloseBoxModif" class="btn btn-white btn-connexion" type="button" aria-label="Fermer" title="Fermer cette fenêtre modale" data-dismiss="dialog">fermer</button>
-                <form class="form-categorie" action="ajoutBdd" method="post">
+                <form class="form-categorie" action="produitBdd" method="post">
                     <div class="champ-modification">
                         <label class="legend-form" for="name-category">Nom de la catégorie à supprimer ou nouveau nom de la catégorie</label>
                         <input class="form-champ" type="text" name="name-category" id="name-category" pattern="[A-Za-z0-9\u00c0-\u00ff]{3,20}" required />
@@ -223,7 +223,7 @@ if (isset($modifBdd)&& $modifBdd == "ok"){
 
             <?php endforeach; ?>
             <article id="js__box-validation" class="hidden">
-                <form class="form-suppr" action="ajoutBdd" method="post">
+                <form class="form-suppr" action="produitBdd" method="post">
                     <div class="hidden">
                         <input type="text" name="name-product" id="infoSupp-id"/>
                     </div>
@@ -239,7 +239,7 @@ if (isset($modifBdd)&& $modifBdd == "ok"){
                 </form>
             </article>
             <article id="js__box-validation-suppProduit" class="hidden">
-                <form class="form-suppr" action="ajoutBdd" method="post">
+                <form class="form-suppr" action="produitBdd" method="post">
                     <div class="hidden">
                         <input type="text" name="name-product" id="infoSuppProd-id"/>
                     </div>
@@ -260,7 +260,7 @@ if (isset($modifBdd)&& $modifBdd == "ok"){
     <aside class="aside-modification" id="js__modalWindow" role="dialog" aria-labelledby="dialog-title" aria-describedby="dialog-desc" aria-modal="true" aria-hidden="true" tabindex="-1">
         <div role="document" class="modale__box">
             <button id="js__btnClose" class="btn btn-white btn-connexion" type="button" aria-label="Fermer" title="Fermer cette fenêtre modale" data-dismiss="dialog">fermer</button>
-            <form class="form-modification" action="ajoutBdd" method="post">
+            <form class="form-modification" action="produitBdd" method="post">
                 <div class="hidden">
                     <input type="text" name="name-product" id="referenceProduit"/>
                 </div>

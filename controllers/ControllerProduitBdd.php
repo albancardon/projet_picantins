@@ -1,6 +1,6 @@
 <?php
 
-class ControllerAjoutBdd
+class ControllerProduitBdd
 {
     private $_idName;
     private $_idProduit;
@@ -31,6 +31,10 @@ class ControllerAjoutBdd
     }
 
     private function getUrl(){
+        echo " controller<pre>";
+        var_dump($_POST);
+        echo "</pre>";
+        echo '_errorImg '.$this->_errorImg.'<br>';
         // recupération et sécurisation des informations envoyer par le formulaire
         foreach ($_POST as $key => $value) {
             $params["*" . $key] = (isset($_POST[$key]) && !empty($_POST[$key])) ? htmlspecialchars($_POST[$key]) : null;
@@ -64,34 +68,40 @@ class ControllerAjoutBdd
             // recupération et stockage de l'image envoyer, si elle existe envoyer
             if(isset($_FILES['img-product'])){
                 $this->_tmpNameImg = $_FILES['img-product']['tmp_name'];
-                $this->_nameImg = $_FILES['img-product']['name'];
-                $this->_sizeImg = $_FILES['img-product']['size'];
-                $this->_errorImg = $_FILES['img-product']['error'];
-                $this->_typeImg = $_FILES['img-product']['type'];
-
-
-                // vérification du type de fichier envoyer
-                $tabExtension = explode('.', $this->_nameImg);
-                $extension = strtolower(end($tabExtension));
-
-                //condition autoriser
-                $extensionAutorisees = ['jpg', 'jpeg', 'gif', 'png'];
-                $tailleMax = 400000;
-
-                if ($this->_errorImg == 0) {
-                    if (in_array($extension, $extensionAutorisees)){
-                        if ($this->_sizeImg <=$tailleMax) {
-                            $nomImgUpload = $this->_nomProduit. '.jpg';
-                            echo $nomImgUpload;
-                            move_uploaded_file($this->_tmpNameImg, 'asset/img/produit/'.$nomImgUpload);
+                if (!empty($this->_tmpNameImg)) {
+                    $this->_nameImg = $_FILES['img-product']['name'];
+                    $this->_sizeImg = $_FILES['img-product']['size'];
+                    $this->_errorImg = $_FILES['img-product']['error'];
+                    $this->_typeImg = $_FILES['img-product']['type'];
+    
+                    echo " _FILES<pre>";
+                    var_dump($_FILES);
+                    echo "</pre>";
+                    echo '_nameImg '.!empty($this->_tmpNameImg ).'<br>';
+    
+                    // vérification du type de fichier envoyer
+                    $tabExtension = explode('.', $this->_nameImg);
+                    $extension = strtolower(end($tabExtension));
+    
+                    //condition autoriser
+                    $extensionAutorisees = ['jpg', 'jpeg', 'gif', 'png'];
+                    $tailleMax = 400000;
+    
+                    if ($this->_errorImg == 0) {
+                        if (in_array($extension, $extensionAutorisees)){
+                            if ($this->_sizeImg <=$tailleMax) {
+                                $nomImgUpload = $this->_nomProduit. '.jpg';
+                                echo $nomImgUpload;
+                                move_uploaded_file($this->_tmpNameImg, 'asset/img/produit/'.$nomImgUpload);
+                            }else{
+                                throw new Exception('Fichier trop volumineux');
+                            }
                         }else{
-                            throw new Exception('Fichier trop volumineux');
+                            throw new Exception('Mauvais type de fichier envoyer');
                         }
                     }else{
-                        throw new Exception('Mauvais type de fichier envoyer');
+                        throw new Exception('Erreur sur le fichier envoyer');
                     }
-                }else{
-                    throw new Exception('Erreur sur le fichier envoyer');
                 }
             }
 
@@ -107,15 +117,15 @@ class ControllerAjoutBdd
             $ModelProduitBdd=$this->hydrateModelProduit($ModelBdd);
 
             // determination de l'action en fonction du bouton qui a envoyer les données du formulaire
-            if(isset($_POST['ajout']) AND $_POST['ajout'] == 'ajout')
+            if(isset( $params['*ajout']) AND  $params['*ajout'] == 'ajout')
             {
                 $this->_produitBdd->setProduitBdd($ModelProduitBdd);
             }
-            elseif(isset($_POST['supprimer']) AND $_POST['supprimer'] == 'supprimer')
+            elseif(isset( $params['*supprimer']) AND  $params['*supprimer'] == 'supprimer')
             {
                 $this->_produitBdd->deleteFromatBdd($ModelBdd);
             }
-            elseif(isset($_POST['suppProd']) AND $_POST['suppProd'] == 'suppProd')
+            elseif(isset( $params['*suppProd']) AND  $params['*suppProd'] == 'suppProd')
             {
                 $this->_produitBdd->deleteProduitBdd($ModelBdd);
             }
@@ -138,10 +148,10 @@ class ControllerAjoutBdd
             $ModelCatBdd=$this->hydrateModelCategorie($ModelBdd);
 
             // determination de l'action en fonction du bouton qui a envoyer les données du formulaire
-            if(isset($_POST['ajoutCat']) AND $_POST['ajoutCat'] == 'ajoutCat')
+            if(isset( $params['*ajoutCat']) AND  $params['*ajoutCat'] == 'ajoutCat')
             {
                 $this->_catBdd->ajoutCatBdd($ModelCatBdd);
-            }elseif(isset($_POST['suppCat']) AND $_POST['suppCat'] == 'suppCat')
+            }elseif(isset( $params['*suppCat']) AND  $params['*suppCat'] == 'suppCat')
             {
                 $this->_catBdd->deleteCatBdd($ModelCatBdd);
             }

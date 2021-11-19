@@ -10,7 +10,7 @@ class Compte
     private $_adresse;
     private $_telephone;
     private $_dateInsciption;
-    private $_statut;
+    private $_active;
     private $_droit;
 
     // constructeur de l'objet
@@ -79,10 +79,10 @@ class Compte
     {
         $this->_dateInsciption = $dateInsciption;
     }
-    public function setStatut($statut)
+    public function setActive($active)
     {
-        $statut = (int) $statut;
-        $this->_statut = $statut;
+        $active = (int) $active;
+        $this->_active = $active;
     }
     public function setDroit($droit)
     {
@@ -119,15 +119,20 @@ class Compte
     }
     public function getTelephone()
     {
+        for($i=strlen($this->_telephone); $i>0; $i--){
+            if($i%2==0 && $i!=10){
+                $this->_telephone = substr_replace($this->_telephone, '-', $i, 0);
+            }
+        }
         return $this->_telephone;
     }
     public function getDateInsciption()
     {
         return $this->_dateInsciption;
     }
-    public function getStatut()
+    public function getActive()
     {
-        return $this->_statut;
+        return $this->_active;
     }
     public function getDroit()
     {

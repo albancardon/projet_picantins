@@ -116,7 +116,6 @@ var recupIdBtnSupp = "";
 document.addEventListener("DOMContentLoaded", ()=>{
     
     btnSuppTab.forEach((btnSupp) => {
-
         btnSupp.addEventListener("click", (e) => {
             recupIdBtnSupp = btnSupp.id;
             collectInfoSupp()
@@ -130,10 +129,7 @@ btnRefusSupp.addEventListener("click",(e)=>{
     closeBoxValdation();
 })
 
-
     // declaration des fonction
-
-
 function closeBoxValdation(){
     boxValidation.className = classHidden;
     recupIdBtnSupp = "";
@@ -145,13 +141,11 @@ function closeBoxValdation(){
     //declaration variables
 var numIdSupp = "";
 var infoSuppId = document.getElementById("infoSupp-id");
-    
-    // déclaration de la fonction
 
+    // déclaration de la fonction
 function collectInfoSupp() {
     infoSuppId.value = recupIdBtnSupp;
 }
-
 
 // 6.0 demande suppression du produit
 
@@ -163,9 +157,7 @@ var recupIdBtnSuppProd = "";
     
         // ajout des listeners 
 document.addEventListener("DOMContentLoaded", ()=>{
-
     btnSuppProdTab.forEach((btnSuppProd) => {
-
         btnSuppProd.addEventListener("click", (e) => {
             recupIdBtnSuppProd = btnSuppProd.id;
             collectInfoSuppProd()
@@ -191,9 +183,8 @@ function closeBoxValdationProd(){
     //declaration variables
 var numIdSuppProd = "";
 var infoSuppIdProd = document.getElementById("infoSuppProd-id");
-    
-    // déclaration de la fonction
 
+    // déclaration de la fonction
 function collectInfoSuppProd() {
     infoSuppIdProd.value = recupIdBtnSuppProd;
 }
