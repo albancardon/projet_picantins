@@ -15,6 +15,13 @@ var panierTab = [];
 var panierListeArticle = document.getElementById("js__panierListeArticle");
 var panierVide = document.getElementById("js__panierVide");
 var tabPrixArticle = [];
+var classIdClient = document.getElementsByClassName("js__idClient");
+if (classIdClient.length > 0){
+    var idClient = classIdClient[0].id.split("idClient")[1];
+}else{
+    var idClient = "";
+}
+var tabSave = "panierTabSave"+idClient;
 var prixPanier = 0;
 var prixPanierAfficher = Array.from(document.getElementsByClassName("js__prixPanier"));
 var tabQuantite = document.getElementsByClassName("js__quantite");
@@ -30,10 +37,10 @@ window.onload = recupProduitStorage();
     // 1.1 décalaration fonction de création du stockage local storage
 function createStorage(){
     if ( typeof localStorage != "undefined" && JSON){
-        if (localStorage.getItem("panierTabSave")==null){
-            localStorage.setItem("panierTabSave",JSON.stringify(panierTab));
+        if (localStorage.getItem(tabSave)==null){
+            localStorage.setItem(tabSave,JSON.stringify(panierTab));
         }else{
-            panierTab = JSON.parse(localStorage.getItem("panierTabSave"));
+            panierTab = JSON.parse(localStorage.getItem(tabSave));
             if (panierTab.length > 0) {
                 panierVide.className = "invisible";
                 asidePanier.className = "aside-panier";
@@ -53,20 +60,7 @@ function recupProduitStorage() {
         let prixUnitaireProduit = produit[3];
         let quantiteProduitPanier = produit[4];
         let descriptionPanier = produit[5];
-        let imagePanier = "";
-        let addressImgTab = produit[6].split("/");
-        if (addressImgTab[0] === "..") {
-            imagePanier = produit[6];
-        }else{
-            for (i = 0; i < addressImgTab.length; i++) {
-                if (addressImgTab[i] === "asset") {
-                    imagePanier = ".."
-                    for (j = i; j < addressImgTab.length; j++) {
-                        imagePanier = imagePanier + "/" + addressImgTab[j];
-                    }
-                }
-            }
-        }
+        let imagePanier = produit[6];
         let produitTab = [idProduitPanier, nomProduitPanier, poidsProduit, prixUnitaireProduit, quantiteProduitPanier, descriptionPanier, imagePanier];
         insert(produitTab);
         calculPrixArticle(prixUnitaireProduit,quantiteProduitPanier);
@@ -163,7 +157,7 @@ function modifQuantite() {
                 tabPrixArticle.splice(index,1);
                 panierTab.splice(index,1);
                 elementId.remove();
-                localStorage.setItem("panierTabSave",JSON.stringify(panierTab));
+                localStorage.setItem(tabSave,JSON.stringify(panierTab));
                 if (panierTab.length == 0) {
                     panierVide.className = "produit-panier ombre";
                     asidePanier.className = "invisible";
@@ -178,7 +172,7 @@ function modifQuantite() {
                 affichage.innerHTML = prixPanier+"€";
             });
             panierTab[index][4] = quantiteProduit;
-            localStorage.setItem("panierTabSave",JSON.stringify(panierTab));
+            localStorage.setItem(tabSave,JSON.stringify(panierTab));
         });
 
         btnSupprTab[i].addEventListener("click",(e) => {
@@ -206,7 +200,7 @@ function modifQuantite() {
             });
             tabPrixArticle.splice(index,1);
             elementId.remove();
-            localStorage.setItem("panierTabSave",JSON.stringify(panierTab));
+            localStorage.setItem(tabSave,JSON.stringify(panierTab));
             if (panierTab.length == 0) {
                 panierVide.className = "produit-panier ombre";
                 asidePanier.className = "invisible";

@@ -43,7 +43,7 @@ class ControllerLoginBdd
             }
             //Détruire la session
             session_destroy();
-            header('Location: /php_projet-CDA/0.projet_les_picantins-code/login');
+            header('Location: /php_projet-CDA/0.projet_les_picantins-code/accueil');
         }
         //recupération du reste des données sécurisés et vérification de l'existance des clées/valeurs
         $this->_idCompte =  ucfirst(isset($params["*idCompte"])?$params["*idCompte"]:'');

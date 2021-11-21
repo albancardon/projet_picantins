@@ -106,12 +106,6 @@ margin: 0;
     display: flex;
     margin-top: 0;
 }
-.hidden{
-    display: none;
-    visibility: hidden;
-    height: 0;
-    width: 0;
-}
 .js__box-validation{
     position: fixed;
     justify-content:center;

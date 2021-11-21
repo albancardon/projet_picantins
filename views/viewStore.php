@@ -1,5 +1,13 @@
 
+<?php 
+    $user = isset($_SESSION['user'])?$_SESSION['user']:'';
+?>
 <body class="bodyCommon">
+<?php 
+    if (!empty($user)){
+        echo '<div id="idClient'.$user["idCompte"].'" class="hidden js__idClient"></div>';
+    }
+?>
     <main>
         <h1 class="titlePage">Nos produits</h1>
     </main>

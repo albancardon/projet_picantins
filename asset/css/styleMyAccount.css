@@ -13,12 +13,6 @@
 
 /*   1.0 main container */
 
-.hidden{
-    display: none;
-    visibility: hidden;
-    height: 0;
-    width: 0;
-}
 .main-info{
     display: flex;
     flex-direction: column;

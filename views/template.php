@@ -13,7 +13,9 @@ if(empty($_SESSION['logged']) || empty($_SESSION['derniere_action']) || (time() 
     $_SESSION['derniere_action'] = time(); // mise à jour de la variable
 }
 $user = isset($_SESSION['user'])?$_SESSION['user']:'';
-
+if (!empty($user)){
+    echo '<div id="idClient'.$user["idCompte"].'" class="hidden js__idClient"></div>';
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

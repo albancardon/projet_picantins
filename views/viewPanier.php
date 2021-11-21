@@ -29,6 +29,5 @@
             passer commande
         </button>
     </aside>
-    <script src="asset/script/scriptPanier.js" defer></script>
     <script src="asset/script/scriptCommonLocalStorage.js" defer></script>
 </body>

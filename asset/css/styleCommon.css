@@ -65,6 +65,12 @@
 .invisible{
     visibility: hidden;
 }
+.hidden{
+    display: none;
+    visibility: hidden;
+    height: 0;
+    width: 0;
+}
 .icon{
     height: 2em;
 }
@@ -165,7 +171,9 @@
 .icon-panier{
     display:flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    height: 2em;
+    width: 2em;
 }
 .header{
     align-items: center;

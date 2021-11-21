@@ -193,12 +193,6 @@ details[open] .menu-part:before {
 .btn-brown{
     width:70%;
 }
-.hidden{
-    display: none;
-    visibility: hidden;
-    height: 0;
-    width: 0;
-}
 .box-supp-produit{
     display: flex;
     align-items:center;

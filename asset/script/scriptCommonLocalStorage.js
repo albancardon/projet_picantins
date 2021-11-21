@@ -7,8 +7,14 @@
     // déclaration des variables storage panier 
 var btnAjoutPanier = document.getElementsByClassName("js__btnAjoutPanier");
 var btnAjoutPanierTab = Array.from(btnAjoutPanier);
+var classIdClient = document.getElementsByClassName("js__idClient");
+if (classIdClient.length > 0){
+    var idClient = classIdClient[0].id.split("idClient")[1];
+}else{
+    var idClient = "";
+}
+var tabSave = "panierTabSave"+idClient;
 var panierTab = [];
-
     // ajout des listeners
 
     // modification panier
@@ -32,7 +38,7 @@ var panierTab = [];
                             produit[4] = quantiteProduitPanier;
                             panierTab[i] = produit;
                             panierTab.sort();
-                            localStorage.setItem("panierTabSave",JSON.stringify(panierTab));
+                            localStorage.setItem(tabSave,JSON.stringify(panierTab));
                             resetProduit (idProduitPanier);
                             return;
                         }
@@ -41,11 +47,11 @@ var panierTab = [];
                     let poidsProduit = Number (document.getElementById("js__produit-"+numProduit+"-poids-"+numQuantite).innerHTML.trim().split("g")[0]);
                     let prixUnitaireProduit = Number (document.getElementById("js__produit-"+numProduit+"-prix-"+numQuantite).innerHTML.trim().split("€")[0]);
                     let descriptionPanier = document.getElementById("js__descriptionProduit-"+numProduit).innerHTML.trim();
-                    let imagePanier = "../asset"+document.getElementById("js__imageProduit-"+numProduit).src.split("asset")[1];
+                    let imagePanier = "asset"+document.getElementById("js__imageProduit-"+numProduit).src.split("asset")[1];
                     let produitTab = [idProduitPanier, nomProduitPanier, poidsProduit, prixUnitaireProduit, quantiteProduitPanier, descriptionPanier, imagePanier];
                     panierTab.push(produitTab);
                     panierTab.sort();
-                    localStorage.setItem("panierTabSave",JSON.stringify(panierTab));
+                    localStorage.setItem(tabSave,JSON.stringify(panierTab));
                     resetProduit (idProduitPanier);
                 }else {
                     return;
@@ -58,10 +64,10 @@ var panierTab = [];
     // fonction de création du stockage local storage ou du chargement des anciens produits
 function createStorage(){
     if ( typeof localStorage != "undefined" && JSON){
-        if (localStorage.getItem("panierTabSave")==null){
-            localStorage.setItem("panierTabSave",JSON.stringify(panierTab));
+        if (localStorage.getItem(tabSave)==null){
+            localStorage.setItem(tabSave,JSON.stringify(panierTab));
         }else{
-            panierTab = JSON.parse(localStorage.getItem("panierTabSave"));
+            panierTab = JSON.parse(localStorage.getItem(tabSave));
         }
     }else {
         alert("Le stockage sur votre PC n'a pu etre effectuer.")

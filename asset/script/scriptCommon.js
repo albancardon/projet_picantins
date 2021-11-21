@@ -8,23 +8,37 @@
 
     //déclaration des variables
 var nbArticlePanier = Array.from(document.getElementsByClassName("js__nbArticlePanier"));
+var classIdClient = document.getElementsByClassName("js__idClient");
+if (classIdClient.length > 0){
+    var idClient = classIdClient[0].id.split("idClient")[1];
+}else{
+    var idClient = "";
+}
+var tabSave = "panierTabSave"+idClient;
 
 // mise en place des listeners
 window.onload = majPanier();
 
 // déclaration des fonctions
-
+// fonction pour récupérer le panier en fonction de l'idClient si il existe 
+// sinon copie celuie de l'etat non connecter dans le panier lié à l'idClient
 function majPanier() {
-    nbArticle = JSON.parse(localStorage.getItem("panierTabSave"));
-    if (nbArticle!= null) { 
-        nbArticle = JSON.parse(localStorage.getItem("panierTabSave"));
+    nbArticle = JSON.parse(localStorage.getItem(tabSave)).length;
+    if (nbArticle!= 0) { 
         nbArticlePanier.forEach((affichagePanier) => {
-        affichagePanier.innerHTML = nbArticle.length;
+            affichagePanier.innerHTML = nbArticle;
         })
     }else {
-        nbArticlePanier.forEach((affichagePanier) => {
-        affichagePanier.innerHTML = 0;
+        if (nbArticle== 0 && idClient != ""){
+            recupPanier = localStorage.getItem("panierTabSave");
+            localStorage.setItem(tabSave,recupPanier);
+            majPanier();
+        }
+        else{
+            nbArticlePanier.forEach((affichagePanier) => {
+                affichagePanier.innerHTML = 0;
         })
+        }
     }
 }
 
