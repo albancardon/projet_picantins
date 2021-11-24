@@ -70,7 +70,7 @@ if (!empty($user)){
                         </li>
                     <?php endif ?>
                     <li class="icon-panier-box">
-                        <a class="link-page icon-panier js__nbArticlePanier" href="<?=URL?>panier"></a>
+                        <a class="link-page icon-panier js__nbArticlePanier" href="<?=URL?>panier">0</a>
                     </li>
                     <li class="liste-icone">
                         <a class="link-page" href="https://www.instagram.com/lespicantins/?hl=fr"><img class="icon" src="asset/icon/instagram.svg" alt="icône instagram"></a>
@@ -86,7 +86,7 @@ if (!empty($user)){
             </nav>
         </section>
         <!--header contracted-->
-        <!-- <section class="header header-animation-fixed-top" >
+        <section class="header header-animation-fixed-top" >
             <div>
                 <a class="link-page" href="<?=URL?>">
                     <img class="logo-societe-header-fixed" src="asset/img/logo-lespicantins-cour.svg" alt="logo societe" />
@@ -112,7 +112,7 @@ if (!empty($user)){
                         <a class="link-page" href="<?=URL?>gestion_comptes">gestion compte</a>
                     </li>
                     <li class="icon-panier-box">
-                        <a class="link-page icon-panier js__nbArticlePanier" href=""></a>
+                        <a class="link-page icon-panier js__nbArticlePanier" href="<?=URL?>panier">0</a>
                     </li>
                     <?php if (empty($_SESSION['logged'])): ?>
                         <li class="liste-icone">
@@ -137,7 +137,7 @@ if (!empty($user)){
                     <?php endif ?>
                 </ul>
             </nav>
-        </section> -->
+        </section>
     </header> 
 
     <!--header nav responsive-->
@@ -172,7 +172,7 @@ if (!empty($user)){
                         <a href=""><img class="icon-responsive" src="asset/icon/user.svg" alt="icône login"></a>
                     </li>
                     <li class="icon-panier-box">
-                        <a class="link-page icon-panier js__nbArticlePanier" href=""></a>
+                        <a class="link-page icon-panier js__nbArticlePanier" href="<?=URL?>panier">0</a>
                     </li>
                     <li class="liste-icone">
                         <a href="https://www.instagram.com/lespicantins/?hl=fr"><img class="icon-responsive" src="asset/icon/instagram.svg" alt="icône instagram"></a>
