@@ -3,7 +3,7 @@
 // 1.0 recupération info Produit
 // 2.0 modale categorie
 
-// 1.0 recupération info Produit
+// 1.0 recupération et vérification des infos Produit 
 
     //declaration variables
 var numId = "";
@@ -21,13 +21,58 @@ function collectNumId() {
     let recupNom = document.getElementById("js__nomProduit-cat-"+numId).innerHTML.trim();
     let recupPoids = document.getElementById("js__poidsProduit-cat-"+numId).innerHTML.trim().split("g")[0];
     let recupPrix = document.getElementById("js__prixProduit-cat-"+numId).innerHTML.trim().split("€")[0];
+    let regexString = /^[a-aA-Z\s]+$/;
+    let regexInt = /^[0-9\s]+$/;
 
-    referenceProduit.value = recupIdBtn;
-    infoProduitNom.value = recupNom;
-    infoProduitPoids.value = recupPoids;
-    infoProduitPrix.value = recupPrix;
-    referenceProduit.value = recupIdBtn.split("js__btnModif-")[1];
+    if(recupNom != "" && recupPoids != "" && recupPrix != ""){
+        referenceProduit.value = recupIdBtn;
+        if (regexString.test(recupNom) == true) {
+            infoProduitNom.value = recupNom;
+        }
+        if (regexInt.test(recupPoids) == true) {
+            infoProduitPoids.value = recupPoids;
+        }
+        if (regexInt.test(recupPrix) == true) {
+            infoProduitPrix.value = recupPrix;
+        }
+        referenceProduit.value = recupIdBtn.split("js__btnModif-")[1];
+    }
 }
+
+    // 1.1 vérification des infos Produit avant envoie pour traitement
+
+    //declaration variables
+var numId = "";
+var formEnvoieProduit = document.getElementById("formEnvoieProduit");
+
+    // ajout des listeners et déclaration de la fonction
+    formEnvoieProduit.addEventListener("submit", function(e) {
+        numId = recupIdBtn.split("js__btnModif-cat-")[1];
+        let recupNomEnvoie = infoProduitNom.value;
+        let recupPoidsEnvoie = infoProduitPoids.value;
+        let recupPrixEnvoie = infoProduitPrix.value = recupPrix;
+        let regexString = /^[a-aA-Z\s]+$/;
+        let regexInt = /^[0-9\s]+$/;
+
+        if(recupNomEnvoie != "" && recupPoidsEnvoie != "" && recupPrixEnvoie != ""){
+            referenceProduit.value = recupIdBtn;
+            if (regexString.test(recupNomEnvoie) == false) {
+                window.alert("Le nom du produit doit comporter que des lettres")
+                e.preventDefault;
+            }
+            else if (regexInt.test(recupPoidsEnvoie) == false) {
+                window.alert("Le poid du produit doit comporter que des chiffres")
+                e.preventDefault;
+            }
+            else if (regexInt.test(recupPrixEnvoie) == false) {
+                window.alert("Le prix du produit doit comporter que des chiffres")
+                e.preventDefault;
+            }
+        }else{
+            window.alert("Les champs doivent être remplis")
+            e.preventDefault;
+        }
+    })
 
 
 // 2.0 changement choix  produit pour ajout nouveau

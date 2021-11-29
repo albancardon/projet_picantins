@@ -260,7 +260,7 @@ if (isset($modifBdd)&& $modifBdd == "ok"){
     <aside class="aside-modification" id="js__modalWindow" role="dialog" aria-labelledby="dialog-title" aria-describedby="dialog-desc" aria-modal="true" aria-hidden="true" tabindex="-1">
         <div role="document" class="modale__box">
             <button id="js__btnClose" class="btn btn-white btn-connexion" type="button" aria-label="Fermer" title="Fermer cette fenêtre modale" data-dismiss="dialog">fermer</button>
-            <form class="form-modification" action="produitBdd" method="post">
+            <form id="formEnvoieProduit" class="form-modification" action="produitBdd" method="post">
                 <div class="hidden">
                     <input type="text" name="name-product" id="referenceProduit"/>
                 </div>

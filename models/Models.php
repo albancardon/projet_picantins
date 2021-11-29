@@ -55,10 +55,7 @@ abstract class Models
                 return $var;
                 $req->closeCursor();
         }catch (PDOException $e) {
-            $errorMsg = $e->getMessage();
-            require_once('controllers/ControllerError.php');
-            //passage l'information de l'echecs de l'action via la variable $_session
-            $this->_ctrl = new ControllerError($url, array('errorMsg' => $errorMsg));
+            throw new Exception($nomId.' introuvable');
         }
     }
 

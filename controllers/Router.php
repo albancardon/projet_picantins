@@ -36,9 +36,7 @@ class Router
                 $this->_ctrl = new ControllerAccueil($url);
             }
         } catch (Exception $e) {
-            $errorMsg = $e->getMessage();
-            require_once('controllers/ControllerError.php');
-            $this->_ctrl = new ControllerError($url, array('errorMsg' => $errorMsg));
+            throw new Exception('Page introuvable');
         }
     }
 }
